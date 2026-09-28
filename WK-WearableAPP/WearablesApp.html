@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EngageLab MA · Wearfit Pro 智能穿戴用户增长方案</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --bg-elev: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --text: #111827;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --success: #16a34a;
+      --success-soft: #dcfce7;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --info: #0369a1;
+      --info-soft: #e0f2fe;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-soft); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 15px; }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 28px 80px; }
+
+    h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
+    h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.005em; color: var(--text); }
+    h3 { font-size: 17px; font-weight: 600; margin: 0 0 10px; color: var(--text); }
+    p { margin: 0 0 8px; color: var(--text-2); }
+    .muted { color: var(--text-3); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 600; }
+    .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+
+    .section { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 26px; margin-bottom: 20px; }
+    .section-plain { padding: 6px 2px 18px; margin-bottom: 12px; }
+    .divider { height: 1px; background: var(--border); margin: 16px 0; border: none; }
+
+    .hero { background: linear-gradient(180deg, #fff 0%, #fafbff 100%);
+      border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px;
+      margin-bottom: 24px; }
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .hero-subtitle { color: var(--text-3); font-size: 15px; max-width: 900px; margin: 8px 0 18px; }
+
+    .pill { display: inline-flex; align-items: center; padding: 2px 10px;
+      font-size: 12px; border-radius: 999px; border: 1px solid var(--border-strong);
+      color: var(--text-2); background: #fff; font-weight: 500; }
+    .pill-accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: var(--info); color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: var(--warning); color: var(--warning); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .grid-1-2 { grid-template-columns: 1fr 2fr; }
+    .grid-2-1 { grid-template-columns: 1.4fr 1fr; }
+    .grid-12-1 { grid-template-columns: 1.2fr 1fr; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 14px 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); }
+    .stat-value { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--text);
+      line-height: 1.15; }
+    .stat-value.success { color: var(--success); }
+    .stat-value.info { color: var(--info); }
+    .stat-value.warn { color: var(--warning); }
+    .stat-label { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; }
+    .card-header { padding: 10px 16px; border-bottom: 1px solid var(--border);
+      background: #fafbfc; font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .card-body { padding: 16px; }
+    .card-body.p-sm { padding: 12px; }
+    .card-body ul { margin: 0; padding-left: 18px; }
+    .card-body li { margin-bottom: 4px; font-size: 13.5px; color: var(--text-2); }
+
+    .callout { padding: 12px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; background: var(--bg-soft); }
+    .callout-title { font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .callout-body { font-size: 13px; color: var(--text-2); }
+    .callout-body p { font-size: 13px; color: var(--text-2); margin: 0 0 4px; }
+    .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+    .callout.info .callout-title { color: var(--info); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-3); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #fafbfc; font-weight: 600; font-size: 12.5px; color: var(--text-3);
+      letter-spacing: 0.01em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tr.tone-success td { background: rgba(22, 163, 74, 0.04); }
+    tr.tone-info td { background: rgba(3, 105, 161, 0.04); }
+    .align-center { text-align: center; }
+    .align-right { text-align: right; }
+
+    .signal-row { display: flex; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .left { flex: 1; min-width: 0; }
+    .signal-row .label { font-size: 13px; font-weight: 600; }
+    .signal-row .hint { font-size: 12px; color: var(--text-3); }
+    .signal-row .value { font-weight: 700; color: var(--text); font-size: 14px; white-space: nowrap; }
+
+    .chart { width: 100%; }
+    .chart svg { width: 100%; height: auto; display: block; }
+
+    .dag-wrap { overflow-x: auto; padding: 8px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+
+    .toc-bar { position: sticky; top: 0; background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+      z-index: 10; padding: 10px 28px; margin: -32px -28px 24px;
+      font-size: 12.5px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 14px;
+      align-items: center; overflow-x: auto; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap; padding: 4px 2px; }
+    .toc-bar a:hover { color: var(--accent); }
+    .toc-bar .brand { font-weight: 700; color: var(--text); }
+
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 0; }
+      .toc-bar { display: none; }
+      .section, .card, .hero { page-break-inside: avoid; box-shadow: none; }
+      h2 { page-break-after: avoid; }
+      .hero { break-before: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; }
+    }
+
+    .spacer-sm { height: 6px; }
+    .spacer-md { height: 12px; }
+
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft);
+      color: var(--accent); font-weight: 700; font-size: 12px; margin-right: 8px; }
+
+    footer.site-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-4); text-align: center; }
+  </style>
+
+
+
+
+
+  <style>
+    /* ===================================================================
+       视觉升级层 (20260828)
+       追加在原有样式之后，靠层叠顺序覆盖，不改动原有规则
+       =================================================================== */
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f8fb;
+      --bg-elev: #ffffff;
+      --border: #e8ecf2;
+      --border-strong: #d5dbe5;
+      --text: #0f172a;
+      --text-2: #3d4a5c;
+      --text-3: #6b7789;
+      --text-4: #97a1b0;
+      --accent: #2563eb;
+      --accent-2: #4f7dff;
+      --accent-soft: #e7efff;
+      --success: #0f9d63;
+      --success-soft: #e2f7ee;
+      --warning: #c2700a;
+      --warning-soft: #fdf1dc;
+      --info: #0369a1;
+      --info-soft: #e2f2fb;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --ink-dark: #0e1116;
+      --ink-dark-2: #1a1f2b;
+      --mint: #00d4a0;
+      --sky: #7cb0ff;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 2px rgba(15,23,42,.05);
+      --shadow: 0 1px 3px rgba(15,23,42,.05), 0 10px 28px -12px rgba(15,23,42,.10);
+      --shadow-lg: 0 2px 6px rgba(15,23,42,.06), 0 22px 48px -20px rgba(15,23,42,.18);
+      --mono-stack: "SF Mono","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15.5px; }
+
+    /* ===== 通栏色带布局：main 放开宽度，section 内部收敛 ===== */
+    main { max-width: none; margin: 0; padding: 0; }
+    main > section { padding: 62px 28px; margin: 0; }
+    /* 宽度靠 .wrap 层约束，不依赖子元素的 auto 外边距——
+       否则任何使用 margin 简写的规则都会把居中打破（如 hero-subtitle / divider）*/
+    main > section > .wrap { max-width: 1180px; margin: 0 auto; }
+    main > section.section-plain { border: 0; border-radius: 0; background: transparent; }
+    main > section.section-plain:nth-of-type(even) { background: var(--bg-soft); }
+    main > section.section { border: 0; border-radius: 0; background: var(--bg-soft); }
+
+    /* ===== 字号层级 ===== */
+    h1 { font-size: 38px; font-weight: 750; letter-spacing: -0.022em; line-height: 1.18; margin: 0 0 10px; }
+    h2 { font-size: 27px; font-weight: 720; letter-spacing: -0.018em; line-height: 1.28;
+      margin: 0 0 16px; color: var(--text); }
+    h3 { font-size: 17.5px; font-weight: 650; margin: 0 0 10px; letter-spacing: -0.008em; color: var(--text); }
+    p { margin: 0 0 10px; color: var(--text-2); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 650; color: var(--text); }
+    .muted { color: var(--text-3); }
+    .mono { font-family: var(--mono-stack); font-size: 0.92em; }
+    .divider { height: 1px; background: var(--border); margin: 26px 0; border: none; }
+    .spacer-md { height: 20px; }
+
+    /* ===== 章节序号徽标 + eyebrow ===== */
+    h2 .secnum { display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 9px; background: var(--accent); color: #fff;
+      font-family: var(--mono-stack); font-size: 15px; font-weight: 700;
+      margin-right: 12px; vertical-align: 3px; flex: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px;
+      font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px; }
+    .eyebrow::before { content: ""; width: 20px; height: 2px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--mint)); }
+
+    /* ===== 顶部导航 ===== */
+    /* 注意：旧版 .toc-bar 带 margin:-32px -28px（用于抵消 main 内边距），
+       升级后 main 已全宽，必须重置，否则导航会横向溢出 56px */
+    .toc-bar { margin: 0; width: 100%; max-width: 100%; }
+    .toc-bar { position: sticky; top: 0; z-index: 30; padding: 0 28px;
+      background: rgba(255,255,255,.86); backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--border); font-size: 13px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 20px;
+      align-items: center; height: 58px; overflow-x: auto; scrollbar-width: none; }
+    .toc-bar .toc-inner::-webkit-scrollbar { display: none; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap;
+      font-weight: 500; transition: color .15s ease; }
+    .toc-bar a:hover { color: var(--accent); }
+    /* 品牌名即返回首页入口：整块（图标 + 文字）一起高亮 */
+    .toc-bar .brand { font-weight: 750; color: var(--text); display: inline-flex;
+      align-items: center; gap: 9px; white-space: nowrap; letter-spacing: -0.01em; }
+    .toc-bar a.brand { text-decoration: none; cursor: pointer;
+      transition: color .16s ease; }
+    .toc-bar a.brand .brand-home { width: 17px; height: 17px; flex: none;
+      color: var(--accent); transition: color .16s ease, transform .16s ease; }
+    .toc-bar a.brand:hover { color: var(--accent); }
+    .toc-bar a.brand:hover .brand-home { color: var(--accent); transform: translateY(-1px); }
+    a.back-home { display: inline-flex; align-items: center; gap: 6px; border: 0; padding: 0;
+      margin-right: 16px; background: none; color: var(--text-3); text-decoration: none;
+      font-size: 13px; font-weight: 500; }
+    a.back-home:hover { color: var(--accent); background: none; }
+    a.back-home svg { width: 14px; height: 14px; opacity: .8; }
+
+    /* ===== Hero · 深色 ===== */
+    main > section.hero { position: relative; overflow: hidden; color: #fff;
+      border: 0; border-radius: 0; margin: 0; padding: 58px 28px 54px;
+      background: linear-gradient(150deg, var(--ink-dark) 0%, var(--ink-dark-2) 55%, #232b3d 100%); }
+    main > section.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(900px 420px at 88% -8%, rgba(0,212,160,.16), transparent 62%),
+        radial-gradient(760px 380px at 6% 108%, rgba(79,125,255,.20), transparent 60%); }
+    main > section.hero > .wrap { position: relative; z-index: 1; }
+    .hero h1 { color: #fff; font-size: 38px; text-wrap: balance; }
+    .hero h1 .grad { background: linear-gradient(92deg, var(--sky) 10%, var(--mint) 90%);
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .hero-subtitle { color: rgba(255,255,255,.74); font-size: 16px; line-height: 1.72;
+      max-width: 940px; margin: 10px 0 20px; }
+    .hero .hero-subtitle .bold { color: #fff; }
+    .hero-pills { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero .pill { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.86); }
+    .hero .pill-accent { background: rgba(0,212,160,.12); border-color: rgba(0,212,160,.4); color: var(--mint); }
+    .hero .pill-info { background: rgba(124,176,255,.12); border-color: rgba(124,176,255,.38); color: var(--sky); }
+    .hero .pill-success { background: rgba(0,212,160,.12); border-color: rgba(0,212,160,.4); color: var(--mint); }
+    .hero .pill-warn { background: rgba(255,209,102,.12); border-color: rgba(255,209,102,.4); color: #ffd166; }
+    .hero .divider { background: rgba(255,255,255,.12); }
+    .hero .stat { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.11);
+      border-radius: var(--radius); box-shadow: none; padding: 18px 18px 16px; }
+    .hero .stat-value { font-family: var(--mono-stack); font-size: 24px; font-weight: 700;
+      color: #fff; letter-spacing: -0.02em; }
+    .hero .stat-value.info { color: #a5c8ff; }
+    .hero .stat-value.success { color: var(--mint); }
+    .hero .stat-value.warn { color: #ffd166; }
+    .hero .stat-label { color: rgba(255,255,255,.6); font-size: 12px; margin-top: 6px; line-height: 1.45; }
+    .hero .muted { color: rgba(255,255,255,.45) !important; }
+    .hero p { color: rgba(255,255,255,.74); }
+
+    /* ===== 基础组件 ===== */
+    .pill { display: inline-flex; align-items: center; padding: 4px 12px; font-size: 12.5px;
+      border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2);
+      background: #fff; font-weight: 550; }
+    .pill-accent { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: transparent; color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: transparent; color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: transparent; color: var(--warning); }
+
+    .grid { gap: 18px; }
+    .row { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 20px 20px 18px; background: var(--bg-elev);
+      border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    .stat-value { font-size: 28px; font-weight: 750; letter-spacing: -0.025em;
+      color: var(--text); line-height: 1.15; }
+    .stat-label { font-size: 12.5px; color: var(--text-3); margin-top: 7px; line-height: 1.5; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+      transition: box-shadow .18s ease; }
+    .card:hover { box-shadow: var(--shadow-lg); }
+    .card-header { padding: 13px 18px; border-bottom: 1px solid var(--border);
+      font-weight: 700; font-size: 13.6px; color: var(--text); background: #fcfdff;
+      letter-spacing: -0.006em; }
+    .card-body { padding: 18px; }
+    .card-body.p-sm { padding: 13px; }
+    .card-body li { margin-bottom: 6px; font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .card-body p { font-size: 14px; }
+
+    .callout { padding: 15px 17px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; }
+    .callout-title { font-weight: 700; margin-bottom: 5px; font-size: 14px; letter-spacing: -0.008em; }
+    .callout-body { font-size: 13.4px; color: var(--text-2); }
+    .callout-body p { font-size: 13.4px; color: var(--text-2); margin: 0 0 5px; line-height: 1.7; }
+    .callout-body p:last-child { margin-bottom: 0; }
+    .callout.info { border-left-color: var(--accent); background: var(--accent-soft); border-color: #d3e2ff; }
+    .callout.info .callout-title { color: var(--accent); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); border-color: #c9eedd; }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); border-color: #f6e2c0; }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-4); background: #fff; }
+
+    /* ===== 表格 ===== */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.6px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); }
+    th, td { padding: 13px 15px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #f8fafc; font-weight: 700; font-size: 11.5px; color: var(--text-3);
+      letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr { transition: background .14s ease; }
+    tbody tr:hover td { background: #f9fbff; }
+    tr.tone-success td { background: rgba(15, 157, 99, .045); }
+    tr.tone-info td { background: rgba(37, 99, 235, .04); }
+
+    .signal-row { display: flex; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .label { font-size: 13.5px; font-weight: 650; color: var(--text); }
+    .signal-row .hint { font-size: 12.3px; color: var(--text-3); line-height: 1.5; }
+    .signal-row .value { font-weight: 750; color: var(--danger); font-size: 15px;
+      font-family: var(--mono-stack); white-space: nowrap; }
+
+    .chart svg { width: 100%; height: auto; display: block; }
+    .dag-wrap { overflow-x: auto; padding: 10px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 12px; margin-right: 9px; }
+
+    /* ===== 响应式（旧版方案原本缺失，后补齐）===== */
+    @media (max-width: 980px) {
+      main > section { padding: 44px 18px; }
+      main > section.hero { padding: 38px 18px 34px; }
+      h1, .hero h1 { font-size: 26px; }
+      h2 { font-size: 21px; }
+      h2 .secnum { width: 26px; height: 26px; font-size: 13px; margin-right: 9px; vertical-align: 2px; }
+      .grid-4, .grid-3, .grid-2, .grid-2-1, .grid-1-2, .grid-12-1, .grid-5 { grid-template-columns: 1fr !important; }
+      .grid { gap: 14px; }
+      /* 表格在窄屏可横向滚动，避免整页溢出 */
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+      .toc-bar .toc-inner { height: 52px; }
+      .card-body, .callout { padding: 14px; }
+    }
+
+    /* ===== 打印 / PDF 导出 ===== */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      html, body { background: #fff; font-size: 12px; }
+      .toc-bar, a.back-home { display: none !important; }
+      main > section { padding: 20px 0 !important; background: #fff !important; }
+      main > section.section-plain:nth-of-type(even) { background: #fff !important; }
+      main > section.hero { padding: 22px 18px !important;
+        background: linear-gradient(150deg, #0e1116 0%, #1a1f2b 100%) !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      main > section.hero::before { display: none; }
+      .card, table, .stat { box-shadow: none !important; page-break-inside: avoid; }
+      h2 { page-break-after: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; height: auto; }
+      table { display: table; white-space: normal; }
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="toc-bar">
+    <div class="toc-inner">
+      <a class="brand" href="../" title="返回方案总览"><svg class="brand-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.6V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.6"/><path d="M9.5 21v-6h5v6"/></svg>EngageLab MA 解决方案</a>
+      <a href="#s-market">行业机会</a>
+      <a href="#s-funnel">用户漏斗</a>
+      <a href="#s-why">为什么 EngageLab</a>
+      <a href="#s-scenarios">六大场景</a>
+      <a href="#s-journey1">旅程示意</a>
+      <a href="#s-ops">运营落地</a>
+      <a href="#s-benchmark">行业对标</a>
+      <a href="#s-plan">测试计划</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+      <div class="hero-pills">
+        <span class="pill pill-info">智能穿戴 · APP 运营</span>
+        <span class="pill">智能手表 · 指环 · 眼镜 · 耳机</span>
+        <span class="pill">高活跃用户增长</span>
+      </div>
+      <h1>EngageLab MA · Wearfit Pro 智能穿戴用户增长方案</h1>
+      <p class="hero-subtitle">
+        面向支持多种智能穿戴设备的 Wearfit Pro——通过补齐
+        <span class="bold">用户分层 · 行为触发 · 旅程编排 · 效果归因</span>，
+        把高日活进一步转化为<span class="bold">设备激活、持续使用、会员增长与长期留存</span>，
+        目标 4 周完成首批旅程上线，并通过实验组与对照组量化验收效果。
+      </p>
+      <hr class="divider" />
+      <div class="grid grid-4">
+        <div class="stat"><div class="stat-value">1.5 亿+</div><div class="stat-label">全球注册用户基础，具备精细化运营规模</div></div>
+        <div class="stat"><div class="stat-value info">193+</div><div class="stat-label">覆盖国家和地区，适合按语言与时区运营</div></div>
+        <div class="stat"><div class="stat-value warn">多种智能设备</div><div class="stat-label">手表、指环、眼镜、耳机等共用一个 APP</div></div>
+        <div class="stat"><div class="stat-value success">+18–25%</div><div class="stat-label">首轮建议目标：7 日设备活跃率相对提升</div></div>
+      </div>
+      </div>
+    </section>
+    <!-- 1. Market -->
+    <section id="s-market" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">1</span>为什么智能穿戴设备App必须升级用户运营</h2>
+      <p>
+        全球智能穿戴市场已进入<span class="bold">“多设备普及 + 服务价值竞争”</span>阶段。Wearfit Pro 已积累超过 1.5 亿注册用户，业务覆盖 193
+        个以上国家和地区，并连接智能手表、智能指环、智能眼镜、智能耳机等多类设备。随着硬件品类不断丰富，设备绑定率、首周活跃率、核心功能使用深度以及会员转化与续费率，正在成为决定用户长期价值的关键杠杆。然而，当前用户触达仍以厂商通道全量推送为主——不同设备、不同使用阶段和不同会员意向的用户收到相似内容，
+        高日活尚未被充分转化为持续使用和会员收入。在这个环节，<span class="bold">“行为事件驱动的自动化旅程
+        + 设备、用户与会员分层运营”</span>是最直接的增量机会：无需重新购买流量，也无需替换现有推送通道，仅依托 Wearfit Pro 已有用户基础，即可持续提升设备激活、用户留存与会员商业化效率。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="grid grid-12-1">
+        <div class="card"><div class="card-header">关键生命周期指标 · 行业基线 vs MA 建议目标</div><div class="card-body">
+          <div class="chart" id="chart-market"></div>
+          <p class="small muted" style="margin-top:10px">图表用于首轮方案测算，正式上线后以 Wearfit Pro 的真实基线替换。重点不是追求统一目标，而是识别每个阶段最值得优先修复的流失。</p>
+        </div></div>
+        <div class="card"><div class="card-header">核心业务信号</div><div class="card-body p-sm">
+          <div class="signal-row"><div class="left"><div class="label">注册后未完成设备绑定</div><div class="hint">无法进入同步、功能与会员链路</div></div><div class="value">20–30%</div></div>
+          <div class="signal-row"><div class="left"><div class="label">绑定后 24h 未完成首次同步</div><div class="hint">权限、连接或价值建立中断</div></div><div class="value">15–25%</div></div>
+          <div class="signal-row"><div class="left"><div class="label">首周只使用 1 项核心能力</div><div class="hint">多设备功能价值尚未充分释放</div></div><div class="value">45–60%</div></div>
+          <div class="signal-row"><div class="left"><div class="label">使用中断后可被有效挽回</div><div class="hint">连接帮助与价值提醒分开处理</div></div><div class="value">8–15%</div></div>
+          <div class="signal-row"><div class="left"><div class="label">自动化会员转化提升空间</div><div class="hint">低中高意向采用不同运营强度</div></div><div class="value">+35–45%</div></div>
+        </div></div>
+      </div>
+      </div>
+    </section>
+    <!-- 2. Funnel -->
+    <section id="s-funnel" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">2</span>Wearfit Pro 用户价值漏斗：每一层都对应一条可自动化的旅程</h2>
+      <p>
+        从安装 APP 到形成长期会员价值，用户会经历设备绑定、首次同步、习惯建立、功能深化和会员转化。
+        每一层的流失原因不同，不能依靠同一条全量消息解决。MA 把这些阶段连成连续生命周期：
+        <span class="bold">完成目标自动进入下一步，未完成则获得针对性帮助，状态变化后立即退出旧旅程。</span>
+      </p>
+      <div class="spacer-md"></div>
+      <div class="card"><div class="card-header">用户价值漏斗 · 行业参考基线 vs MA 建议目标</div><div class="card-body">
+        <div class="chart" id="chart-funnel"></div>
+        <div class="grid grid-3" style="margin-top:14px">
+          <div class="stat"><div class="stat-value success">+15–20%</div><div class="stat-label">注册到设备绑定转化相对提升</div></div>
+          <div class="stat"><div class="stat-value success">+18–25%</div><div class="stat-label">首周设备活跃率相对提升</div></div>
+          <div class="stat"><div class="stat-value success">+35–45%</div><div class="stat-label">会员试用或购买转化相对提升</div></div>
+        </div>
+        <p class="small muted" style="margin-top:12px">以上为首轮测试建议区间，不作为结果承诺；设备绑定、首次同步、7 日活跃和核心功能使用均以注册用户为统一观察基数，会员转化单独以“符合会员服务条件且未购买”的用户为分母。正式验收以实验组相对对照组的真实增量为准。</p>
+      </div></div>
+      </div>
+    </section>
+    <!-- 3. Why EngageLab -->
+    <section id="s-why" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">3</span>EngageLab MA 为什么适合 Wearfit Pro</h2>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-header">现有场景之上增加运营决策</div><div class="card-body"><ul>
+          <li>集成 AppPush，一套 SDK 实现多种触点和触达策略</li>
+          <li>由 MA 决定<span class="bold">谁应该收到、何时收到、收到什么</span></li>
+          <li>服务消息优先于营销消息，跨旅程统一频次与静默时段</li>
+          <li>用户完成绑定、恢复同步或购买后立即停止后续触达</li>
+        </ul></div></div>
+        <div class="card"><div class="card-header">用户 × 设备 × 会员状态统一</div><div class="card-body"><ul>
+          <li>通过 user_id 关联设备类型、型号、绑定状态与最近同步时间</li>
+          <li>注册、绑定、同步、功能使用与会员行为<span class="bold">实时进入动态分群</span></li>
+          <li>同一用户拥有多类设备时，可识别设备组合与使用阶段</li>
+          <li>语言、国家和时区参与内容分流与可发送时间控制</li>
+        </ul></div></div>
+        <div class="card"><div class="card-header">从消息送达到业务结果归因</div><div class="card-body"><ul>
+          <li>不只看送达与点击，继续追踪绑定、同步、功能使用和会员订单</li>
+          <li>实验组与对照组并行，判断增长来自 MA 还是自然波动</li>
+          <li>同时监控通知关闭、退订、投诉等负向指标</li>
+          <li>旅程持续运行，运营团队只需复盘结果和优化规则</li>
+        </ul></div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <h3>3.1 Wearfit Pro 全球多区域触达渠道组合</h3>
+      <table><thead><tr><th>渠道</th><th>在 Wearfit Pro 中的主要用途</th><th class="align-right">接入 / 成本</th><th class="align-right">效果参考</th><th class="align-center">定位</th></tr></thead><tbody>
+        <tr class="tone-success"><td>App Push</td><td>绑定状态、同步异常、报告生成、功能提醒、到期临近等需要用户尽快返回 App 的行为触发通知</td><td class="align-right">集成 AppPush SDK</td><td class="align-right">行为触发点击率 5–12%</td><td class="align-center">即时提醒主渠道</td></tr>
+        <tr class="tone-success"><td>Email</td><td>设备绑定教程、功能图文指南、健康洞察解读、会员权益说明、续费方案、故障排查与客服入口</td><td class="align-right">按量计费</td><td class="align-right">触发类打开率 20–35%</td><td class="align-center">深内容与正式通知主渠道</td></tr>
+        <tr><td>WhatsApp</td><td>物流、服务协助、会员临期等高价值提醒；仅在当地常用、用户订阅授权且模板审核通过时使用</td><td class="align-right">按目标市场计费</td><td class="align-right">高打开率，按市场测试</td><td class="align-center">区域增强 / 服务兜底</td></tr>
+        <tr><td>SMS</td><td>支付、账号或设备安全、临期服务等高时效事项；不承担日常营销与长内容说明</td><td class="align-right">按目标市场计费</td><td class="align-right">高时效阅读</td><td class="align-center">关键节点兜底</td></tr>
+      </tbody></table>
+      </div>
+    </section>
+    <!-- 4. Scenarios Overview -->
+    <section id="s-scenarios" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">4</span>六大高 ROI 自动化运营场景</h2>
+      <table><thead><tr><th class="align-center">#</th><th>场景</th><th>生命周期阶段</th><th>触达策略</th><th>核心亮点</th><th class="align-right">建议测试目标</th></tr></thead><tbody>
+        <tr class="tone-success"><td class="align-center">1</td><td>注册 → 设备绑定成功</td><td>新客激活</td><td>30min 检查 · 按设备分流 · 24h 复查</td><td>识别设备类型与绑定中断阶段，成功后立即退出</td><td class="align-right">绑定率相对 +15–20%</td></tr>
+        <tr class="tone-success"><td class="align-center">2</td><td>绑定后首周习惯培养</td><td>价值建立</td><td>首次同步 · 首份价值 · 第 7 天分层</td><td>先获得一次真实价值，再逐步形成使用习惯</td><td class="align-right">7 日活跃相对 +18–25%</td></tr>
+        <tr class="tone-success"><td class="align-center">3</td><td>会员意向培养与分层转化</td><td>会员增长</td><td>全量潜客覆盖 · 低中高意向动态迁移</td><td>高信号决定触达强度，不决定是否被运营</td><td class="align-right">转化相对 +35–45%</td></tr>
+        <tr class="tone-success"><td class="align-center">4</td><td>按设备类型进行功能教育</td><td>使用深化</td><td>排除已用功能 · 每轮推荐下一项能力</td><td>四类设备看到真正相关的功能内容</td><td class="align-right">功能使用相对 +25–35%</td></tr>
+        <tr><td class="align-center">5</td><td>断连与使用中断挽回</td><td>留存召回</td><td>连接异常 / 使用下降两类原因分流</td><td>服务帮助和价值提醒不再混为一谈</td><td class="align-right">恢复率相对 +4–8%</td></tr>
+        <tr><td class="align-center">6</td><td>会员使用、续费与过期召回</td><td>会员留存</td><td>先促权益使用 · 到期前按价值分层</td><td>续费从第一次权益使用开始，而非到期前才开始</td><td class="align-right">续费率相对 +3–6%</td></tr>
+      </tbody></table>
+      <p class="small muted" style="margin-top:10px">六条旅程覆盖设备激活、使用深化、流失挽回与会员商业化。建议首批上线场景 1、2、3，同时验证激活、留存和收入价值。</p>
+      </div>
+    </section>
+    <!-- Journey 1 -->
+    <section id="s-journey1" class="section-plain">
+      <div class="wrap">
+      <h2>场景 1｜注册 → 设备绑定成功</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">首批验证</span><span class="pill pill-info">新客激活</span><span class="pill">30min 检查 · 按设备分流 · Email + App Push</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>注册后先给用户自然完成绑定的时间；30 分钟仍未绑定，再按手表、指环、眼镜、耳机展示对应步骤；24 小时复查，连续失败才提供 FAQ 或客服入口。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：Email（设备连接指南）· App Push（仅已授权用户的提醒）　｜　<span class="bold">触发方式</span>：事件「用户注册」　｜　<span class="bold">退出条件</span>：设备绑定成功即自动退出</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j1"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">未绑定用户无法进入同步、功能使用和会员链路，是整个价值漏斗最前端的硬门槛。统一教程没有区分设备类型和失败位置，容易重复用户已经尝试过的步骤。<span class="bold">MA 的价值不是再催一次，而是准确告诉用户下一步怎么完成。</span></div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">开始组件</span>：事件“用户注册”触发进入，记录语言、时区和注册渠道</li>
+                <li><span class="bold">等待 30min</span>：给用户自然完成设备绑定的时间</li>
+                <li><span class="bold">条件分支</span>：实时检查是否已绑定，已绑定用户立即退出</li>
+                <li><span class="bold">设备分流</span>：以“配对开始”事件中的 selected_device_type / model 为依据，发送对应的 Email 连接步骤</li>
+                <li><span class="bold">等待 24h</span>：重新读取绑定结果与失败阶段</li>
+                <li><span class="bold">连续失败</span>：App Push 提醒返回处理，Email 提供 FAQ、客服入口并记录失败原因</li>
+                <li><span class="bold">旅程衔接</span>：绑定成功自动进入首周习惯培养</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">注册到绑定转化相对提升 15–20%</span>、平均绑定耗时相对下降 15–25% 为首轮目标。更重要的是把失败阶段持续回流给产品和客服，从源头减少重复连接问题。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Journey 2 -->
+    <section id="s-journey2" class="section-plain">
+      <div class="wrap">
+      <h2>场景 2｜绑定成功 → 首周使用习惯</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">首批验证</span><span class="pill pill-info">价值建立</span><span class="pill">首次同步 · 首份价值 · 第 7 天动态分层</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>绑定成功后优先帮助用户完成首次同步并看到第一份报告或记录，再根据设备类型推荐一项最容易感知的核心功能；第 7 天按有效使用天数分流。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：App Push（即时价值提醒）· Email（首周教程与报告解读）　｜　<span class="bold">触发方式</span>：事件「设备绑定成功」　｜　<span class="bold">退出条件</span>：完成首周目标后进入进阶旅程</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j2"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">设备绑定只是技术动作，不代表用户已经感知产品价值。如果首周没有完成同步、理解结果或使用一项核心功能，设备很容易停留在短期新鲜感。<span class="bold">真正的留存窗口，是绑定后的前 7 天。</span></div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">开始组件</span>：设备绑定成功后进入 7 日培养窗口</li>
+                <li><span class="bold">同步判断</span>：未同步先通过 Email 提供权限、蓝牙和后台运行帮助，再等待并复查同步结果</li>
+                <li><span class="bold">价值反馈</span>：同步后以 App Push 提醒首份报告、记录或设备状态</li>
+                <li><span class="bold">设备内容</span>：手表、指环、眼镜、耳机各通过 App Push 推荐一个核心功能，Email 提供图文说明</li>
+                <li><span class="bold">权限邀请</span>：在报告生成等价值时刻请求通知权限</li>
+                <li><span class="bold">第 7 天分层</span>：按有效使用天数、同步次数和功能事件判断</li>
+                <li><span class="bold">旅程衔接</span>：高活跃进入功能教育，低活跃进入针对性挽回</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">首次同步成功率相对提升 15–20%</span>、7 日设备活跃率相对提升 18–25% 为验收目标。首周旅程建立的设备偏好和功能偏好，还会成为后续会员推荐的重要依据。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Journey 3 -->
+    <section id="s-journey3" class="section-plain">
+      <div class="wrap">
+      <h2>场景 3｜会员意向培养与分层转化</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">首批验证</span><span class="pill pill-info">会员增长</span><span class="pill">全量潜客覆盖 · 低中高意向分层 · 动态迁移</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>所有符合会员服务条件且尚未购买的活跃用户都进入运营池：低意向做价值教育，中意向展示权益和试用，高意向承接付费功能点击、权益页浏览与支付中断。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：Email（权益、试用与价格说明）· App Push（高意向提醒）　｜　<span class="bold">触发方式</span>：用户满足会员服务条件　｜　<span class="bold">退出条件</span>：会员购买成功即自动退出</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j3"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">只运营高意向用户会漏掉尚未形成明确信号、但能被价值教育激活的人；对所有人同强度促销又会透支体验。<span class="bold">高信号决定的是触达强度，不是用户有没有资格被运营。</span></div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">开始组件</span>：覆盖全部符合条件、尚未购买的活跃用户</li>
+                <li><span class="bold">低意向</span>：通过 Email 讲解功能价值，不连续促销</li>
+                <li><span class="bold">中意向</span>：在周报、连续使用等价值时刻以 Email 发送权益预览或试用说明</li>
+                <li><span class="bold">高意向</span>：承接权益浏览、付费功能点击和支付中断，并以 App Push 提醒返回完成操作</li>
+                <li><span class="bold">动态迁移</span>：意向根据最新行为实时升降，不固化用户标签</li>
+                <li><span class="bold">冷却规则</span>：未购买用户回到价值培养并限制促销频次</li>
+                <li><span class="bold">提前退出</span>：购买成功立即转入会员权益使用旅程</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">会员权益访问相对提升 20–30%</span>、试用或购买转化相对提升 35–45% 为首轮目标。该旅程同时解决“漏掉低信号潜客”和“全量促销打扰”两个问题。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Journey 4 -->
+    <section id="s-journey4" class="section-plain">
+      <div class="wrap">
+      <h2>场景 4｜按设备类型进行功能教育</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">第二阶段</span><span class="pill pill-info">使用深化</span><span class="pill">排除已用功能 · 一次推荐一项 · 72h 检查</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>识别用户已绑定的设备与已经使用的功能，只推荐下一项最相关能力；72 小时后用真实功能事件判断是否产生使用，再决定进阶或降低频次。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：App Push（设备专属功能提醒）· Email（图文使用指南）　｜　<span class="bold">触发方式</span>：已绑定设备的活跃用户进入检查　｜　<span class="bold">退出条件</span>：全部核心功能已使用、目标功能已使用或 72 小时未使用</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j4"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">手表、指环、眼镜和耳机的使用动机差异很大，统一功能介绍会让内容失焦。已经使用过的功能继续被推荐，还会快速消耗运营内容的可信度。</div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">设备识别</span>：支持一名用户拥有多种设备和多个型号</li>
+                <li><span class="bold">功能排除</span>：先排除近 30 天已经使用的能力</li>
+                <li><span class="bold">条件分支</span>：按手表、指环、眼镜、耳机匹配内容</li>
+                <li><span class="bold">单一动作</span>：每轮只推荐一项功能并深链直达对应页面</li>
+                <li><span class="bold">等待 72h</span>：检查真实功能使用事件，而不是只看消息点击</li>
+                <li><span class="bold">已使用</span>：记录偏好并进入下一项进阶能力</li>
+                <li><span class="bold">未使用</span>：降低提醒频次，并以 Email 补充图文使用指南</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">目标功能首次使用相对提升 25–35%</span>、人均有效功能数持续增长为目标。功能使用越深，用户对 APP 的依赖越强，后续会员权益也更容易被理解。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Journey 5 -->
+    <section id="s-journey5" class="section-plain">
+      <div class="wrap">
+      <h2>场景 5｜设备断连与使用中断挽回</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">第二阶段</span><span class="pill pill-info">留存召回</span><span class="pill">原因判断 · 服务优先 · 恢复后立即停止</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>同步中断达到阈值后，结合失败类型、APP 打开、权限和设备关系等信号推断可能原因：疑似连接异常时提供蓝牙、权限和电量自查，疑似使用下降时展示历史趋势、记录或未体验价值；信号不足时进入通用帮助分支。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：App Push（即时异常提醒）· Email（排障与客服承接）　｜　<span class="bold">触发方式</span>：超过设定时间未同步或无核心行为　｜　<span class="bold">退出条件</span>：恢复同步即自动退出</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j5"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">“没有同步”不等于“用户不想用”。连接权限变化、电量不足和使用意愿下降需要完全不同的内容。统一发送“回来看看”既不能解决技术问题，也无法恢复产品价值。</div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">开始组件</span>：按新用户、成熟用户设置不同中断阈值</li>
+                <li><span class="bold">原因判断</span>：结合同步失败记录、系统权限和历史活跃</li>
+                <li><span class="bold">连接异常</span>：先通过 App Push 提醒，再以 Email 提供蓝牙、权限、电量和后台运行自查</li>
+                <li><span class="bold">使用下降</span>：App Push 提醒历史趋势、记录或尚未体验的价值</li>
+                <li><span class="bold">等待 48h</span>：重新检查同步与核心行为</li>
+                <li><span class="bold">恢复使用</span>：立即退出，不再发送后续召回</li>
+                <li><span class="bold">仍未恢复</span>：Email 转客服承接或低频内容，并收集原因</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">中断用户恢复率相对提升 4–8%</span>、平均中断时长相对下降 10–20% 为目标。旅程只使用同步状态和时间，不需要把心率、血氧等原始健康数值接入 MA。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Journey 6 -->
+    <section id="s-journey6" class="section-plain">
+      <div class="wrap">
+      <h2>场景 6｜会员权益使用、续费与过期召回</h2>
+      <div class="row" style="margin-bottom:14px"><span class="pill pill-success">第二阶段</span><span class="pill pill-info">会员留存</span><span class="pill">先促权益使用 · 到期前价值分层 · 原因召回</span></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="callout-body">
+        <p>会员购买后先推动第一项权益使用；到期前 7 天按实际使用深度分层，高使用用户强调连续价值，低使用用户先解决不会用、找不到或没感知的问题。</p>
+        <p style="margin-top:6px"><span class="bold">建议渠道</span>：Email（权益与续费方案）· App Push（临期提醒）　｜　<span class="bold">触发方式</span>：购买、临期、取消或过期状态变化　｜　<span class="bold">退出条件</span>：续费成功或进入低频召回</p>
+      </div></div>
+      <div class="grid grid-2-1">
+        <div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="dag-wrap" id="dag-j6"></div></div></div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn"><div class="callout-title">业务痛点</div><div class="callout-body">很多续费问题在到期之前已经发生：用户购买后没有使用核心权益，到期时再强调折扣也很难建立价值。高使用和低使用用户需要的续费理由完全不同。</div></div>
+          <div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul>
+                <li><span class="bold">购买成功</span>：通过 Email 按设备与兴趣推荐第一项会员权益</li>
+                <li><span class="bold">购买后 7 天检查</span>：未使用权益的用户收到 Email 入口与具体帮助</li>
+                <li><span class="bold">价值沉淀</span>：以 App Push 提醒已使用权益和连续服务价值</li>
+                <li><span class="bold">到期前 7 天</span>：按权益使用深度分层</li>
+                <li><span class="bold">高使用用户</span>：通过 Email 展示历史价值、记录与连续服务</li>
+                <li><span class="bold">低使用用户</span>：先以 Email 解决未使用原因，再沟通续费</li>
+                <li><span class="bold">取消 / 过期</span>：按价格、使用、支付等原因进入低频召回</li>
+          </ul></div></div>
+          <div class="callout success"><div class="callout-title">预期效益参考</div><div class="callout-body">建议以<span class="bold">会员权益使用率相对提升 8–15%</span>、到期续费率相对提升 3–6% 为目标。续费成功立即退出；取消或过期用户仅在授权和频控允许时继续触达。</div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Small Team Ops Guide -->
+    <section id="s-ops" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">5</span>小团队运营落地建议：1 名运营集中维护 6 条生命周期旅程</h2>
+      <p>旅程配置完成后，系统自动判断、自动触达、自动退出、自动归因。运营人员不需要每天导出名单和重复群发，可将主要工作集中在<span class="bold">每周复盘结果、每两周调整规则、持续治理频次</span>。</p>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+          <div class="card"><div class="card-header">首批验证：同时覆盖激活、留存和收入</div><div class="card-body"><ul><li>优先上线：<span class="bold">设备绑定</span> + <span class="bold">首周培养</span> + <span class="bold">会员分层转化</span></li><li>三条旅程分别验证漏斗前端、持续使用与商业化价值</li><li>确认进入、分支、等待、退出和频控规则</li><li>先用 5–10% 用户验证数据和触达准确性</li></ul></div></div>
+        <div class="card"><div class="card-header">第二阶段：扩展使用深化与中断挽回</div><div class="card-body"><ul><li>新增：<span class="bold">功能教育</span> + <span class="bold">断连挽回</span></li><li>按四类设备准备对应内容和深链入口</li><li>使用真实事件判断功能使用和可能的中断原因</li><li>对等待时间、文案和入口做小流量 A/B 测试</li></ul></div></div>
+        <div class="card"><div class="card-header">稳定运行后：完善会员续费与持续优化</div><div class="card-body"><ul><li>新增：<span class="bold">会员权益使用与续费</span></li><li>服务问题优先解决，再进行营销沟通</li><li>根据实验增量调整触发阈值与人群范围</li><li>六条旅程稳定后，每周集中复盘一次即可</li></ul></div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <h3>5.1 全量推送 vs EngageLab MA 自动化运营</h3>
+      <table><thead><tr><th>运营任务</th><th>当前方式</th><th>EngageLab MA 自动化方式</th><th class="align-right">价值变化</th></tr></thead><tbody>
+        <tr class="tone-success"><td>用户选择</td><td>所有用户或人工临时圈选</td><td>设备、行为、会员状态实时分群</td><td class="align-right">从群体到个体</td></tr>
+        <tr class="tone-success"><td>触发时机</td><td>固定时间批量发送</td><td>注册、绑定、同步、功能和订单事件实时触发</td><td class="align-right">从日级到实时</td></tr>
+        <tr class="tone-info"><td>内容匹配</td><td>不同设备收到相同内容</td><td>按设备类型、使用阶段和意向匹配</td><td class="align-right">相关性显著提升</td></tr>
+        <tr class="tone-info"><td>频次控制</td><td>每个活动分别发送</td><td>跨旅程统一优先级、静默时段与上限</td><td class="align-right">减少重复打扰</td></tr>
+        <tr><td>效果评估</td><td>主要关注送达和点击</td><td>追踪到绑定、同步、功能使用、购买与续费</td><td class="align-right">完整业务归因</td></tr>
+      </tbody></table>
+      <div class="spacer-md"></div>
+      <div class="callout info"><div class="callout-title">首批接入只需要 9 个关键事件</div><div class="callout-body">
+        <p><span class="bold">① 用户注册</span> · <span class="bold">② 配对开始</span>（selected_device_type / model）· <span class="bold">③ 设备绑定结果</span>（成功状态 / failure_stage / device_type / model）· <span class="bold">④ 设备同步结果</span>（含失败类型）· <span class="bold">⑤ 核心功能使用</span></p>
+        <p><span class="bold">⑥ 会员权益访问</span> · <span class="bold">⑦ 试用开始</span> · <span class="bold">⑧ 会员购买 / 续费</span> · <span class="bold">⑨ 取消续费</span></p>
+        <p>用户属性：locale / timezone、device_types、last_sync_at、active_days_7d、used_features、membership_status、push_permission；如需区分连接异常与使用下降，还需 APP 打开、权限状态、解绑/换机等信号。</p>
+        <p>MA 只需要设备与行为状态，<span class="bold">不需要接入心率、血氧、睡眠详情等原始健康数据</span>。</p>
+      </div></div>
+      </div>
+    </section>
+    <!-- Benchmark -->
+    <section id="s-benchmark" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">6</span>行业对标参考 · 智能穿戴 MA 运营效果基准</h2>
+      <div class="spacer-md"></div>
+      <div class="card"><div class="card-header">智能穿戴 App 自动化运营效果对比 · 行业 Benchmark</div><div class="card-body"><div class="chart" id="chart-benchmark"></div></div></div>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-header">设备激活与首周佩戴</div><div class="card-body"><ul><li>注册至设备绑定：行业参考 <span class="bold">60–70%</span></li><li>首次同步成功：行业参考 <span class="bold">55–65%</span></li><li>7 日有效佩戴：行业参考 <span class="bold">35–45%</span></li><li>可测试增量：绑定 / 同步 / 首周活跃 <span class="bold">+10–20%</span></li></ul><p class="small muted">以设备型号、蓝牙状态与绑定阶段分流，解决“装了 App 但没有开始使用”的前端流失。</p></div></div>
+        <div class="card"><div class="card-header">健康洞察与习惯养成</div><div class="card-body"><ul><li>健康报告或数据页打开：行业参考 <span class="bold">15–25%</span></li><li>目标功能首次使用：行业参考 <span class="bold">20–30%</span></li><li>沉默用户 7 日召回：行业参考 <span class="bold">3–8%</span></li><li>可测试增量：功能使用 / 回流 <span class="bold">+15–30%</span></li></ul><p class="small muted">按睡眠、运动、心率等功能偏好提供解释与下一步行动，避免只提醒“打开 App”。</p></div></div>
+        <div class="card"><div class="card-header">会员权益与长期留存</div><div class="card-body"><ul><li>权益页访问：行业参考 <span class="bold">8–15%</span></li><li>试用或首购转化：行业参考 <span class="bold">3–6%</span></li><li>到期续费改善：建议测试 <span class="bold">+3–8%</span></li><li>可测试增量：权益使用 / 付费 <span class="bold">+15–35%</span></li></ul><p class="small muted">在用户已形成佩戴习惯、出现明确健康洞察需求时再触达权益，兼顾转化与打扰控制。</p></div></div>
+      </div>
+      </div>
+    </section>
+    <!-- Compliance -->
+    <section class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">7</span>数据安全、全球合规与用户体验边界</h2>
+      <div class="grid grid-2">
+        <div class="card"><div class="card-header">数据最小化与访问控制</div><div class="card-body"><ul><li>仅接入支撑旅程所需的身份、设备状态、功能事件和会员状态</li><li>心率、血氧、睡眠详情等原始健康数据继续保留在现有业务系统</li><li>用户、设备和会员标识按既有安全规则关联，敏感字段脱敏</li><li>基于角色控制运营权限，关键操作和数据访问可审计</li></ul></div></div>
+        <div class="card"><div class="card-header">全球触达与用户选择权</div><div class="card-body"><ul><li>按国家、语言、时区与授权状态选择内容、渠道和发送时间</li><li>营销消息与必要服务消息采用不同准入与频次规则</li><li>尊重退订、通知关闭和偏好设置，提供清晰的选择入口</li><li>地区不可用的会员权益和渠道在进入旅程前自动排除</li></ul></div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="callout info"><div class="callout-title">运营护栏</div><div class="callout-body"><p>· <span class="bold">全局频控</span>：跨旅程计算触达次数，服务消息优先，营销消息限频；</p><p>· <span class="bold">本地时间</span>：依据用户时区自动限制发送窗口，避免夜间打扰；</p><p>· <span class="bold">目标退出</span>：绑定、恢复同步、使用功能、购买或续费后立即停止对应消息；</p><p>· <span class="bold">正负指标并看</span>：业务转化提升的同时，通知关闭、投诉和退订不得恶化。</p></div></div>
+      </div>
+    </section>
+    <!-- Plan -->
+    <section id="s-plan" class="section-plain">
+      <div class="wrap">
+      <h2><span class="secnum">8</span>4 周测试计划 · 可量化验收</h2>
+      <table><thead><tr><th class="align-center">周</th><th>阶段</th><th>工作内容</th><th>交付物</th><th>验收指标</th></tr></thead><tbody>
+        <tr><td class="align-center bold">Week 1</td><td>启动 & 数据打通</td><td>用户生命周期对齐 · 9 个关键事件定义 · user_id / device_id 关系确认 · SDK 与服务端数据接入 · Email 发信域、授权状态及首批可用外部渠道配置确认</td><td>事件方案 + 数据流通验证</td><td>关键事件入库率 ≥ 95%</td></tr>
+        <tr class="tone-info"><td class="align-center bold">Week 2</td><td>首批旅程上线</td><td>设备绑定 + 首周培养 + 会员分层转化 3 条旅程构建，小流量验证（5–10% 用户）</td><td>3 条 Journey 跑通 + 分支与退出验收</td><td>符合准入用户成功进入旅程 ≥ 98%，目标退出规则 100% 通过</td></tr>
+        <tr class="tone-info"><td class="align-center bold">Week 3</td><td>扩量 & 优化</td><td>扩大实验流量 · A/B 测试内容与等待时间 · 新增功能教育或断连挽回旅程</td><td>4 条 Journey 运行 + A/B 数据</td><td>样本量满足显著性要求，负向指标不恶化</td></tr>
+        <tr class="tone-success"><td class="align-center bold">Week 4</td><td>复盘 & 扩面</td><td>数据复盘 · 增量归因 · 会员续费旅程设计 · 下阶段扩展规划</td><td>测试结案报告 + 完整旅程路线图</td><td>分别输出三条旅程主指标的增量结论，且通知关闭、投诉等护栏指标不恶化</td></tr>
+      </tbody></table>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3"><div class="stat"><div class="stat-value">目标 4 周</div><div class="stat-label">从数据打通到首批旅程形成增量结论</div></div><div class="stat"><div class="stat-value success">0$</div><div class="stat-label">测试期间授权费用</div></div><div class="stat"><div class="stat-value">专属</div><div class="stat-label">EngageLab 交付团队共同设计与复盘</div></div></div>
+      <div class="spacer-md"></div><hr class="divider" /><h3>下一步建议</h3>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-header"><span class="step-num">1</span>对齐</div><div class="card-body">确认 Wearfit Pro 用户生命周期关键节点（注册 / 绑定 / 同步 / 功能 / 会员），共同确定首批三条旅程、事件口径和增量验收指标。</div></div>
+        <div class="card"><div class="card-header"><span class="step-num">2</span>SDK 与数据接入</div><div class="card-body">集成 AppPush SDK，完成 MA SDK、用户标识、设备状态和会员事件接入；健康原始数据不进入 MA。</div></div>
+        <div class="card"><div class="card-header"><span class="step-num">3</span>旅程验证</div><div class="card-body">优先搭建设备绑定、首周培养、会员分层转化三条旅程，小流量对照验证后再扩量，并以真实增量决定后续旅程投入。</div></div>
+      </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">本方案中的比例与提升区间为智能穿戴及同类 APP 运营的建议测试范围，正式目标应在接入 Wearfit Pro 真实基线后共同确认，实际效果以实验组与对照组数据为准。<br />© EngageLab · Marketing Automation Solution for Wearfit Pro</footer>
+  </main>
+
+  <script>
+  (function () {
+    const COLORS = {
+      accent: '#2563eb', info: '#0369a1', success: '#16a34a',
+      warning: '#d97706', neutral: '#94a3b8', muted: '#cbd5e1',
+      text: '#374151', textMute: '#9ca3af', grid: '#e5e7eb',
+    };
+
+    function svg(w, h) {
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      s.setAttribute('width', '100%');
+      s.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      return s;
+    }
+    function el(tag, attrs) {
+      const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    function drawBarChart(mount, opts) {
+      const { categories, series, valueSuffix = '', height = 240 } = opts;
+      const W = 700, H = height, PAD_L = 44, PAD_R = 16, PAD_T = 12, PAD_B = 72;
+      const innerW = W - PAD_L - PAD_R, innerH = H - PAD_T - PAD_B;
+      const max = Math.max(...series.flatMap(s => s.data), 1);
+      const niceMax = Math.ceil(max / 20) * 20 || 100;
+      const groupCount = categories.length;
+      const barsPerGroup = series.length;
+      const groupW = innerW / groupCount;
+      const barW = Math.min(22, (groupW - 12) / barsPerGroup);
+      const s = svg(W, H);
+      for (let i = 0; i <= 4; i++) {
+        const v = (niceMax / 4) * i;
+        const y = PAD_T + innerH - (v / niceMax) * innerH;
+        s.appendChild(el('line', { x1: PAD_L, x2: W - PAD_R, y1: y, y2: y, stroke: COLORS.grid, 'stroke-width': 1 }));
+        const t = el('text', { x: PAD_L - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 10, fill: COLORS.textMute });
+        t.textContent = Math.round(v) + valueSuffix;
+        s.appendChild(t);
+      }
+      categories.forEach((cat, ci) => {
+        const gx = PAD_L + groupW * ci;
+        series.forEach((se, si) => {
+          const v = se.data[ci] || 0;
+          const h = (v / niceMax) * innerH;
+          const x = gx + (groupW - barW * barsPerGroup) / 2 + si * barW;
+          const y = PAD_T + innerH - h;
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x, y, width: barW - 2, height: h, fill: color, rx: 2 }));
+          if (v > 0) {
+            const label = el('text', { x: x + (barW - 2) / 2, y: y - 2, 'text-anchor': 'middle', 'font-size': 8, fill: COLORS.text });
+            label.textContent = v + valueSuffix;
+            s.appendChild(label);
+          }
+        });
+        const t = el('text', { x: gx + groupW / 2, y: H - PAD_B + 18, 'text-anchor': 'middle', 'font-size': 11, fill: COLORS.text });
+        t.textContent = cat;
+        s.appendChild(t);
+        if (cat.length > 5) {
+          const t2 = el('text', { x: gx + groupW / 2, y: H - PAD_B + 32, 'text-anchor': 'middle', 'font-size': 10, fill: COLORS.textMute });
+          t2.textContent = '';
+          s.appendChild(t2);
+        }
+      });
+      if (series.length > 1) {
+        const legY = H - 14;
+        let legX = PAD_L;
+        series.forEach((se) => {
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x: legX, y: legY - 8, width: 10, height: 10, fill: color, rx: 2 }));
+          const t = el('text', { x: legX + 14, y: legY + 1, 'font-size': 11, fill: COLORS.text });
+          t.textContent = se.name;
+          s.appendChild(t);
+          // 中文字符实际渲染宽度约 11px，用 11 估算后加 24px 项间距
+          legX += 14 + (se.name.length * 11) + 24;
+        });
+      }
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    const KIND_STYLE = {
+      entry:   { fill: '#f1f5f9', stroke: '#94a3b8', text: '#111827' },
+      wait:    { fill: '#fafafa', stroke: '#d1d5db', text: '#6b7280' },
+      branch:  { fill: '#f9fafb', stroke: '#475569', text: '#111827' },
+      channel: { fill: '#dbeafe', stroke: '#2563eb', text: '#1e3a8a' },
+      sendtime:{ fill: '#fef3c7', stroke: '#d97706', text: '#92400e' },
+      exitOk:  { fill: '#dcfce7', stroke: '#16a34a', text: '#14532d' },
+      exitEnd: { fill: '#f3f4f6', stroke: '#9ca3af', text: '#4b5563' },
+    };
+
+    function drawJourney(mount, nodes, edges) {
+      const NODE_W = 176, NODE_H = 62, RANK_GAP = 42, NODE_GAP = 22;
+      const rankOf = {};
+      const incoming = {};
+      nodes.forEach(n => { rankOf[n.id] = 0; incoming[n.id] = []; });
+      edges.forEach(e => { incoming[e.to].push(e.from); });
+      let changed = true;
+      while (changed) {
+        changed = false;
+        edges.forEach(e => {
+          if (rankOf[e.to] < rankOf[e.from] + 1) {
+            rankOf[e.to] = rankOf[e.from] + 1;
+            changed = true;
+          }
+        });
+      }
+      const maxRank = Math.max(...Object.values(rankOf));
+      const ranks = [];
+      for (let r = 0; r <= maxRank; r++) ranks.push([]);
+      nodes.forEach(n => { ranks[rankOf[n.id]].push(n); });
+      const pos = {};
+      const rankWidths = ranks.map(r => r.length * NODE_W + (r.length - 1) * NODE_GAP);
+      const maxWidth = Math.max(...rankWidths, 400);
+      ranks.forEach((rankNodes, r) => {
+        const withAnchor = rankNodes.map(n => {
+          const parents = incoming[n.id].map(p => pos[p] ? pos[p].x + NODE_W / 2 : null).filter(x => x !== null);
+          const anchor = parents.length ? parents.reduce((a, b) => a + b, 0) / parents.length : null;
+          return { node: n, anchor };
+        });
+        withAnchor.sort((a, b) => {
+          if (a.anchor === null && b.anchor === null) return 0;
+          if (a.anchor === null) return 1;
+          if (b.anchor === null) return -1;
+          return a.anchor - b.anchor;
+        });
+        const totalW = withAnchor.length * NODE_W + (withAnchor.length - 1) * NODE_GAP;
+        const definedAnchors = withAnchor.filter(n => n.anchor !== null).map(n => n.anchor);
+        const startX = definedAnchors.length > 0
+          ? Math.max(20, definedAnchors.reduce((a, b) => a + b, 0) / definedAnchors.length - totalW / 2)
+          : (maxWidth - totalW) / 2 + 20;
+        withAnchor.forEach((it, i) => {
+          const x = startX + i * (NODE_W + NODE_GAP);
+          const y = 20 + r * (NODE_H + RANK_GAP);
+          pos[it.node.id] = { x, y };
+        });
+      });
+      for (let pass = 0; pass < 3; pass++) {
+        ranks.forEach((rankNodes) => {
+          const sorted = rankNodes.slice().sort((a, b) => pos[a.id].x - pos[b.id].x);
+          for (let i = 1; i < sorted.length; i++) {
+            const prev = pos[sorted[i - 1].id];
+            const cur = pos[sorted[i].id];
+            if (cur.x < prev.x + NODE_W + NODE_GAP) {
+              cur.x = prev.x + NODE_W + NODE_GAP;
+            }
+          }
+        });
+      }
+      const routePad = edges.some(e => e.route === 'right') ? 70 : 20;
+      const width = Math.max(...Object.values(pos).map(p => p.x)) + NODE_W + routePad;
+      const height = Math.max(...Object.values(pos).map(p => p.y)) + NODE_H + 24;
+      const s = svg(width, height);
+      s.setAttribute('width', width);
+      s.setAttribute('height', height);
+      s.style.maxWidth = '100%';
+      s.style.height = 'auto';
+      const defs = el('defs');
+      const marker = el('marker', { id: 'arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto-start-reverse' });
+      marker.appendChild(el('path', { d: 'M 0 0 L 10 5 L 0 10 z', fill: '#94a3b8' }));
+      defs.appendChild(marker);
+      s.appendChild(defs);
+      edges.forEach(e => {
+        const from = pos[e.from], to = pos[e.to];
+        if (!from || !to) return;
+        let x1 = from.x + NODE_W / 2, y1 = from.y + NODE_H;
+        let x2 = to.x + NODE_W / 2, y2 = to.y;
+        let labelX, labelY;
+        let d;
+        if (e.route === 'right') {
+          x1 = from.x + NODE_W;
+          y1 = from.y + NODE_H / 2;
+          x2 = to.x + NODE_W;
+          y2 = to.y + NODE_H / 2;
+          const corridorX = Math.max(x1, x2) + 32;
+          d = 'M' + x1 + ',' + y1 + ' H' + (corridorX - 10) +
+            ' Q' + corridorX + ',' + y1 + ' ' + corridorX + ',' + (y1 + 10) +
+            ' V' + (y2 - 10) + ' Q' + corridorX + ',' + y2 + ' ' + (corridorX - 10) + ',' + y2 +
+            ' H' + x2;
+          labelX = (x1 + corridorX) / 2;
+          labelY = y1;
+        } else {
+          const cy = (y1 + y2) / 2;
+          d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + cy + ' ' + x2 + ',' + cy + ' ' + x2 + ',' + y2;
+          labelX = (x1 + x2) / 2;
+          labelY = cy;
+        }
+        s.appendChild(el('path', { d, fill: 'none', stroke: '#94a3b8', 'stroke-width': 1.25, 'marker-end': 'url(#arrow)' }));
+        if (e.label) {
+          const w = Math.max(e.label.length * 9 + 10, 28);
+          s.appendChild(el('rect', { x: labelX - w / 2, y: labelY - 10, width: w, height: 18, rx: 4, fill: '#ffffff', stroke: '#e5e7eb' }));
+          const t = el('text', { x: labelX, y: labelY + 3, 'text-anchor': 'middle', 'font-size': 11, fill: '#475569' });
+          t.textContent = e.label;
+          s.appendChild(t);
+        }
+      });
+      nodes.forEach(n => {
+        const p = pos[n.id];
+        const k = KIND_STYLE[n.kind] || KIND_STYLE.entry;
+        s.appendChild(el('rect', { x: p.x, y: p.y, width: NODE_W, height: NODE_H, rx: 10, fill: k.fill, stroke: k.stroke, 'stroke-width': n.kind === 'channel' ? 1.4 : 1 }));
+        const titleY = n.sub ? p.y + 24 : p.y + NODE_H / 2 + 4;
+        const title = el('text', { x: p.x + NODE_W / 2, y: titleY, 'text-anchor': 'middle', 'font-size': 12.5, 'font-weight': 600, fill: k.text });
+        title.textContent = n.title;
+        s.appendChild(title);
+        if (n.sub) {
+          const sub = el('text', { x: p.x + NODE_W / 2, y: p.y + 42, 'text-anchor': 'middle', 'font-size': 11, fill: k.text, opacity: 0.82 });
+          sub.textContent = n.sub;
+          s.appendChild(sub);
+        }
+      });
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    // ========== Charts ==========
+
+    drawBarChart(document.getElementById('chart-market'), {
+      categories: ['设备绑定', '首次同步', '7日活跃', '会员转化'],
+      series: [
+        { name: '行业参考基线', data: [72, 64, 43, 6], tone: 'neutral' },
+        { name: 'MA 建议测试目标', data: [85, 75, 52, 8.5], tone: 'success' },
+      ],
+      valueSuffix: '%', height: 240,
+    });
+
+    drawBarChart(document.getElementById('chart-funnel'), {
+      categories: ['注册用户', '完成绑定', '首次同步', '7日活跃', '核心功能使用', '会员转化'],
+      series: [
+        { name: '行业参考基线', data: [100, 72, 64, 43, 32, 6], tone: 'neutral' },
+        { name: 'MA 建议测试目标', data: [100, 85, 75, 52, 42, 8.5], tone: 'success' },
+      ],
+      valueSuffix: '%', height: 260,
+    });
+
+    drawBarChart(document.getElementById('chart-benchmark'), {
+      categories: ['设备绑定', '首次同步', '7日有效佩戴', '健康洞察打开', '会员转化'],
+      series: [
+        { name: '常规运营参考', data: [65, 60, 40, 20, 4], tone: 'neutral' },
+        { name: 'MA 测试目标', data: [75, 70, 48, 28, 5.5], tone: 'success' },
+      ],
+      valueSuffix: '%', height: 260,
+    });
+
+    // ========== Journey DAGs ==========
+
+    drawJourney(document.getElementById('dag-j1'), [
+      { id:'start', kind:'entry', title:'开始', sub:'事件: 用户注册' },
+      { id:'wait', kind:'wait', title:'等待', sub:'30 分钟' },
+      { id:'bound', kind:'branch', title:'条件分支', sub:'是否已绑定设备' },
+      { id:'ok', kind:'exitOk', title:'绑定成功', sub:'进入首周培养' },
+      { id:'type', kind:'branch', title:'条件分支', sub:'识别设备类型' },
+      { id:'watch', kind:'channel', title:'Email', sub:'手表连接与权限指引' },
+      { id:'other', kind:'channel', title:'Email', sub:'指环/眼镜/耳机指引' },
+      { id:'retry', kind:'wait', title:'等待', sub:'24 小时后复查' },
+      { id:'check', kind:'branch', title:'等待事件', sub:'设备绑定成功' },
+      { id:'ok2', kind:'exitOk', title:'绑定成功', sub:'进入首周培养' },
+      { id:'support', kind:'channel', title:'App Push', sub:'已授权·FAQ / 客服入口' },
+      { id:'end', kind:'exitEnd', title:'结束', sub:'转低频提醒' },
+    ], [
+      {from:'start',to:'wait'},{from:'wait',to:'bound'},{from:'bound',to:'ok',label:'已绑定'},
+      {from:'bound',to:'type',label:'未绑定'},{from:'type',to:'watch',label:'手表'},
+      {from:'type',to:'other',label:'其他设备'},{from:'watch',to:'retry'},{from:'other',to:'retry'},
+      {from:'retry',to:'check'},{from:'check',to:'ok2',label:'已绑定'},
+      {from:'check',to:'support',label:'仍未绑定'},{from:'support',to:'end'},
+    ]);
+
+    drawJourney(document.getElementById('dag-j2'), [
+      { id:'start', kind:'entry', title:'开始', sub:'事件: 设备绑定成功' },
+      { id:'sync', kind:'branch', title:'等待事件', sub:'首次同步 · 24h' },
+      { id:'help', kind:'channel', title:'Email', sub:'连接与权限帮助' },
+      { id:'recheck', kind:'branch', title:'等待事件', sub:'再次同步 · 24h' },
+      { id:'support', kind:'exitEnd', title:'仍未同步', sub:'客服 / 低频帮助' },
+      { id:'value', kind:'channel', title:'App Push', sub:'首份报告 / 记录' },
+      { id:'type', kind:'branch', title:'条件分支', sub:'按设备推荐核心功能' },
+      { id:'watch', kind:'channel', title:'App Push', sub:'手表: 运动/表盘/提醒' },
+      { id:'wearable', kind:'channel', title:'App Push', sub:'指环/眼镜/耳机功能' },
+      { id:'day7', kind:'wait', title:'等待', sub:'至第 7 天' },
+      { id:'active', kind:'branch', title:'条件分支', sub:'有效使用天数' },
+      { id:'advanced', kind:'exitOk', title:'习惯形成', sub:'进入功能教育' },
+      { id:'recover', kind:'exitEnd', title:'使用不足', sub:'进入针对性挽回' },
+    ], [
+      {from:'start',to:'sync'},{from:'sync',to:'value',label:'已同步',route:'right'},{from:'sync',to:'help',label:'未同步'},
+      {from:'help',to:'recheck'},{from:'recheck',to:'value',label:'已同步'},{from:'recheck',to:'support',label:'仍未同步'},
+      {from:'value',to:'type'},{from:'type',to:'watch',label:'手表'},
+      {from:'type',to:'wearable',label:'其他设备'},{from:'watch',to:'day7'},{from:'wearable',to:'day7'},
+      {from:'day7',to:'active'},{from:'active',to:'advanced',label:'活跃'},{from:'active',to:'recover',label:'不足'},
+    ]);
+
+    drawJourney(document.getElementById('dag-j3'), [
+      { id:'start', kind:'entry', title:'开始', sub:'全部符合条件的会员潜客' },
+      { id:'intent', kind:'branch', title:'条件分支', sub:'动态会员意向' },
+      { id:'low', kind:'channel', title:'Email', sub:'低意向·功能价值说明' },
+      { id:'mid', kind:'channel', title:'Email', sub:'中意向·权益预览/试用' },
+      { id:'high', kind:'channel', title:'App Push', sub:'高意向·个性化转化' },
+      { id:'wait', kind:'wait', title:'等待', sub:'按意向设置冷却周期' },
+      { id:'paid', kind:'branch', title:'等待事件', sub:'会员购买成功' },
+      { id:'ok', kind:'exitOk', title:'购买成功', sub:'进入权益使用旅程' },
+      { id:'nurture', kind:'exitEnd', title:'继续培养', sub:'降低促销频率' },
+    ], [
+      {from:'start',to:'intent'},{from:'intent',to:'low',label:'低意向'},{from:'intent',to:'mid',label:'中意向'},
+      {from:'intent',to:'high',label:'高意向'},{from:'low',to:'wait'},{from:'mid',to:'wait'},
+      {from:'high',to:'wait'},{from:'wait',to:'paid'},{from:'paid',to:'ok',label:'已购买'},
+      {from:'paid',to:'nurture',label:'未购买'},
+    ]);
+
+    drawJourney(document.getElementById('dag-j4'), [
+      { id:'start', kind:'entry', title:'开始', sub:'已绑定设备的活跃用户' },
+      { id:'used', kind:'branch', title:'条件分支', sub:'排除已使用功能' },
+      { id:'allDone', kind:'exitOk', title:'无需教育', sub:'核心功能均已使用' },
+      { id:'type', kind:'branch', title:'条件分支', sub:'设备类型' },
+      { id:'watch', kind:'channel', title:'App Push', sub:'手表·下一项功能' },
+      { id:'ring', kind:'channel', title:'App Push', sub:'指环·睡眠/趋势' },
+      { id:'glass', kind:'channel', title:'App Push', sub:'眼镜/耳机·交互功能' },
+      { id:'wait', kind:'wait', title:'等待', sub:'72 小时' },
+      { id:'check', kind:'branch', title:'等待事件', sub:'目标功能使用' },
+      { id:'ok', kind:'exitOk', title:'功能已使用', sub:'记录偏好并进阶' },
+      { id:'guide', kind:'channel', title:'Email', sub:'未使用·图文使用指南' },
+      { id:'end', kind:'exitEnd', title:'未使用', sub:'降低频次' },
+    ], [
+      {from:'start',to:'used'},{from:'used',to:'allDone',label:'全部已用'},{from:'used',to:'type',label:'仍有未用'},
+      {from:'type',to:'watch',label:'手表'},
+      {from:'type',to:'ring',label:'指环'},{from:'type',to:'glass',label:'眼镜/耳机'},
+      {from:'watch',to:'wait'},{from:'ring',to:'wait'},{from:'glass',to:'wait'},
+      {from:'wait',to:'check'},{from:'check',to:'ok',label:'已使用'},{from:'check',to:'guide',label:'未使用'},
+      {from:'guide',to:'end'},
+    ]);
+
+    drawJourney(document.getElementById('dag-j5'), [
+      { id:'start', kind:'entry', title:'开始', sub:'同步中断达到阈值' },
+      { id:'reason', kind:'branch', title:'条件分支', sub:'推断可能原因' },
+      { id:'unknown', kind:'channel', title:'Email', sub:'通用自查与原因收集' },
+      { id:'connect', kind:'channel', title:'App Push', sub:'连接/权限/电量帮助' },
+      { id:'value', kind:'channel', title:'App Push', sub:'历史趋势与未用价值' },
+      { id:'wait', kind:'wait', title:'等待', sub:'48 小时' },
+      { id:'check', kind:'branch', title:'等待事件', sub:'设备重新同步' },
+      { id:'ok', kind:'exitOk', title:'恢复使用', sub:'返回正常生命周期' },
+      { id:'support', kind:'channel', title:'Email', sub:'客服与原因收集' },
+      { id:'end', kind:'exitEnd', title:'低频召回', sub:'避免持续打扰' },
+    ], [
+      {from:'start',to:'reason'},{from:'reason',to:'connect',label:'疑似连接异常'},
+      {from:'reason',to:'value',label:'疑似使用下降'},{from:'reason',to:'unknown',label:'信号不足'},
+      {from:'connect',to:'wait'},{from:'value',to:'wait'},{from:'unknown',to:'wait'},
+      {from:'wait',to:'check'},{from:'check',to:'ok',label:'已恢复'},{from:'check',to:'support',label:'未恢复'},
+      {from:'support',to:'end'},
+    ]);
+
+    drawJourney(document.getElementById('dag-j6'), [
+      { id:'start', kind:'entry', title:'开始', sub:'事件: 会员购买成功' },
+      { id:'usage', kind:'branch', title:'等待事件', sub:'权益是否使用 · 7 天' },
+      { id:'guide', kind:'channel', title:'Email', sub:'权益入口与使用帮助' },
+      { id:'value', kind:'channel', title:'App Push', sub:'沉淀会员使用价值' },
+      { id:'expiry', kind:'wait', title:'等待', sub:'至到期前 7 天' },
+      { id:'segment', kind:'branch', title:'条件分支', sub:'权益使用深度' },
+      { id:'high', kind:'channel', title:'Email', sub:'高使用·连续价值回顾' },
+      { id:'low', kind:'channel', title:'Email', sub:'低使用·先解决问题' },
+      { id:'renew', kind:'branch', title:'等待事件', sub:'会员续费成功' },
+      { id:'ok', kind:'exitOk', title:'续费成功', sub:'进入下一周期' },
+      { id:'end', kind:'exitEnd', title:'取消/过期', sub:'按原因低频召回' },
+    ], [
+      {from:'start',to:'usage'},{from:'usage',to:'value',label:'已使用'},{from:'usage',to:'guide',label:'未使用'},
+      {from:'guide',to:'value'},{from:'value',to:'expiry'},{from:'expiry',to:'segment'},
+      {from:'segment',to:'high',label:'高使用'},{from:'segment',to:'low',label:'低使用'},
+      {from:'high',to:'renew'},{from:'low',to:'renew'},{from:'renew',to:'ok',label:'已续费'},
+      {from:'renew',to:'end',label:'未续费'},
+    ]);
+
+  })();
+  </script>
+</body>
+</html>
