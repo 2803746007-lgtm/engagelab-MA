@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EngageLab MA · OPPO Store 东南亚商城增长方案</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --bg-elev: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --text: #111827;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --success: #16a34a;
+      --success-soft: #dcfce7;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --info: #0369a1;
+      --info-soft: #e0f2fe;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-soft); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 15px; }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 28px 80px; }
+
+    h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
+    h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.005em; color: var(--text); }
+    h3 { font-size: 17px; font-weight: 600; margin: 0 0 10px; color: var(--text); }
+    p { margin: 0 0 8px; color: var(--text-2); }
+    .muted { color: var(--text-3); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 600; }
+    .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+
+    .section { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 26px; margin-bottom: 20px; }
+    .section-plain { padding: 6px 2px 18px; margin-bottom: 12px; }
+    .divider { height: 1px; background: var(--border); margin: 16px 0; border: none; }
+
+    .hero { background: linear-gradient(180deg, #fff 0%, #fafbff 100%);
+      border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px;
+      margin-bottom: 24px; }
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .hero-subtitle { color: var(--text-3); font-size: 15px; max-width: 900px; margin: 8px 0 18px; }
+
+    .pill { display: inline-flex; align-items: center; padding: 2px 10px;
+      font-size: 12px; border-radius: 999px; border: 1px solid var(--border-strong);
+      color: var(--text-2); background: #fff; font-weight: 500; }
+    .pill-accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: var(--info); color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: var(--warning); color: var(--warning); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .grid-1-2 { grid-template-columns: 1fr 2fr; }
+    .grid-2-1 { grid-template-columns: 1.4fr 1fr; }
+    .grid-12-1 { grid-template-columns: 1.2fr 1fr; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 14px 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); }
+    .stat-value { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--text);
+      line-height: 1.15; }
+    .stat-value.success { color: var(--success); }
+    .stat-value.info { color: var(--info); }
+    .stat-value.warn { color: var(--warning); }
+    .stat-label { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; }
+    .card-header { padding: 10px 16px; border-bottom: 1px solid var(--border);
+      background: #fafbfc; font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .card-body { padding: 16px; }
+    .card-body.p-sm { padding: 12px; }
+    .card-body ul { margin: 0; padding-left: 18px; }
+    .card-body li { margin-bottom: 4px; font-size: 13.5px; color: var(--text-2); }
+
+    .callout { padding: 12px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; background: var(--bg-soft); }
+    .callout-title { font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .callout-body { font-size: 13px; color: var(--text-2); }
+    .callout-body p { font-size: 13px; color: var(--text-2); margin: 0 0 4px; }
+    .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+    .callout.info .callout-title { color: var(--info); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-3); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #fafbfc; font-weight: 600; font-size: 12.5px; color: var(--text-3);
+      letter-spacing: 0.01em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tr.tone-success td { background: rgba(22, 163, 74, 0.04); }
+    tr.tone-info td { background: rgba(3, 105, 161, 0.04); }
+    .align-center { text-align: center; }
+    .align-right { text-align: right; }
+
+    .signal-row { display: flex; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .left { flex: 1; min-width: 0; }
+    .signal-row .label { font-size: 13px; font-weight: 600; }
+    .signal-row .hint { font-size: 12px; color: var(--text-3); }
+    .signal-row .value { font-weight: 700; color: var(--text); font-size: 14px; white-space: nowrap; }
+
+    .chart { width: 100%; }
+    .chart svg { width: 100%; height: auto; display: block; }
+
+    .dag-wrap { overflow-x: auto; padding: 8px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+
+    .toc-bar { position: sticky; top: 0; background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+      z-index: 10; padding: 10px 28px; margin: -32px -28px 24px;
+      font-size: 12.5px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 14px;
+      align-items: center; overflow-x: auto; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap; padding: 4px 2px; }
+    .toc-bar a:hover { color: var(--accent); }
+    .toc-bar .brand { font-weight: 700; color: var(--text); }
+
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 0; }
+      .toc-bar { display: none; }
+      .section, .card, .hero { page-break-inside: avoid; box-shadow: none; }
+      h2 { page-break-after: avoid; }
+      .hero { break-before: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; }
+    }
+
+    .spacer-sm { height: 6px; }
+    .spacer-md { height: 12px; }
+
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft);
+      color: var(--accent); font-weight: 700; font-size: 12px; margin-right: 8px; }
+
+    footer.site-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-4); text-align: center; }
+  </style>
+
+
+
+
+
+  <style>
+    /* ===================================================================
+       视觉升级层 (20260828)
+       追加在原有样式之后，靠层叠顺序覆盖，不改动原有规则
+       =================================================================== */
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f8fb;
+      --bg-elev: #ffffff;
+      --border: #e8ecf2;
+      --border-strong: #d5dbe5;
+      --text: #0f172a;
+      --text-2: #3d4a5c;
+      --text-3: #6b7789;
+      --text-4: #97a1b0;
+      --accent: #2563eb;
+      --accent-2: #4f7dff;
+      --accent-soft: #e7efff;
+      --success: #0f9d63;
+      --success-soft: #e2f7ee;
+      --warning: #c2700a;
+      --warning-soft: #fdf1dc;
+      --info: #0369a1;
+      --info-soft: #e2f2fb;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --ink-dark: #0e1116;
+      --ink-dark-2: #1a1f2b;
+      --mint: #00d4a0;
+      --sky: #7cb0ff;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 2px rgba(15,23,42,.05);
+      --shadow: 0 1px 3px rgba(15,23,42,.05), 0 10px 28px -12px rgba(15,23,42,.10);
+      --shadow-lg: 0 2px 6px rgba(15,23,42,.06), 0 22px 48px -20px rgba(15,23,42,.18);
+      --mono-stack: "SF Mono","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15.5px; }
+
+    /* ===== 通栏色带布局：main 放开宽度，section 内部收敛 ===== */
+    main { max-width: none; margin: 0; padding: 0; }
+    main > section { padding: 62px 28px; margin: 0; }
+    /* 宽度靠 .wrap 层约束，不依赖子元素的 auto 外边距——
+       否则任何使用 margin 简写的规则都会把居中打破（如 hero-subtitle / divider）*/
+    main > section > .wrap { max-width: 1180px; margin: 0 auto; }
+    main > section.section-plain { border: 0; border-radius: 0; background: transparent; }
+    main > section.section-plain:nth-of-type(even) { background: var(--bg-soft); }
+    main > section.section { border: 0; border-radius: 0; background: var(--bg-soft); }
+
+    /* ===== 字号层级 ===== */
+    h1 { font-size: 38px; font-weight: 750; letter-spacing: -0.022em; line-height: 1.18; margin: 0 0 10px; }
+    h2 { font-size: 27px; font-weight: 720; letter-spacing: -0.018em; line-height: 1.28;
+      margin: 0 0 16px; color: var(--text); }
+    h3 { font-size: 17.5px; font-weight: 650; margin: 0 0 10px; letter-spacing: -0.008em; color: var(--text); }
+    p { margin: 0 0 10px; color: var(--text-2); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 650; color: var(--text); }
+    .muted { color: var(--text-3); }
+    .mono { font-family: var(--mono-stack); font-size: 0.92em; }
+    .divider { height: 1px; background: var(--border); margin: 26px 0; border: none; }
+    .spacer-md { height: 20px; }
+
+    /* ===== 章节序号徽标 + eyebrow ===== */
+    h2 .secnum { display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 9px; background: var(--accent); color: #fff;
+      font-family: var(--mono-stack); font-size: 15px; font-weight: 700;
+      margin-right: 12px; vertical-align: 3px; flex: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px;
+      font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px; }
+    .eyebrow::before { content: ""; width: 20px; height: 2px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--mint)); }
+
+    /* ===== 顶部导航 ===== */
+    /* 注意：旧版 .toc-bar 带 margin:-32px -28px（用于抵消 main 内边距），
+       升级后 main 已全宽，必须重置，否则导航会横向溢出 56px */
+    .toc-bar { margin: 0; width: 100%; max-width: 100%; }
+    .toc-bar { position: sticky; top: 0; z-index: 30; padding: 0 28px;
+      background: rgba(255,255,255,.86); backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--border); font-size: 13px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 20px;
+      align-items: center; height: 58px; overflow-x: auto; scrollbar-width: none; }
+    .toc-bar .toc-inner::-webkit-scrollbar { display: none; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap;
+      font-weight: 500; transition: color .15s ease; }
+    .toc-bar a:hover { color: var(--accent); }
+    /* 品牌名即返回首页入口：整块（图标 + 文字）一起高亮 */
+    .toc-bar .brand { font-weight: 750; color: var(--text); display: inline-flex;
+      align-items: center; gap: 9px; white-space: nowrap; letter-spacing: -0.01em; }
+    .toc-bar a.brand { text-decoration: none; cursor: pointer;
+      transition: color .16s ease; }
+    .toc-bar a.brand .brand-home { width: 17px; height: 17px; flex: none;
+      color: var(--accent); transition: color .16s ease, transform .16s ease; }
+    .toc-bar a.brand:hover { color: var(--accent); }
+    .toc-bar a.brand:hover .brand-home { color: var(--accent); transform: translateY(-1px); }
+    a.back-home { display: inline-flex; align-items: center; gap: 6px; border: 0; padding: 0;
+      margin-right: 16px; background: none; color: var(--text-3); text-decoration: none;
+      font-size: 13px; font-weight: 500; }
+    a.back-home:hover { color: var(--accent); background: none; }
+    a.back-home svg { width: 14px; height: 14px; opacity: .8; }
+
+    /* ===== Hero · 深色 ===== */
+    main > section.hero { position: relative; overflow: hidden; color: #fff;
+      border: 0; border-radius: 0; margin: 0; padding: 58px 28px 54px;
+      background: linear-gradient(150deg, var(--ink-dark) 0%, var(--ink-dark-2) 55%, #232b3d 100%); }
+    main > section.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(900px 420px at 88% -8%, rgba(0,212,160,.16), transparent 62%),
+        radial-gradient(760px 380px at 6% 108%, rgba(79,125,255,.20), transparent 60%); }
+    main > section.hero > .wrap { position: relative; z-index: 1; }
+    .hero h1 { color: #fff; font-size: 38px; text-wrap: balance; }
+    .hero h1 .grad { background: linear-gradient(92deg, var(--sky) 10%, var(--mint) 90%);
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .hero-subtitle { color: rgba(255,255,255,.74); font-size: 16px; line-height: 1.72;
+      max-width: 940px; margin: 10px 0 20px; }
+    .hero .hero-subtitle .bold { color: #fff; }
+    .hero-pills { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero .pill { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.86); }
+    .hero .pill-accent { background: rgba(0,212,160,.12); border-color: rgba(0,212,160,.4); color: var(--mint); }
+    .hero .pill-info { background: rgba(124,176,255,.12); border-color: rgba(124,176,255,.38); color: var(--sky); }
+    .hero .pill-success { background: rgba(0,212,160,.12); border-color: rgba(0,212,160,.4); color: var(--mint); }
+    .hero .pill-warn { background: rgba(255,209,102,.12); border-color: rgba(255,209,102,.4); color: #ffd166; }
+    .hero .divider { background: rgba(255,255,255,.12); }
+    .hero .stat { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.11);
+      border-radius: var(--radius); box-shadow: none; padding: 18px 18px 16px; }
+    .hero .stat-value { font-family: var(--mono-stack); font-size: 24px; font-weight: 700;
+      color: #fff; letter-spacing: -0.02em; }
+    .hero .stat-value.info { color: #a5c8ff; }
+    .hero .stat-value.success { color: var(--mint); }
+    .hero .stat-value.warn { color: #ffd166; }
+    .hero .stat-label { color: rgba(255,255,255,.6); font-size: 12px; margin-top: 6px; line-height: 1.45; }
+    .hero .muted { color: rgba(255,255,255,.45) !important; }
+    .hero p { color: rgba(255,255,255,.74); }
+
+    /* ===== 基础组件 ===== */
+    .pill { display: inline-flex; align-items: center; padding: 4px 12px; font-size: 12.5px;
+      border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2);
+      background: #fff; font-weight: 550; }
+    .pill-accent { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: transparent; color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: transparent; color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: transparent; color: var(--warning); }
+
+    .grid { gap: 18px; }
+    .row { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 20px 20px 18px; background: var(--bg-elev);
+      border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    .stat-value { font-size: 28px; font-weight: 750; letter-spacing: -0.025em;
+      color: var(--text); line-height: 1.15; }
+    .stat-label { font-size: 12.5px; color: var(--text-3); margin-top: 7px; line-height: 1.5; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+      transition: box-shadow .18s ease; }
+    .card:hover { box-shadow: var(--shadow-lg); }
+    .card-header { padding: 13px 18px; border-bottom: 1px solid var(--border);
+      font-weight: 700; font-size: 13.6px; color: var(--text); background: #fcfdff;
+      letter-spacing: -0.006em; }
+    .card-body { padding: 18px; }
+    .card-body.p-sm { padding: 13px; }
+    .card-body li { margin-bottom: 6px; font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .card-body p { font-size: 14px; }
+
+    .callout { padding: 15px 17px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; }
+    .callout-title { font-weight: 700; margin-bottom: 5px; font-size: 14px; letter-spacing: -0.008em; }
+    .callout-body { font-size: 13.4px; color: var(--text-2); }
+    .callout-body p { font-size: 13.4px; color: var(--text-2); margin: 0 0 5px; line-height: 1.7; }
+    .callout-body p:last-child { margin-bottom: 0; }
+    .callout.info { border-left-color: var(--accent); background: var(--accent-soft); border-color: #d3e2ff; }
+    .callout.info .callout-title { color: var(--accent); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); border-color: #c9eedd; }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); border-color: #f6e2c0; }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-4); background: #fff; }
+
+    /* ===== 表格 ===== */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.6px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); }
+    th, td { padding: 13px 15px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #f8fafc; font-weight: 700; font-size: 11.5px; color: var(--text-3);
+      letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr { transition: background .14s ease; }
+    tbody tr:hover td { background: #f9fbff; }
+    tr.tone-success td { background: rgba(15, 157, 99, .045); }
+    tr.tone-info td { background: rgba(37, 99, 235, .04); }
+
+    .signal-row { display: flex; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .label { font-size: 13.5px; font-weight: 650; color: var(--text); }
+    .signal-row .hint { font-size: 12.3px; color: var(--text-3); line-height: 1.5; }
+    .signal-row .value { font-weight: 750; color: var(--danger); font-size: 15px;
+      font-family: var(--mono-stack); white-space: nowrap; }
+
+    .chart svg { width: 100%; height: auto; display: block; }
+    .dag-wrap { overflow-x: auto; padding: 10px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 12px; margin-right: 9px; }
+
+    /* ===== 响应式（旧版方案原本缺失，后补齐）===== */
+    @media (max-width: 980px) {
+      main > section { padding: 44px 18px; }
+      main > section.hero { padding: 38px 18px 34px; }
+      h1, .hero h1 { font-size: 26px; }
+      h2 { font-size: 21px; }
+      h2 .secnum { width: 26px; height: 26px; font-size: 13px; margin-right: 9px; vertical-align: 2px; }
+      .grid-4, .grid-3, .grid-2, .grid-2-1, .grid-1-2, .grid-12-1, .grid-5 { grid-template-columns: 1fr !important; }
+      .grid { gap: 14px; }
+      /* 表格在窄屏可横向滚动，避免整页溢出 */
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+      .toc-bar .toc-inner { height: 52px; }
+      .card-body, .callout { padding: 14px; }
+    }
+
+    /* ===== 打印 / PDF 导出 ===== */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      html, body { background: #fff; font-size: 12px; }
+      .toc-bar, a.back-home { display: none !important; }
+      main > section { padding: 20px 0 !important; background: #fff !important; }
+      main > section.section-plain:nth-of-type(even) { background: #fff !important; }
+      main > section.hero { padding: 22px 18px !important;
+        background: linear-gradient(150deg, #0e1116 0%, #1a1f2b 100%) !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      main > section.hero::before { display: none; }
+      .card, table, .stat { box-shadow: none !important; page-break-inside: avoid; }
+      h2 { page-break-after: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; height: auto; }
+      table { display: table; white-space: normal; }
+    }
+  </style>
+
+<meta name="robots" content="noindex, nofollow" />
+</head>
+<body><nav class="toc-bar"><div class="toc-inner"><a class="brand" href="#">EngageLab MA · OPPO Store</a><a href="#s-market">业务机会</a><a href="#s-funnel">用户选择</a><a href="#s-why">为什么 EngageLab</a><a href="#s-scenarios">六大场景</a><a href="#s-journey1">旅程示意</a><a href="#s-ops">运营落地</a><a href="#s-benchmark">效果衡量</a><a href="#s-plan">测试计划</a></div></nav><main>
+<section class="hero"><div class="wrap"><div class="hero-pills"><span class="pill pill-info">OPPO Store · 东南亚</span><span class="pill">官方商城网站 + 购物 App</span><span class="pill">App Push · Web Push · Email</span><span class="pill pill-success">首期聚焦购物车与新品</span></div><h1>EngageLab MA · OPPO Store<br>东南亚商城增长方案</h1><p class="hero-subtitle">把每一次商品兴趣，承接成下一步购买。以 <b>尊重选择、行为分流、购买即退出</b>，贯通首购、弃购、新品、权益与购后增购，让消息围绕用户的购买进度运行。</p><hr class="divider"><div class="grid grid-4"><div class="stat"><div class="stat-value info">3 类</div><div class="stat-label">品类、关注信息、权益三类选择</div></div><div class="stat"><div class="stat-value">6 条</div><div class="stat-label">围绕商城交易的自动化旅程</div></div><div class="stat"><div class="stat-value warn">2 条</div><div class="stat-label">购物车与新品两条重点旅程</div></div><div class="stat"><div class="stat-value success">4 周</div><div class="stat-label">首期测试与增量复盘计划</div></div></div><p class="small muted" style="margin-top:14px">以随机对照检验支付增量；文中效果数字为演算示例，实际结果以测试数据为准。</p><div class="callout info"><div class="callout-body">先识别用户正在选择什么，再提供对应的商品、购买帮助与真实权益；完成购买后停止催促。渠道准入与频控在后台统一执行。</div></div></div></section>
+<section id="s-market" class="section-plain"><div class="wrap"><h2><span class="secnum">1</span>海外商城的增长课题：从商品兴趣到订单完成</h2><p>OPPO Store 的手机、平板、音频、穿戴与配件形成多个购买入口。商品对比、积分抵扣与真实活动权益，为不同购买阶段提供不同的行动理由。</p><div class="grid grid-3"><div class="card"><div class="card-header">高考虑度商品</div><div class="card-body"><p class="bold">先回答顾虑，再提醒购买</p><p class="small muted">手机浏览者关注型号、权益与支付方式；多次访问后应返回关注商品。</p></div></div><div class="card"><div class="card-header">App 与 Web 并行</div><div class="card-body"><p class="bold">用身份与授权连接购买进度</p><p class="small muted">有 App 的用户承接应用内购物；浏览器订阅者回到商城；Email 补充图文说明。</p></div></div><div class="card"><div class="card-header">权益与商品联动</div><div class="card-body"><p class="bold">使用已有权益，避免只靠新折扣</p><p class="small muted">按有效券、积分和适配品类组织内容，发送前查询库存、价格与资格。</p></div></div></div><div class="spacer-md"></div><table><thead><tr><th>商城业务基础</th><th>增长应用</th></tr></thead><tbody><tr><td>手机与 IoT、配件品类并存</td><td>商品兴趣分流及兼容配件增购</td></tr><tr><td>商城提供积分、商品对比和活动权益</td><td>解释商品差异与可用权益，链接对应商品</td></tr><tr><td>网站和购物 App 均支持购物</td><td>按市场可用渠道承接对应商城入口</td></tr></tbody></table><p class="small muted">来源：<a href="https://www.oppo.com/th/store" target="_blank" rel="noopener">泰国官方商城</a>、<a href="https://www.oppo.com/th/store/events/return-and-refund-tc" target="_blank" rel="noopener">商城政策</a>、<a href="https://www.oppo.com/sg/store" target="_blank" rel="noopener">新加坡官方商城</a>。所列机制按各市场商城实际规则部署。</p><p class="small muted">新品订阅机制参考：<a href="https://www.oppo.com/id/store/events/reno16-series-snk" target="_blank" rel="noopener">OPPO印尼官方新品Notify Me活动规则</a>。新品活动按各市场实际开售安排配置。</p></div></section>
+<section id="s-funnel" class="section-plain"><div class="wrap"><h2><span class="secnum">2</span>用户选择如何推进到下一次购买</h2><div class="card"><div class="card-header">六类增长场景 · 按用户当前状态进入</div><div class="card-body"><div class="chart" id="chart-funnel"></div></div></div><table><thead><tr><th>阶段</th><th>可观察的用户动作</th><th>下一步帮助</th></tr></thead><tbody><tr><td>首购</td><td>浏览手机、音频或配件</td><td>返回关注品类或完整选购入口</td></tr><tr><td>型号考虑</td><td>查看优惠、规格对比或商品</td><td>解释真实权益、型号差异或返回商品</td></tr><tr><td>购物车</td><td>已加购，回访但仍未下单</td><td>先恢复购物车，再补一次购买帮助</td></tr><tr><td>新品</td><td>主动订阅机型，开售后回访或加购</td><td>按订阅—开售—回访连续承接</td></tr><tr><td>活动权益</td><td>领取、查看适用商品、核销</td><td>按领取状态和有效期承接</td></tr><tr><td>购后增购</td><td>关注充电、音频或其他配件</td><td>推荐兼容商品或提供目录</td></tr></tbody></table><p class="small muted">按用户实际浏览、订阅、加购与购买进度，进入对应增长场景。</p></div></section>
+<section id="s-why" class="section-plain"><div class="wrap"><h2><span class="secnum">3</span>EngageLab MA 为什么适合 OPPO Store</h2><div class="grid grid-3"><div class="card"><div class="card-header">从发送任务到购买进度</div><div class="card-body"><ul><li>浏览、加购、新品订阅分别触发对应旅程。</li><li>以用户分群识别持续兴趣和购买阶段。</li><li>支付成功立即退出对应催购旅程。</li></ul></div></div><div class="card"><div class="card-header">App、Web 与 Email 承接</div><div class="card-body"><ul><li>用户的品类、关注信息和订阅机型决定内容。</li><li>有回访且未购买的人获得下一步购买帮助。</li><li>已有邮箱发送平台可通过 SMTP 对接。</li></ul></div></div><div class="card"><div class="card-header">以支付增量评估投入</div><div class="card-body"><ul><li>订单事件关联渠道、点击和支付。</li><li>客户系统随机划分实验与对照人群。</li><li>区分末次触达归因和真实增量。</li></ul></div></div></div><div class="spacer-md"></div><h3>3.1 东南亚商城触达渠道组合</h3><table><thead><tr><th>渠道</th><th>适用人群</th><th>主要用途</th><th>接入与治理</th></tr></thead><tbody><tr><td>App Push</td><td>已安装购物 App、具有营销同意的用户</td><td>短提醒、商品深度链接、恢复购物车</td><td>集成 AppPush；按通道回执核对发送与送达</td></tr><tr><td>Web Push</td><td>已订阅商城浏览器通知的用户</td><td>回到商品、购物车与有效权益页</td><td>集成 WebPush；维护浏览器订阅状态</td></tr><tr><td>Email</td><td>已有有效邮箱与邮件营销同意的用户</td><td>首购说明、型号对比、权益与兼容配件</td><td>支持 SMTP 对接已有发送平台；完成发信域名认证</td></tr><tr><td>SMS</td><td>本期不纳入日常商城营销</td><td>保留现有账户与必要订单通知</td><td>减少首期渠道改造范围</td></tr><tr><td>WhatsApp</td><td>本期不纳入核心旅程</td><td>后续按服务场景与用户同意扩展</td><td>按模板与市场规则单独配置</td></tr></tbody></table><p class="small muted">Push 送达以对应通道回执为准；Email 服务器接收与进入收件箱分别统计，渠道效果以测试数据验收。</p></div></section>
+<section id="s-scenarios" class="section-plain"><div class="wrap"><h2><span class="secnum">4</span>六大场景：每个分支回答用户的一次选择</h2><table><thead><tr><th>编号</th><th>场景</th><th>用户行为与选择</th><th>增长结果</th><th>上线顺序</th></tr></thead><tbody><tr><td>1</td><td>首购引导：按用户关注的品类推荐</td><td>手机／音频配件／尚未明确品类</td><td>7日首购</td><td>扩展</td></tr><tr><td>2</td><td>型号考虑：按用户关注的信息帮助选择</td><td>查看优惠／查看规格对比／继续浏览商品</td><td>加购与支付</td><td>扩展</td></tr><tr><td>3</td><td>购物车恢复：把已加购用户带回下单</td><td>自行下单／回访后下单／回访未下单／未回访</td><td>3日支付与实付</td><td>首批</td></tr><tr><td>4</td><td>新品关注：从订阅到开售，再到购买</td><td>主动订阅机型／开售后加购／回访未加购／未回访</td><td>开售后7日机型支付</td><td>随开售计划</td></tr><tr><td>5</td><td>活动权益：按领券与使用选择推进</td><td>未领取／已领取／已核销／已浏览未核销</td><td>领券、核销与支付</td><td>扩展</td></tr><tr><td>6</td><td>购后增购：按用户关注的配件用途推荐</td><td>关注充电／关注音频／尚无明确配件兴趣</td><td>14日配件购买</td><td>扩展</td></tr></tbody></table><p class="small muted">首批聚焦购物车恢复，新品旅程随开售计划启动；其余场景在测试期内逐步上线。</p></div></section>
+<section id="s-journey1" class="section-plain"><div class="wrap"><h2>旅程 1｜首购引导：按用户关注的品类推荐</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">增长场景</span><span class="pill pill-info">首购激活</span></div><div class="callout info"><div class="callout-body">按用户浏览过的品类承接首购兴趣；尚无明确选择时，提供完整选购入口。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>订单支付成功。</div></div><div class="dag-wrap" id="dag-j1"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">手机／音频配件／尚未明确品类</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>新注册或非结账页订阅用户进入；已有购买、加购或待付订单者排除。</li><li>等待1个日历日，在当地可发送时段触达。</li><li>条件分支按最近浏览品类分为手机、音频／配件和未明确品类。</li><li>手机及音频／配件发送App Push，返回关注品类；未明确者发送Email选购目录。</li><li>等待3天商品详情点击；已点击结束，符合重复浏览资格者由商品考虑旅程承接。</li><li>已加购或有待付订单者停止首购提醒；支付成功全程退出。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>7日首购支付率与人均实付。</b></p><p class="small muted">商品详情点击用于观察选购兴趣。</p></div></div></div></div></div></section>
+<section id="s-journey2" class="section-plain"><div class="wrap"><h2>旅程 2｜型号考虑：按用户关注的信息帮助选择</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">增长场景</span><span class="pill pill-info">商品考虑</span></div><div class="callout info"><div class="callout-body">看过优惠就说明适用条件，看过规格对比就补充型号差异，让下一次触达回应用户关注的问题。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>订单支付成功。</div></div><div class="dag-wrap" id="dag-j2"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">查看优惠／查看规格对比／继续浏览商品</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>近7天浏览至少2次、尚未加购或下单的用户进入。</li><li>固定本轮关注商品；用户转向其他商品时结束本轮。</li><li>等待2小时，目标商品已加购则结束，交购物车旅程；未加购继续。</li><li>Webhook查询本商品库存、权益及优惠说明和规格对比浏览记录。</li><li>条件分支按该商品的浏览内容判断：优惠优先，其次规格对比，其余返回商品。</li><li>优惠及通用商品提醒使用App Push；规格对比使用Email说明型号差异。</li><li>商品失效、已加购或有订单时结束；每轮发送一次。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>7日支付率与人均实付。</b></p><p class="small muted">目标商品24小时加购为过程指标。</p></div></div></div></div></div></section>
+<section id="s-journey3" class="section-plain"><div class="wrap"><h2>旅程 3｜购物车恢复：把已加购用户带回下单</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">首批上线</span><span class="pill pill-info">弃购挽回</span></div><div class="callout info"><div class="callout-body">先恢复用户已经选好的商品；用户回访后仍未下单，才补充一次购买帮助。下单立即停止，未回访不追发。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>订单创建成功；购物车ID等于本轮购物车ID。</div></div><div class="dag-wrap" id="dag-j3"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">自行下单／回访后下单／回访未下单／未回访</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>商品加购成功且尚未创建订单时进入，绑定本轮购物车。</li><li>同一购物车更新商品和恢复链接；购物车ID改变时结束旧轮。</li><li>等待1小时自然下单，再查询库存、链接与订单状态；通过后发送App Push。</li><li>等待24小时内本购物车或车内商品回访；未回访直接结束。</li><li>回访后再等2小时；仍未下单且购物车有效，发送一次Email购买帮助。</li><li>创建订单立即退出，后续由原有订单服务承接；每轮最多两条。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>3日支付率与人均实付。</b></p><p class="small muted">观察恢复购物车后是否形成实际订单。</p></div></div></div></div></div></section>
+<section id="s-journey4" class="section-plain"><div class="wrap"><h2>旅程 4｜新品关注：从订阅到开售，再到购买</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">随开售上线</span><span class="pill pill-info">新品转化</span></div><div class="callout info"><div class="callout-body">围绕用户主动订阅的同一机型，串联预热、开售与回访；已加购的人交购物车旅程，已购买或取消关注的人停止后续触达。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>商品支付成功；机型ID等于本实例机型ID。</div></div><div class="dag-wrap" id="dag-j4"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">主动订阅机型／开售后加购／回访未加购／未回访</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>开售前主动订阅的用户进入，绑定活动与机型；同一订阅去重。</li><li>距开售超过24小时发送Email预热，介绍所选机型与开售安排。</li><li>临近开售或放行时已开售，跳过预热；等待至开售，时刻已过继续。</li><li>开售后查询订阅、库存、价格和订单；活动有效且尚未加购或下单才发送App Push。</li><li>等待48小时目标机型加购；已加购结束，交购物车旅程。</li><li>未加购者复核本机型回访记录；有回访发送一次Email选购说明，无回访结束。</li><li>每次发送前复核最新状态；已下单、取消关注或活动过期结束，支付成功全程退出。</li><li>每轮最多三条，依次提供机型介绍、开售入口和选购帮助。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>开售后7日目标机型支付率与实付。</b></p><p class="small muted">加购与回访用于识别选购进度。</p></div></div></div></div></div></section>
+<section id="s-journey5" class="section-plain"><div class="wrap"><h2>旅程 5｜活动权益：按领券与使用选择推进</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">增长场景</span><span class="pill pill-info">权益转化</span></div><div class="callout info"><div class="callout-body">未领券的人看到领取与适用规则，已领券的人看到对应商品；只有继续浏览但未使用的人收到到期提示。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>订单支付成功。</div></div><div class="dag-wrap" id="dag-j5"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">未领取／已领取／已核销／已浏览未核销</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>访问活动且具备固定到期权益资格的用户进入；绑定本场活动与目标权益。</li><li>查询领取、核销及有效期；无有效资格、已使用或已失效则结束。</li><li>未领取者发送App Push领取入口；已领取者发送Email适用商品和规则。</li><li>领取后绑定具体券；提醒截止取活动截止与权益实际到期中的较早时间。</li><li>等待至可用截止前24小时；时刻已过、时间缺失或有效期变更则结束。</li><li>首条实际发送满24小时，且已领、继续浏览、未核销者进入临期提醒。</li><li>发送前复核仍有效、未购买且无加购待付订单，再发App Push；每轮最多两条。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>权益有效期内支付率与人均实付。</b></p><p class="small muted">领取率、核销率用于观察权益使用。</p></div></div></div></div></div></section>
+<section id="s-journey6" class="section-plain"><div class="wrap"><h2>旅程 6｜购后增购：按用户关注的配件用途推荐</h2><div class="row" style="margin-bottom:14px"><span class="pill pill-success">增长场景</span><span class="pill pill-info">购后增长</span></div><div class="callout info"><div class="callout-body">先确定配件与已购机型兼容，再按用户浏览过的用途组织推荐；没有明确兴趣的人获得选购目录。</div></div><div class="spacer-md"></div><div class="grid grid-2-1"><div class="card"><div class="card-header">旅程编排示意图</div><div class="card-body"><div class="callout neutral" style="margin-bottom:12px"><div class="callout-body"><b>全程提前退出：</b>购后异常；限定原订单ID。</div></div><div class="dag-wrap" id="dag-j6"></div></div></div><div class="grid" style="grid-template-columns:1fr;gap:12px;align-content:start"><div class="card"><div class="card-header">用户的选择</div><div class="card-body">关注充电／关注音频／尚无明确配件兴趣</div></div><div class="card"><div class="card-header">旅程组件配置</div><div class="card-body"><ul><li>自有商城订单签收后进入，按原订单去重；购后异常全程退出。</li><li>等待7天使用观察，查询原机型、兼容商品、库存与售后状态。</li><li>条件分支按近7天配件浏览用途判断；多类兴趣取最近浏览类别。</li><li>关注充电者发送App Push；关注音频者发送Email用途和兼容说明。</li><li>尚无明确兴趣者发送Email兼容配件目录；排除已购、已加购或待付商品。</li><li>等待7天观察配件购买，购买或超时均结束；本轮仅发送一次。</li><li>14日效果持续统计，统一识别两组自然购买；退款、售后与退订同步观察。</li></ul></div></div><div class="card"><div class="card-header">增长验收</div><div class="card-body"><p><b>入组后14日配件购买率与净实付。</b></p><p class="small muted">两组按同一兼容商品规则统计购买。</p></div></div></div></div></div></section>
+<section id="s-ops" class="section-plain"><div class="wrap"><h2><span class="secnum">5</span>运营落地：选择决定内容，准入保护体验</h2><table><thead><tr><th>用户可感知的变化</th><th>具体执行</th></tr></thead><tbody><tr><td>不再收到与选择无关的通用促销</td><td>以最近品类、浏览内容和订阅机型分流。</td></tr><tr><td>每次帮助都对应下一步动作</td><td>商品比较、恢复购物车、新品开售、领取使用或兼容增购。</td></tr><tr><td>完成动作后不被重复催促</td><td>订单创建、支付、核销、购后异常与发送前状态查询共同拦截。</td></tr><tr><td>没有明确偏好也能继续选择</td><td>保留通用选购入口，不给用户贴价格敏感等推测标签。</td></tr></tbody></table><div class="spacer-md"></div><div class="card"><div class="card-header">统一执行条件</div><div class="card-body"><ul><li>每次发送前核对营销同意、商品可售、有效链接与订单状态；不符合条件即结束。</li><li>按项目当地10:00–20:00发送；用户级全局频控每日最多2条、每周最多4条。</li><li>常规旅程每轮最多1–2条，新品最多3条；已进入购买流程的用户停止对应催购。</li><li>App与Web访客分别承接，避免重复提醒；Email提供商品对比、购买帮助和兼容说明。</li></ul></div></div><div class="spacer-md"></div><table><thead><tr><th>数据输入</th><th>写入时机</th><th>使用场景</th></tr></thead><tbody><tr><td>最近浏览品类、本轮SKU及关联页面记录</td><td>最近兴趣按浏览更新；本轮SKU固定，关联历史由查询接口返回</td><td>旅程1、2、3、6</td></tr><tr><td>订单与购物车ID、订阅机型、开售与截止时间</td><td>加购、创建订单、新品订阅及活动调整时</td><td>旅程3、4</td></tr><tr><td>活动／权益／券ID、实际到期、领取、核销与关联浏览</td><td>行为发生时上报；发送前查询活动接口</td><td>旅程5</td></tr><tr><td>原订单机型、签收、售后、订单行实付及兼容关系</td><td>签收及异常时上报；推荐前查询</td><td>旅程6</td></tr><tr><td>实验ID、固定分组、共同入组时点及观察窗</td><td>首次干预前写入并锁定；跨旅程交接沿用</td><td>六组实验与增量看板</td></tr><tr><td>同意、退订、时区、发送身份</td><td>状态变化时同步</td><td>全部旅程的准入与执行</td></tr></tbody></table></div></section>
+<section id="s-benchmark" class="section-plain"><div class="wrap"><h2><span class="secnum">6</span>六组随机对照：比较同类用户的真实支付增量</h2><p>每组从同一场景、同一资格人群中稳定随机分配。实验组采用对应MA策略，对照组保留原有策略；商品价格、权益及必要服务一致，重复营销通知在实验组去重。</p><table><thead><tr><th>对照场景</th><th>共同准入人群</th><th>对照组</th><th>实验组</th><th>主指标与观察窗</th><th>演算示例</th></tr></thead><tbody><tr><td>1｜首购品类引导</td><td>无历史订单、无加购待付的新注册／订阅用户</td><td>保留原有欢迎与运营</td><td>按实际品类选择推荐；尚未明确者给选购入口</td><td>7日首次支付率；7天</td><td>4% → 4.6%；相对 +15.0%；多 30 名支付用户</td></tr><tr><td>2｜商品考虑承接</td><td>近7天重复浏览且未加购、未下单用户；记录本轮SKU</td><td>保留原有商品运营</td><td>按优惠／规格对比／其他实际浏览内容承接</td><td>7日支付率；7天</td><td>5% → 5.5%；相对 +10.0%；多 25 名支付用户</td></tr><tr><td>3｜购物车恢复</td><td>加购后1小时仍未创建订单用户</td><td>保留原有购物车运营</td><td>恢复购物车；仅回访后仍未下单的人获得一次购买帮助</td><td>3日支付率；3天</td><td>8% → 9.6%；相对 +20.0%；多 80 名支付用户</td></tr><tr><td>4｜新品订阅到购买</td><td>同场活动、同机型、开售前订阅且尚未购买用户</td><td>保留实际原有新品运营策略</td><td>Email预热＋开售提醒＋回访未加购补位，去重原同类提醒</td><td>开售后7日目标机型支付率；开售后7天</td><td>6% → 6.8%；相对 +13.3%；多 40 名支付用户</td></tr><tr><td>5｜活动权益使用</td><td>访问活动、有固定到期权益资格、无加购待付用户</td><td>保留原有活动安排</td><td>按领取、浏览与核销状态承接</td><td>有效期内支付率；入组至可用截止；次日仅结算回流</td><td>6% → 7%；相对 +16.7%；多 50 名支付用户</td></tr><tr><td>6｜兼容配件增购</td><td>签收满7天、无售后异常与重复购配件用户</td><td>保留原有购后服务</td><td>按实际浏览用途提供兼容商品或选购目录</td><td>14日配件支付率；14天</td><td>3% → 3.4%；相对 +13.3%；多 20 名支付用户</td></tr></tbody></table><p class="small muted">示例按两组各5,000人演算，非OPPO实测、预测或目标；实际样本量按业务基线计算。</p><div class="spacer-md"></div><div class="card"><div class="card-header">六场景支付率对比 · 演算示例</div><div class="card-body"><div class="chart" id="chart-model"></div></div></div><div class="spacer-md"></div><table><thead><tr><th>实验规则</th><th>执行要求</th></tr></thead><tbody><tr><td>先分组，再触达</td><td>首次营销前按用户固定随机分组，按市场、商品和新老客分层。新品在订阅入组时锁定分组。</td></tr><tr><td>共同起点</td><td>首购及商品考虑入组起7天；购物车加购满1小时起3天；配件签收满7天且合格入组起14天。</td></tr><tr><td>活动观察窗</td><td>新品观察开售后7天；权益观察入组至实际可用截止，截止后24小时接收数据回流。</td></tr><tr><td>一致的购买条件</td><td>两组价格、权益和必要服务一致。实验组替代原同类营销，对照组保留原策略。</td></tr><tr><td>互斥与交接</td><td>同一观察窗只参加一项实验。新品加购后的购物车承接两组一致，不再参加购物车实验。</td></tr><tr><td>支付与实付</td><td>统计全部随机入组用户；按同一商品范围识别购买，实付扣除退款，同币种比较。</td></tr><tr><td>效果与体验</td><td>同时报告支付差异、样本量和差异区间，并监测退订、投诉与售后。</td></tr></tbody></table><p class="small muted">业务增量按随机对照评估，消息归因单独展示。</p></div></section>
+<section id="s-security" class="section-plain"><div class="wrap"><h2><span class="secnum">7</span>数据安全、全球合规与用户体验边界</h2><table><thead><tr><th>项目</th><th>能力与配置</th></tr></thead><tbody><tr><td>数据安全</td><td>全链路 TLS 加密 · VPC 隔离 · PII 字段脱敏 · 基于角色的权限控制</td></tr><tr><td>认证与合规</td><td>SOC 2 Type II · ISO/IEC 27001 · ISO/IEC 27701 · GDPR</td></tr><tr><td>运营护栏</td><td>用户级全局频控 · 终端时区可发送时间 · 发送前内容预览 · 消息记录保留 60 天</td></tr><tr><td>本地法规</td><td>可协助满足各目标市场数据保护法规要求</td></tr></tbody></table><div class="spacer-md"></div><div class="grid grid-2"><div class="card"><div class="card-header">营销同意与身份</div><div class="card-body"><ul><li>通知权限与营销同意分别记录。</li><li>Email 退订立即更新准入与发送前检查。</li><li>匿名浏览器以订阅标识承接，登录后关联用户。</li><li>服务内容不夹带促销；营销流程统一校验同意。</li></ul></div></div><div class="card"><div class="card-header">市场项目与用户体验</div><div class="card-body"><ul><li>按市场建立项目，配置语言、币种、链接和存储区域。</li><li>复用旅程模板，DAG 内不按国家重复分支。</li><li>可发送时间使用项目当地 10:00–20:00。</li><li>售后异常、失效订单和已购状态优先拦截。</li></ul></div></div></div></div></section>
+<section id="s-plan" class="section-plain"><div class="wrap"><h2><span class="secnum">8</span>4 周测试计划 · 用支付增量验收</h2><table><thead><tr><th>周</th><th>阶段</th><th>我方动作</th><th>客户动作</th><th>验收口径</th></tr></thead><tbody><tr><td>1</td><td>接入与基线</td><td>建立事件映射、渠道回执和对照口径</td><td>接入用户与订单事件；开通查询接口；完成发信认证、同意、去重及稳定随机分组配置</td><td>核心事件入库率 ≥95%；测试订单状态一致</td></tr><tr><td>2</td><td>购物车与新品上线</td><td>配置购物车旅程及新品活动时间表；用户级营销频控每日≤2条、每周≤4条；设置渠道限额</td><td>审核文案、购物车恢复、开售时间与机型链接；停用或排除重叠发送；保留原必要订单通知</td><td>首次干预前完成分组；5–10%小流量验证分支、退出及默认结束路径</td></tr><tr><td>3</td><td>随机对照与扩面</td><td>监控转化、回执、点击、退订；上线其余旅程</td><td>沿用小流量前已锁定的用户分组；新增场景在首次干预前分组，各观察窗互斥参与</td><td>同窗比较；下单、机型购买、取消订阅、活动过期和撤回同意测试通过</td></tr><tr><td>4</td><td>增量复盘</td><td>输出观察窗已完成的分旅程订单、实付和负向指标；其余延续观察</td><td>按商品、市场和渠道复盘，确定持续运营范围</td><td>报告样本量、差异区间与增量；样本不足延续观察</td></tr></tbody></table><p class="small muted">4周完成首期实施与复盘。新品观察开售后7天，配件合格入组后观察14天；仅对观察窗完整且样本充分的实验形成结论。</p><div class="spacer-md"></div><div class="grid grid-3"><div class="card"><div class="card-header">首期交付</div><div class="card-body">六条旅程模板、渠道策略、数据映射与支付增量看板。</div></div><div class="card"><div class="card-header">通道治理</div><div class="card-body">App 与 Web 回执分层；Email 完成域名认证、名单治理与发送节奏管理。</div></div><div class="card"><div class="card-header">持续优化</div><div class="card-body">先优化触发窗口与内容，再按有效样本调整人群和权益。</div></div></div></div></section>
+<footer class="site-footer">OPPO Store · Southeast Asia · EngageLab Marketing Automation<br>2026-10-19 · 东南亚商城增长方案</footer></main>
+<script>
+  (function () {
+    const COLORS = {
+      accent: '#2563eb', info: '#0369a1', success: '#16a34a',
+      warning: '#d97706', neutral: '#94a3b8', muted: '#cbd5e1',
+      text: '#374151', textMute: '#9ca3af', grid: '#e5e7eb',
+    };
+
+    function svg(w, h) {
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      s.setAttribute('width', '100%');
+      s.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      return s;
+    }
+    function el(tag, attrs) {
+      const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    function drawBarChart(mount, opts) {
+      const { categories, series, valueSuffix = '', height = 240 } = opts;
+      const W = 700, H = height, PAD_L = 44, PAD_R = 16, PAD_T = 12, PAD_B = 72;
+      const innerW = W - PAD_L - PAD_R, innerH = H - PAD_T - PAD_B;
+      const max = Math.max(...series.flatMap(s => s.data), 1);
+      const niceMax = Math.ceil(max * 1.2 * 10) / 10 || 1;
+      const groupCount = categories.length;
+      const barsPerGroup = series.length;
+      const groupW = innerW / groupCount;
+      const barW = Math.min(22, (groupW - 12) / barsPerGroup);
+      const s = svg(W, H);
+      for (let i = 0; i <= 4; i++) {
+        const v = (niceMax / 4) * i;
+        const y = PAD_T + innerH - (v / niceMax) * innerH;
+        s.appendChild(el('line', { x1: PAD_L, x2: W - PAD_R, y1: y, y2: y, stroke: COLORS.grid, 'stroke-width': 1 }));
+        const t = el('text', { x: PAD_L - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 10, fill: COLORS.textMute });
+        t.textContent = Number(v.toFixed(1)) + valueSuffix;
+        s.appendChild(t);
+      }
+      categories.forEach((cat, ci) => {
+        const gx = PAD_L + groupW * ci;
+        series.forEach((se, si) => {
+          const v = se.data[ci] || 0;
+          const h = (v / niceMax) * innerH;
+          const x = gx + (groupW - barW * barsPerGroup) / 2 + si * barW;
+          const y = PAD_T + innerH - h;
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x, y, width: barW - 2, height: h, fill: color, rx: 2 }));
+          if (v > 0) {
+            const label = el('text', { x: x + (barW - 2) / 2, y: y - 2, 'text-anchor': 'middle', 'font-size': 8, fill: COLORS.text });
+            label.textContent = v + valueSuffix;
+            s.appendChild(label);
+          }
+        });
+        const t = el('text', { x: gx + groupW / 2, y: H - PAD_B + 18, 'text-anchor': 'middle', 'font-size': 11, fill: COLORS.text });
+        t.textContent = cat;
+        s.appendChild(t);
+        if (cat.length > 5) {
+          const t2 = el('text', { x: gx + groupW / 2, y: H - PAD_B + 32, 'text-anchor': 'middle', 'font-size': 10, fill: COLORS.textMute });
+          t2.textContent = '';
+          s.appendChild(t2);
+        }
+      });
+      if (series.length > 1) {
+        const legY = H - 14;
+        let legX = PAD_L;
+        series.forEach((se) => {
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x: legX, y: legY - 8, width: 10, height: 10, fill: color, rx: 2 }));
+          const t = el('text', { x: legX + 14, y: legY + 1, 'font-size': 11, fill: COLORS.text });
+          t.textContent = se.name;
+          s.appendChild(t);
+          // 中文字符实际渲染宽度约 11px，用 11 估算后加 24px 项间距
+          legX += 14 + (se.name.length * 11) + 24;
+        });
+      }
+      
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    const KIND_STYLE = {
+      entry:   { fill: '#f1f5f9', stroke: '#94a3b8', text: '#111827' },
+      wait:    { fill: '#fafafa', stroke: '#d1d5db', text: '#6b7280' },
+      branch:  { fill: '#f9fafb', stroke: '#475569', text: '#111827' },
+      channel: { fill: '#dbeafe', stroke: '#2563eb', text: '#1e3a8a' },
+      sendtime:{ fill: '#fef3c7', stroke: '#d97706', text: '#92400e' },
+      exitOk:  { fill: '#dcfce7', stroke: '#16a34a', text: '#14532d' },
+      exitEnd: { fill: '#f3f4f6', stroke: '#9ca3af', text: '#4b5563' },
+    };
+
+    function drawJourney(mount,nodes,edges){
+      const W=180,H=68,COL=210,ROW=118,PAD=16;
+      const pos=new Map(nodes.map(n=>[n.id,{x:PAD+n.col*COL,y:PAD+n.row*ROW}]));
+      const width=2*PAD+Math.max(...nodes.map(n=>n.col))*COL+W,height=2*PAD+Math.max(...nodes.map(n=>n.row))*ROW+H;
+      const outgoing=new Map(nodes.map(n=>[n.id,[]])),incoming=new Map(nodes.map(n=>[n.id,[]]));
+      edges.forEach(e=>{if(!pos.has(e.from)||!pos.has(e.to))throw Error('Unknown journey node');outgoing.get(e.from).push(e);incoming.get(e.to).push(e);});
+      outgoing.forEach(es=>es.sort((a,b)=>pos.get(a.to).x-pos.get(b.to).x));incoming.forEach(es=>es.sort((a,b)=>pos.get(a.from).x-pos.get(b.from).x));
+      const s=svg(width,height);s.style.width='100%';s.style.maxWidth=width+'px';s.style.minWidth=Math.min(width,540)+'px';
+      const markerId='arrow-'+mount.id,defs=el('defs'),marker=el('marker',{id:markerId,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:6,markerHeight:6,orient:'auto'});
+      marker.appendChild(el('path',{d:'M0 0 L10 5 L0 10 z',fill:'#94a3b8'}));defs.appendChild(marker);s.appendChild(defs);
+      const segments=[],labels=[];
+      edges.forEach(e=>{
+        const p=pos.get(e.from),q=pos.get(e.to),outs=outgoing.get(e.from),ins=incoming.get(e.to);
+        const x1=p.x+W*(outs.indexOf(e)+1)/(outs.length+1),y1=p.y+H,x2=q.x+W*(ins.indexOf(e)+1)/(ins.length+1),y2=q.y;
+        segments.push({from:e.from,to:e.to,x1,y1,x2,y2});
+        s.appendChild(el('path',{d:`M${x1},${y1} L${x2},${y2}`,fill:'none',stroke:'#94a3b8','stroke-width':1.3,'marker-end':`url(#${markerId})`}));
+        if(e.label)labels.push({x:(x1+x2)/2,y:(y1+y2)/2,text:e.label,w:e.label.length*10+12,from:e.from,to:e.to});
+      });
+      nodes.forEach(n=>{
+        const p=pos.get(n.id),k=n.kind==='webhook'?{fill:'#f1f5f9',stroke:'#64748b',text:'#334155'}:(KIND_STYLE[n.kind]||KIND_STYLE.entry);
+        s.appendChild(el('rect',{x:p.x,y:p.y,width:W,height:H,rx:10,fill:k.fill,stroke:k.stroke}));
+        const t=el('text',{x:p.x+W/2,y:p.y+25,'text-anchor':'middle','font-size':12.5,'font-weight':600,fill:k.text});t.textContent=n.title;s.appendChild(t);
+        const lines=[];let line='',units=0;
+        Array.from(n.sub||'').forEach(c=>{const u=/[\u0000-\u007f]/.test(c)?0.55:1;if(units+u>15){lines.push(line);line='';units=0;}line+=c;units+=u;});if(line)lines.push(line);
+        lines.forEach((text,i)=>{const a=el('text',{x:p.x+W/2,y:p.y+44+i*13,'text-anchor':'middle','font-size':10.5,fill:k.text});a.textContent=text;s.appendChild(a);});
+      });
+      labels.forEach(l=>{s.appendChild(el('rect',{x:l.x-l.w/2,y:l.y-9,width:l.w,height:18,rx:4,fill:'#fff',stroke:'#e5e7eb'}));const t=el('text',{x:l.x,y:l.y+3,'text-anchor':'middle','font-size':10,fill:'#475569'});t.textContent=l.text;s.appendChild(t);});
+      mount.replaceChildren(s);
+      window.__journeyQA??=[];window.__journeyQA.push({id:mount.id,width,height,nodes:nodes.map(n=>({id:n.id,...pos.get(n.id),width:W,height:H})),segments,labels});
+    }
+
+ drawJourney(document.getElementById("dag-j1"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "新注册或订阅的首购用户", "row": 0, "col": 1}, {"id": "w", "kind": "wait", "title": "等待", "sub": "1个日历日", "row": 1, "col": 1}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 2, "col": 1}, {"id": "c", "kind": "branch", "title": "条件分支", "sub": "用户最近浏览的品类", "row": 3, "col": 1}, {"id": "a", "kind": "channel", "title": "App Push 通知消息", "sub": "手机：继续选择关注型号", "row": 4, "col": 0}, {"id": "b", "kind": "channel", "title": "App Push 通知消息", "sub": "音频配件：返回关注品类", "row": 4, "col": 1}, {"id": "cmsg", "kind": "channel", "title": "Email 模板消息", "sub": "未明确：品类选购入口", "row": 4, "col": 2}, {"id": "watch", "kind": "wait", "title": "等待事件", "sub": "3天内是否点击商品详情", "row": 5, "col": 1}, {"id": "ok", "kind": "exitOk", "title": "结束", "sub": "已点击，本轮引导完成", "row": 6, "col": 0}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "未响应，不追加催促", "row": 6, "col": 1}],[{"from": "s", "to": "w", "label": ""}, {"from": "w", "to": "t", "label": ""}, {"from": "t", "to": "c", "label": ""}, {"from": "c", "to": "a", "label": "手机"}, {"from": "c", "to": "b", "label": "音频配件"}, {"from": "c", "to": "cmsg", "label": "尚未明确"}, {"from": "a", "to": "watch", "label": ""}, {"from": "b", "to": "watch", "label": ""}, {"from": "cmsg", "to": "watch", "label": ""}, {"from": "watch", "to": "ok", "label": "已点击"}, {"from": "watch", "to": "end", "label": "超时"}]);
+ drawJourney(document.getElementById("dag-j2"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "重复浏览但尚未加购", "row": 0, "col": 1}, {"id": "w", "kind": "wait", "title": "等待事件", "sub": "2小时内是否加购", "row": 1, "col": 1}, {"id": "ok", "kind": "exitOk", "title": "结束", "sub": "已加购，交购物车旅程", "row": 2, "col": 0}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 2, "col": 1}, {"id": "q", "kind": "webhook", "title": "Webhook", "sub": "本轮商品权益与浏览记录", "row": 3, "col": 1}, {"id": "c", "kind": "branch", "title": "条件分支", "sub": "用户对本轮商品看过什么", "row": 4, "col": 1}, {"id": "a", "kind": "channel", "title": "App Push 通知消息", "sub": "优惠：实际权益与适用商品", "row": 5, "col": 0}, {"id": "b", "kind": "channel", "title": "Email 模板消息", "sub": "规格：型号差异与对比", "row": 5, "col": 1}, {"id": "d", "kind": "channel", "title": "App Push 通知消息", "sub": "其他：返回关注商品", "row": 5, "col": 2}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "加购后交购物车旅程", "row": 6, "col": 1}],[{"from": "s", "to": "w", "label": ""}, {"from": "w", "to": "ok", "label": "已加购"}, {"from": "w", "to": "t", "label": "超时"}, {"from": "t", "to": "q", "label": ""}, {"from": "q", "to": "c", "label": ""}, {"from": "c", "to": "a", "label": "优惠优先"}, {"from": "c", "to": "b", "label": "否则对比"}, {"from": "c", "to": "d", "label": "其余"}, {"from": "a", "to": "end", "label": ""}, {"from": "b", "to": "end", "label": ""}, {"from": "d", "to": "end", "label": ""}]);
+ drawJourney(document.getElementById("dag-j3"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "已加购，尚未创建订单", "row": 0, "col": 1}, {"id": "w", "kind": "wait", "title": "等待", "sub": "1小时自然下单观察", "row": 1, "col": 1}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 2, "col": 1}, {"id": "q", "kind": "webhook", "title": "Webhook", "sub": "本购物车商品与订单状态", "row": 3, "col": 1}, {"id": "send", "kind": "channel", "title": "App Push 通知消息", "sub": "恢复用户已选商品", "row": 4, "col": 1}, {"id": "watch", "kind": "wait", "title": "等待事件", "sub": "24小时内是否回访", "row": 5, "col": 1}, {"id": "stop", "kind": "exitEnd", "title": "结束", "sub": "未回访，不追发", "row": 6, "col": 0}, {"id": "w2", "kind": "wait", "title": "等待", "sub": "回访后再观察2小时", "row": 6, "col": 1}, {"id": "t2", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 7, "col": 1}, {"id": "q2", "kind": "webhook", "title": "Webhook", "sub": "仍未下单且购物车有效", "row": 8, "col": 1}, {"id": "help", "kind": "channel", "title": "Email 模板消息", "sub": "商品清单与购买帮助", "row": 9, "col": 1}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "一次补位后停止", "row": 10, "col": 1}],[{"from": "s", "to": "w", "label": ""}, {"from": "w", "to": "t", "label": ""}, {"from": "t", "to": "q", "label": ""}, {"from": "q", "to": "send", "label": ""}, {"from": "send", "to": "watch", "label": ""}, {"from": "watch", "to": "stop", "label": "未回访"}, {"from": "watch", "to": "w2", "label": "已回访"}, {"from": "w2", "to": "t2", "label": ""}, {"from": "t2", "to": "q2", "label": ""}, {"from": "q2", "to": "help", "label": ""}, {"from": "help", "to": "end", "label": ""}]);
+ drawJourney(document.getElementById("dag-j4"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "用户主动订阅新品机型", "row": 0, "col": 1}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 1, "col": 1}, {"id": "precheck", "kind": "branch", "title": "条件分支", "sub": "是否仍在预热期", "row": 2, "col": 1}, {"id": "pre", "kind": "channel", "title": "Email 模板消息", "sub": "预热：所选机型与开售安排", "row": 3, "col": 0}, {"id": "launch", "kind": "wait", "title": "等待至", "sub": "本场活动开售时刻", "row": 4, "col": 1}, {"id": "t2", "kind": "sendtime", "title": "可发送时间", "sub": "开售后当地10:00–20:00", "row": 5, "col": 1}, {"id": "q", "kind": "webhook", "title": "Webhook", "sub": "目标机型库存、价格与关注状态", "row": 6, "col": 1}, {"id": "push", "kind": "channel", "title": "App Push 通知消息", "sub": "开售：直达订阅机型", "row": 7, "col": 1}, {"id": "watch", "kind": "wait", "title": "等待事件", "sub": "48小时内是否加购本机型", "row": 8, "col": 1}, {"id": "ok", "kind": "exitOk", "title": "结束", "sub": "已加购，交旅程3", "row": 9, "col": 0}, {"id": "q2", "kind": "webhook", "title": "Webhook", "sub": "本机型购买与回访状态", "row": 9, "col": 1}, {"id": "choice", "kind": "branch", "title": "条件分支", "sub": "用户是否回访订阅机型", "row": 10, "col": 1}, {"id": "stop", "kind": "exitEnd", "title": "结束", "sub": "未回访，不继续催促", "row": 11, "col": 0}, {"id": "t3", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 11, "col": 1}, {"id": "more", "kind": "channel", "title": "Email 模板消息", "sub": "回访未加购：补充选购说明", "row": 12, "col": 1}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "本轮承接完成", "row": 13, "col": 1}],[{"from": "s", "to": "t", "label": ""}, {"from": "t", "to": "precheck", "label": ""}, {"from": "pre", "to": "launch", "label": ""}, {"from": "launch", "to": "t2", "label": ""}, {"from": "t2", "to": "q", "label": ""}, {"from": "q", "to": "push", "label": ""}, {"from": "push", "to": "watch", "label": ""}, {"from": "watch", "to": "ok", "label": "已加购"}, {"from": "watch", "to": "q2", "label": "超时未加购"}, {"from": "q2", "to": "choice", "label": ""}, {"from": "choice", "to": "stop", "label": "未回访"}, {"from": "choice", "to": "t3", "label": "已回访"}, {"from": "t3", "to": "more", "label": ""}, {"from": "more", "to": "end", "label": ""}, {"from": "precheck", "to": "pre", "label": "预热期"}, {"from": "precheck", "to": "launch", "label": "临近或已开售"}]);
+ drawJourney(document.getElementById("dag-j5"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "访问活动且有有效资格", "row": 0, "col": 1}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 1, "col": 1}, {"id": "q", "kind": "webhook", "title": "Webhook", "sub": "本活动的领取与使用状态", "row": 2, "col": 1}, {"id": "c", "kind": "branch", "title": "条件分支", "sub": "用户是否已领取权益", "row": 3, "col": 1}, {"id": "a", "kind": "channel", "title": "App Push 通知消息", "sub": "未领：领取与使用入口", "row": 4, "col": 0}, {"id": "b", "kind": "channel", "title": "Email 模板消息", "sub": "已领：适用商品入口", "row": 4, "col": 1}, {"id": "w", "kind": "wait", "title": "等待至", "sub": "本轮可用截止前24小时", "row": 5, "col": 1}, {"id": "q2", "kind": "webhook", "title": "Webhook", "sub": "本权益领取、核销与浏览", "row": 6, "col": 1}, {"id": "c2", "kind": "branch", "title": "条件分支", "sub": "已领、继续浏览但未核销", "row": 7, "col": 1}, {"id": "stop", "kind": "exitEnd", "title": "结束", "sub": "已用或未继续选择", "row": 8, "col": 0}, {"id": "t2", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 8, "col": 1}, {"id": "last", "kind": "channel", "title": "App Push 通知消息", "sub": "临期：返回适用商品", "row": 9, "col": 1}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "本活动最多两条", "row": 10, "col": 1}],[{"from": "s", "to": "t", "label": ""}, {"from": "t", "to": "q", "label": ""}, {"from": "q", "to": "c", "label": ""}, {"from": "c", "to": "a", "label": "未领取"}, {"from": "c", "to": "b", "label": "已领取未用"}, {"from": "a", "to": "w", "label": ""}, {"from": "b", "to": "w", "label": ""}, {"from": "w", "to": "q2", "label": ""}, {"from": "q2", "to": "c2", "label": ""}, {"from": "c2", "to": "stop", "label": "其余"}, {"from": "c2", "to": "t2", "label": "符合"}, {"from": "t2", "to": "last", "label": ""}, {"from": "last", "to": "end", "label": ""}]);
+ drawJourney(document.getElementById("dag-j6"),[{"id": "s", "kind": "entry", "title": "开始", "sub": "自有商城订单签收", "row": 0, "col": 1}, {"id": "w", "kind": "wait", "title": "等待", "sub": "7天使用观察", "row": 1, "col": 1}, {"id": "t", "kind": "sendtime", "title": "可发送时间", "sub": "当地10:00–20:00", "row": 2, "col": 1}, {"id": "q", "kind": "webhook", "title": "Webhook", "sub": "原机型兼容商品与已购记录", "row": 3, "col": 1}, {"id": "c", "kind": "branch", "title": "条件分支", "sub": "用户最近关注的配件用途", "row": 4, "col": 1}, {"id": "a", "kind": "channel", "title": "App Push 通知消息", "sub": "充电：直达兼容商品", "row": 5, "col": 0}, {"id": "b", "kind": "channel", "title": "Email 模板消息", "sub": "音频：用途与兼容商品", "row": 5, "col": 1}, {"id": "d", "kind": "channel", "title": "Email 模板消息", "sub": "未明确：兼容配件目录", "row": 5, "col": 2}, {"id": "watch", "kind": "wait", "title": "等待事件", "sub": "7天内是否购买配件", "row": 6, "col": 1}, {"id": "ok", "kind": "exitOk", "title": "结束", "sub": "已购买，停止本轮推荐", "row": 7, "col": 0}, {"id": "end", "kind": "exitEnd", "title": "结束", "sub": "观察完成，不追加推荐", "row": 7, "col": 1}],[{"from": "s", "to": "w", "label": ""}, {"from": "w", "to": "t", "label": ""}, {"from": "t", "to": "q", "label": ""}, {"from": "q", "to": "c", "label": ""}, {"from": "c", "to": "a", "label": "充电"}, {"from": "c", "to": "b", "label": "音频"}, {"from": "c", "to": "d", "label": "其余"}, {"from": "a", "to": "watch", "label": ""}, {"from": "b", "to": "watch", "label": ""}, {"from": "d", "to": "watch", "label": ""}, {"from": "watch", "to": "ok", "label": "已购买"}, {"from": "watch", "to": "end", "label": "超时"}]);
+ const stages=['注册/订阅','商品浏览','购物车','新品开售','权益使用','配件增购'];
+ const f=svg(1100,135); stages.forEach((v,i)=>{ const x=8+i*183; f.appendChild(el('rect',{x,y:15,width:166,height:86,rx:12,fill:i%2?'#e2f7ee':'#e2f2fb',stroke:'#d5dbe5'})); const t=el('text',{x:x+83,y:51,'text-anchor':'middle','font-size':16,fill:'#0f172a'});t.textContent=v;f.appendChild(t);const n=el('text',{x:x+83,y:78,'text-anchor':'middle','font-size':12,fill:'#6b7789'}); n.textContent='旅程 '+(i+1); f.appendChild(n);});document.getElementById('chart-funnel').appendChild(f);
+ drawBarChart(document.getElementById('chart-model'),{categories:['首购','商品考虑','购物车','新品开售','活动权益','配件增购'],series:[{name:'对照组（演算）',data:[4,5,8,6,6,3],tone:'neutral'},{name:'实验组（演算）',data:[4.6,5.5,9.6,6.8,7,3.4],tone:'success'}],valueSuffix:'%',height:260});
+})();
+</script></body></html>
