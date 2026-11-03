@@ -7,7 +7,7 @@
   <style>
 /* Page and typographic scale */
 :root{--ink:#303b46;--heading:#263340;--muted:#566372;--line:#dce1e5;--rule:#aab7c1;--paper:#fff;--tint:#f3f5f7;--accent:#426078;--border:var(--line)}
-*{box-sizing:border-box}html{background:var(--paper)}body.ma-page{max-width:100rem;margin:auto;padding:0 clamp(1rem,3.2vw,3.25rem) 3rem;color:var(--ink);font:1rem/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}html{background:var(--paper);scroll-padding-top:calc(var(--nav-height,3rem) + .5rem)}body.ma-page{max-width:100rem;margin:auto;padding:0 clamp(1rem,3.2vw,3.25rem) 3rem;color:var(--ink);font:1rem/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
 h1,h2,h3,h4,p{margin:0}a{color:var(--accent);text-underline-offset:.2em}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,summary:focus-visible,.ma-canvas:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule);color:var(--heading);font-size:.84rem}
 .masthead strong{letter-spacing:.06em;font-size:1rem}.masthead .market{border-left:1px solid var(--line);padding-left:.85rem;margin-left:.85rem}
@@ -16,7 +16,7 @@ p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:
 .hero .subtitle{margin:.95rem 0 0;max-width:40em;color:var(--muted);font-size:clamp(1rem,1.35vw,1.2rem)}
 .cover-example{border-left:2px solid var(--rule);padding:0 0 0 1.3rem}
 .cover-example h2{font-size:1.04rem;color:var(--heading);margin-bottom:.35rem}.cover-example ol{margin:0;padding:0;list-style:none}.cover-example li{display:grid;grid-template-columns:4.4rem 1fr;gap:.6rem;padding:.38rem 0;border-bottom:1px solid var(--line);font-size:.91rem}.cover-example li:last-child{border:0}.cover-example span{color:var(--muted)}
-.plan-links{display:flex;flex-wrap:wrap;gap:.35rem 1.65rem;padding:.75rem 0;border-block:1px solid var(--line);font-size:.89rem}
+.plan-links{position:sticky;top:0;z-index:10;background:var(--paper);display:flex;flex-wrap:wrap;gap:.35rem 1.65rem;padding:.75rem 0;border-block:1px solid var(--line);font-size:.89rem}
 .plan-links a,.plan-overview a,.top-link,.ma-expand{color:var(--heading)}.plan-links a{text-decoration:none}.plan-links a:hover{text-decoration:underline}
 .plan-section{margin:clamp(2.7rem,5vw,5rem) 0;scroll-margin-top:1rem}.plan-section>h2,.overview-title h2{color:var(--heading);font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.25;letter-spacing:-.035em}
 .lead{color:var(--muted);max-width:64em;margin:.8rem 0 1.3rem}.overview-title{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
@@ -77,13 +77,13 @@ p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:
 </style>
 </head>
 <body class="ma-page">
+  <nav class="plan-links" aria-label="方案导航"><a href="#why-ma">为什么需要 MA</a><a href="#integration">接入优势与首期范围</a><a href="#channels">通道优势</a><a href="#index">场景总览</a><a href="#journeys-title">重点旅程</a><a href="#pilot">试点与验证</a></nav>
   <header class="hero">
     <div class="masthead"><div><strong>Jackery</strong><span class="market">美国独立站</span></div><span>EngageLab · <time datetime="2026-11">2026 年 11 月</time></span></div>
     <div class="hero-inner"><div><h1>美国站营销自动化方案</h1><p class="subtitle">本方案覆盖季前备电、机主配件和大促的预热与成交。建议先选一场美国站大促，比较按浏览兴趣发送预告与发送通用预告的活动订阅率。</p></div>
     <div class="cover-example"><h2>首期试点</h2><ol><li><span>范围</span>一次大促，通过 Email/AppPush 邀请订阅</li><li><span>对照</span>符合条件的用户随机分为两组，分别接收兴趣预告和通用预告</li><li><span>衡量</span>开场前活动订阅率，同时核对退订和重复发送</li></ol></div></div>
   </header>
   <main>
-    <div class="plan-links" aria-label="方案速览"><a href="#why-ma">为什么需要 MA</a><a href="#integration">接入优势与首期范围</a><a href="#channels">通道优势</a><a href="#index">场景总览</a><a href="#journeys-title">重点旅程</a><a href="#pilot">试点与验证</a></div>
     <section class="plan-section" id="why-ma" aria-labelledby="why-title">
       <h2 id="why-title">为什么需要 MA</h2>
       <p class="lead">名单确定后，用户还会订阅、签收或付款。营销自动化（MA）读取活动系统、设备和商城记录，在发送前重新判断。运营可以为不同状态配置内容和停止条件，减少逐次核对名单的工作。</p>
@@ -319,6 +319,13 @@ p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:
     </section>
   </main>
   <script>
+    const navigation = document.querySelector('.plan-links');
+    function updateNavigationHeight() {
+      document.documentElement.style.setProperty('--nav-height', navigation.offsetHeight + 'px');
+    }
+    updateNavigationHeight();
+    new ResizeObserver(updateNavigationHeight).observe(navigation);
+
     function centerMapStart(canvas) {
       const start = canvas.querySelector('[data-kind="start"] rect').getBoundingClientRect();
       const frame = canvas.getBoundingClientRect();
