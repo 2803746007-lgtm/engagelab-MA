@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jackery 美国站 · 营销自动化方案</title>
+  <style>
+/* Page and typographic scale */
+:root{--ink:#303b46;--heading:#263340;--muted:#566372;--line:#dce1e5;--rule:#aab7c1;--paper:#fff;--tint:#f3f5f7;--accent:#426078;--border:var(--line)}
+*{box-sizing:border-box}html{background:var(--paper)}body.ma-page{max-width:100rem;margin:auto;padding:0 clamp(1rem,3.2vw,3.25rem) 3rem;color:var(--ink);font:1rem/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+h1,h2,h3,h4,p{margin:0}a{color:var(--accent);text-underline-offset:.2em}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,summary:focus-visible,.ma-canvas:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule);color:var(--heading);font-size:.84rem}
+.masthead strong{letter-spacing:.06em;font-size:1rem}.masthead .market{border-left:1px solid var(--line);padding-left:.85rem;margin-left:.85rem}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(17rem,1fr);gap:clamp(2rem,6vw,7rem);align-items:center;padding:clamp(2rem,4.2vw,4.5rem) 0}
+.hero h1{font-size:clamp(2rem,3.8vw,3.8rem);line-height:1.16;letter-spacing:-.035em;color:var(--heading);font-weight:650}
+.hero .subtitle{margin:.95rem 0 0;max-width:40em;color:var(--muted);font-size:clamp(1rem,1.35vw,1.2rem)}
+.cover-example{border-left:2px solid var(--rule);padding:0 0 0 1.3rem}
+.cover-example h2{font-size:1.04rem;color:var(--heading);margin-bottom:.35rem}.cover-example ol{margin:0;padding:0;list-style:none}.cover-example li{display:grid;grid-template-columns:4.4rem 1fr;gap:.6rem;padding:.38rem 0;border-bottom:1px solid var(--line);font-size:.91rem}.cover-example li:last-child{border:0}.cover-example span{color:var(--muted)}
+.plan-links{display:flex;flex-wrap:wrap;gap:.35rem 1.65rem;padding:.75rem 0;border-block:1px solid var(--line);font-size:.89rem}
+.plan-links a,.plan-overview a,.top-link,.ma-expand{color:var(--heading)}.plan-links a{text-decoration:none}.plan-links a:hover{text-decoration:underline}
+.plan-section{margin:clamp(2.7rem,5vw,5rem) 0;scroll-margin-top:1rem}.plan-section>h2,.overview-title h2{color:var(--heading);font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.25;letter-spacing:-.035em}
+.lead{color:var(--muted);max-width:64em;margin:.8rem 0 1.3rem}.overview-title{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
+.top-link{font-size:.86rem;display:inline-block;margin:.65rem 0 .25rem}.section-note,.integration-check{margin-top:1rem;padding:1rem 1.25rem;background:var(--tint);border-left:2px solid var(--rule)}.section-note p,.integration-check p{margin-top:.35rem}
+.reason-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:clamp(1.4rem,4vw,4.5rem);margin-top:1.4rem;align-items:start}
+.reason-case{padding:clamp(1.2rem,2.3vw,2.6rem);background:var(--tint);color:var(--heading)}.reason-case h3{font-size:1.34rem;line-height:1.45;margin-bottom:.7rem}.reason-case p{color:var(--ink)}
+.reason-list{margin:0}.reason-list>div{display:grid;grid-template-columns:minmax(7em,.65fr) minmax(0,1.5fr);gap:1.2rem;padding:.8rem 0;border-top:1px solid var(--line)}.reason-list dt{color:var(--heading);font-weight:650}.reason-list dd{margin:0;color:var(--muted)}
+/* Use real comparison tables for parallel decisions. */
+.report-table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;background:transparent}
+.report-table th,.report-table td{padding:.75rem .9rem;vertical-align:top;border-bottom:1px solid var(--line)}
+.report-table thead th{border-top:1px solid var(--rule);font-weight:600;color:var(--heading);background:var(--tint);font-size:.9rem}
+.report-table tbody th{color:var(--heading);font-weight:650}.report-table td{font-size:.95rem}.report-table a{font-size:.88rem}.report-table .short-col{width:19%}.report-table .tiny-col{width:13%}
+.channel-notes{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1rem}.channel-notes h3,.integration-check h3,.section-note h3{font-size:1.02rem;color:var(--heading)}
+.channel-notes p{margin-top:.35rem;color:var(--muted)}
+.scene-head,.scene-row{display:grid;grid-template-columns:minmax(10rem,.82fr) minmax(12rem,1fr) minmax(14rem,1.4fr) minmax(12rem,1fr);gap:1.1rem;padding:.8rem .9rem}
+.scene-head{border-top:1px solid var(--rule);background:var(--tint);font-size:.88rem;font-weight:650;color:var(--heading)}
+.scene-row{color:var(--ink);border-bottom:1px solid var(--line);text-decoration:none;font-size:.94rem}.scene-row:hover{background:var(--tint);text-decoration:none}.scene-row strong{color:var(--heading)}.mobile-label{display:none}
+/* Journey diagrams keep their product node colors and native viewBox. */
+.ma-journey{margin:1.7rem 0 3rem;border-top:1px solid var(--rule);scroll-margin-top:1rem}
+.ma-layout{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:1rem;align-items:start}.ma-layout>:only-child{grid-column:1/-1}
+.ma-card{min-width:0}.ma-map-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:1rem 0 .85rem}
+.map-number{display:block;color:var(--accent);font-size:.82rem;font-weight:650}.ma-map-heading h2{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.4;margin:.18rem 0}.ma-map-heading p{font-size:.94rem;color:var(--muted)}
+.ma-expand{cursor:pointer;border:1px solid #768594;background:transparent;border-radius:2px;padding:.35rem .65rem;font:inherit;font-size:.84rem;flex:none}.ma-expand:hover{background:var(--tint)}
+.ma-canvas{overflow-x:auto;max-width:100%;background:#fff;border:1px solid var(--line)}.ma-canvas svg{display:block;margin-inline:auto}.ma-canvas .map-svg{width:min(100%,var(--native));height:auto;min-width:0}
+.ma-journey[data-expanded="true"] .ma-layout{grid-template-columns:minmax(0,1fr)}
+.ma-canvas text{fill:#20332e;font:14px system-ui,sans-serif}.ma-canvas [data-kind]>rect{fill:var(--node-fill);stroke:var(--node-line);stroke-width:1.4}
+.ma-canvas [data-kind="start"] {--node-fill:#e4f5eb;--node-line:#478065;}
+.ma-canvas [data-kind="end"] {--node-fill:#e9edf0;--node-line:#65737e;}
+.ma-canvas [data-kind="condition"] {--node-fill:#f2ebfa;--node-line:#8564a0;}
+.ma-canvas [data-kind="wait-event"] {--node-fill:#fff2d8;--node-line:#a87627;}
+.ma-canvas [data-kind="send-window"] {--node-fill:#fff0e7;--node-line:#b06e42;}
+.ma-canvas [data-kind="ab"] {--node-fill:#fbe8f2;--node-line:#ac5c89;}
+.ma-canvas [data-kind="app-card"] {--node-fill:#e5efff;--node-line:#5380ba;}
+.ma-canvas [data-kind="app-notice"] {--node-fill:#e7eafd;--node-line:#666bb4;}
+.ma-canvas [data-kind="touch"] {--node-fill:#dff4f2;--node-line:#3b897f;}
+.ma-canvas [data-kind="webhook"] {--node-fill:#f1f2da;--node-line:#7f8739;}
+.ma-canvas .node-label{font-size:15px;font-weight:600}.ma-canvas .node-detail{font-size:13px;fill:#42594d}.ma-canvas .edge-label{font-size:12px;font-weight:600;fill:#335847;paint-order:stroke;stroke:#fff;stroke-width:6;stroke-linejoin:round}
+.config-panel{padding:1rem 0 1rem 1rem;border-left:1px solid var(--line);overflow-wrap:anywhere}.config-panel h3{font-size:1rem;color:var(--heading)}.ma-config{margin:0}.ma-config dt{font-size:.94rem;font-weight:650;color:var(--accent);border-top:1px solid var(--line);padding-top:.65rem;margin-top:.7rem}.ma-config dd{font-size:.91rem;color:var(--muted);margin:.3rem 0}
+.config-pending,.config-sources{font-size:.85rem;color:var(--muted);margin-top:.8rem}.config-pending{padding:.6rem .75rem;background:var(--tint)}.config-sources summary,.case-detail summary{cursor:pointer}
+.case-detail{border-block:1px solid var(--line);padding:.5rem 0;color:var(--muted)}.case-detail summary{color:var(--heading);font-weight:620;font-size:.95rem}.case-detail p{max-width:67em;margin:.4rem 0 .6rem}.case-detail .walk-focus{font-weight:600}.case-detail summary::marker,.config-sources summary::marker{color:var(--accent)}
+.ma-journey[data-expanded="true"] .config-panel{border-left:0;border-top:1px solid var(--line);padding-left:0}.ma-journey[data-expanded="true"] .ma-config dd{max-width:65em}
+.pilot-brief{display:grid;grid-template-columns:1fr 1.35fr;align-items:center;gap:1.25rem;padding:clamp(1rem,2.3vw,2rem);background:var(--tint);color:var(--heading);margin:1rem 0}
+.pilot-brief strong{display:block;font-size:1.4rem;font-weight:630}.pilot-brief p{color:var(--ink);font-size:.98rem}
+.pilot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.3rem}.pilot-grid>div{padding:.7rem 0;border-top:1px solid var(--line)}.pilot-grid h3{font-size:1rem;color:var(--heading);margin-bottom:.35rem}
+.pilot-detail,.readout{margin-top:2rem}.pilot-detail h3,.readout h3{margin-bottom:.55rem;font-size:1.22rem;color:var(--heading)}.readout{border-left:2px solid var(--rule);padding-left:1.1rem;max-width:68rem}
+@media(min-width:90rem){.ma-layout{grid-template-columns:minmax(0,5fr) minmax(0,1fr)}}
+@media(max-width:72rem){.ma-layout{grid-template-columns:1fr}.config-panel{border-left:0;padding:1rem 0}.ma-config dd{max-width:65em}}
+@media(max-width:62rem){.reason-grid{grid-template-columns:1fr}.scene-head{display:none}.scene-row{grid-template-columns:1fr;gap:.25rem;padding:.8rem .1rem}.mobile-label{display:inline;font-weight:600;color:var(--muted);font-size:.85rem}.plan-overview{border-top:1px solid var(--rule)}}
+@media(max-width:48rem){
+ .hero-inner,.channel-notes,.pilot-brief,.pilot-grid{grid-template-columns:1fr}.hero-inner{gap:1.35rem}.masthead{font-size:.77rem}
+ .plan-links{gap:.4rem 1.05rem}.reason-list>div{grid-template-columns:1fr;gap:.25rem}.overview-title{align-items:flex-start}
+ .report-table,.report-table tbody,.report-table tr,.report-table tbody th,.report-table td{display:block;width:100%}.report-table colgroup{display:none}.report-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .report-table tbody tr{border-top:1px solid var(--line);padding:.75rem 0}.report-table tbody tr:first-child{border-top:1px solid var(--rule)}
+ .report-table tbody th,.report-table td{border:0;padding:.25rem 0}.report-table td::before{content:attr(data-label);display:block;color:var(--muted);font-size:.8rem;font-weight:630}
+ .ma-canvas .map-svg{min-width:calc(var(--native)*.85)}.ma-map-heading{gap:.4rem}.ma-expand{padding:.3rem .4rem}
+}
+@media print{.plan-links,.ma-expand,.top-link{display:none}.ma-layout{display:block}.ma-canvas{overflow:visible}.ma-canvas .map-svg{min-width:0;width:100%}.ma-journey{break-before:page}}
+</style>
+</head>
+<body class="ma-page">
+  <header class="hero">
+    <div class="masthead"><div><strong>Jackery</strong><span class="market">美国独立站</span></div><span>EngageLab · <time datetime="2026-11">2026 年 11 月</time></span></div>
+    <div class="hero-inner"><div><h1>美国站营销自动化方案</h1><p class="subtitle">本方案覆盖季前备电、机主配件和大促的预热与成交。建议先选一场美国站大促，比较按浏览兴趣发送预告与发送通用预告的活动订阅率。</p></div>
+    <div class="cover-example"><h2>首期试点</h2><ol><li><span>范围</span>一次大促，通过 Email/AppPush 邀请订阅</li><li><span>对照</span>符合条件的用户随机分为两组，分别接收兴趣预告和通用预告</li><li><span>衡量</span>开场前活动订阅率，同时核对退订和重复发送</li></ol></div></div>
+  </header>
+  <main>
+    <div class="plan-links" aria-label="方案速览"><a href="#why-ma">为什么需要 MA</a><a href="#integration">接入优势与首期范围</a><a href="#channels">通道优势</a><a href="#index">场景总览</a><a href="#journeys-title">重点旅程</a><a href="#pilot">试点与验证</a></div>
+    <section class="plan-section" id="why-ma" aria-labelledby="why-title">
+      <h2 id="why-title">为什么需要 MA</h2>
+      <p class="lead">名单确定后，用户还会订阅、签收或付款。营销自动化（MA）读取活动系统、设备和商城记录，在发送前重新判断。运营可以为不同状态配置内容和停止条件，减少逐次核对名单的工作。</p>
+      <div class="reason-grid">
+        <div class="reason-case"><h3>大促开场时，谁收到商品推荐</h3><p>开场时，只有已订阅本场活动的用户才收到后续消息。主动选定型号的用户收到商品推荐，尚未选型的用户收到一次开场介绍。开场仍未订阅的人直接退出。商品付款后，停止该商品的促购提醒。</p></div>
+        <dl class="reason-list"><div><dt>策略由运营调整</dt><dd>下一期大促可在旅程草稿中调整预告版本、开场时间和等待条件。风暴季换地区时，运营更新地区日期，产品团队更新清单和指南。已有的订阅、签收和付款记录可以沿用。</dd></div>
+          <div><dt>效果分段衡量</dt><dd>预告阶段比较兴趣预告与通用预告的订阅率。商品跟进阶段另看实际付款，以及付款后是否仍发出提醒。<a href="#pilot">查看试点设计</a></dd></div>
+          <div><dt>与现有流程比较</dt><dd>以最近一次大促为基准，比较更新活动所需的工时、人工核对名单的次数和重复发送情况。预告对订阅率的影响，在本期活动内通过随机分组衡量。</dd></div></dl>
+      </div>
+    </section>
+    <section class="plan-section" id="integration" aria-labelledby="integration-title">
+      <h2 id="integration-title">MA 的接入优势与首期范围</h2>
+      <p class="lead">Jackery 美国站已有家庭备电、露营和房车选购内容，兼容机型也可在 App 中绑定。首轮先确认用户平时关注的用电场景、允许接收营销消息的渠道，以及是否订阅本场活动。后续启用商品跟进时再接选型和交易数据，商城继续确认支付，MA 据此决定是否发送。<a href="https://www.jackery.com/pages/jackery-buying-guide">美国站选购指南</a> · <a href="https://community.jackery.com/us/knowledge/app-usage/app-download-and-connection">Jackery 设备绑定说明</a></p>
+      <table class="report-table"><colgroup><col class="short-col"><col><col><col></colgroup><thead><tr><th scope="col">接入环节</th><th scope="col">Jackery 提供的数据</th><th scope="col">MA 中的配置</th><th scope="col">验收安排</th></tr></thead><tbody><tr><th scope="row">行为与身份</th><td data-label="Jackery 提供的数据">提供同一用户最近 30 天看过的家庭备电、露营或房车内容，按不同访问次数统计。</td><td data-label="MA 中的配置">某个场景至少有 2 次访问，且比第二名多至少 2 次，就选对应的预告。兴趣接近或记录不足时使用通用预告。</td><td data-label="验收安排">用一位用户的浏览记录验证预告版本，再核对其可用渠道和本场订阅结果。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/console/basic-settings/data-resource">数据源设置</a> · <a href="https://www.engagelab.com/learning-center/ma/article/how-to-report-data-from-business-systems-or-backend-service">业务系统上报说明</a></td></tr><tr><th scope="row">活动与商品</th><td data-label="Jackery 提供的数据">活动系统提供本场订阅结果和开场时间，商城提供用户主动选定的具体型号。</td><td data-label="MA 中的配置">开场仍未订阅者退出。已订阅且选定型号者进入商品跟进，已订阅但未选型者只收一次开场介绍。同一用户在本场活动选定同款商品时只跟进一次。</td><td data-label="验收安排">首轮核对预告收件人与订阅结果。启用商品跟进前，验证两个入口只向同一用户发送一次该商品的推荐。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/client-sdk-reference/web-sdk/API-guide">活动和选型记录说明</a></td></tr><tr><th scope="row">触达渠道</th><td data-label="Jackery 提供的数据">营销邮件和 App 通知的接收许可、实际可用的渠道，以及用户已收到的通知。</td><td data-label="MA 中的配置">标为 Email/AppPush 的节点按用户许可和渠道可用性择一发送。试点在同一渠道内比较预告版本。</td><td data-label="验收安排">首轮验证用户已授权、活动入口可打开，且同一动作只发送一次。两种渠道均不可用时跳过发送。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/console/basic-settings/engage-channel">触达渠道配置</a></td></tr><tr><th scope="row">交易与适配</th><td data-label="Jackery 提供的数据">商城提供所购商品和支付状态，活动运营提供用券条件，产品团队维护机型与配件的适配清单。</td><td data-label="MA 中的配置">根据最新支付状态停止提醒，根据适配关系选择配件，根据券资格决定是否发送优惠券。</td><td data-label="验收安排">核对订单中的商品是否为用户选定的型号，并验证付款后停发。发券前核对适用资格，推荐配件前核对机型。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/console/Journey/create-Journey">旅程画布与配置</a></td></tr></tbody></table>
+      <div class="integration-check"><h3>首轮分工与交付</h3><p>Jackery 运营确定试点活动、优惠、开场时间和预告素材，数据团队提供可关联的浏览与订阅样本。EngageLab 配置预告规则，双方用样本验证每位用户收到的版本，并核对活动系统记录的订阅结果。试点结束后，按组报告订阅率、营销退订和重复发送。</p></div>
+    </section>
+    <section class="plan-section" id="channels" aria-labelledby="channels-title">
+      <h2 id="channels-title">EngageLab 的通道优势</h2>
+      <p class="lead">EngageLab MA 支持五种通道，各通道开通后即可在旅程中选用。本方案以 Email/AppPush 表示邮件或 App 推送，具体方式在上线前选定，每次只用一个已获许可且可用的渠道。WebPush、SMS 和 WhatsApp 的适用范围分别列在下表，供后续评估。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/console/basic-settings/engage-channel">MA 通道与配置要求</a></p>
+      <table class="report-table"><colgroup><col class="short-col"><col><col><col></colgroup><thead><tr><th scope="col">通道</th><th scope="col">优势与适用场景</th><th scope="col">启用条件</th><th scope="col">如何验证</th></tr></thead><tbody>
+        <tr><th scope="row">Email</th><td data-label="优势与适用场景">一封邮件可包含型号对照、图文步骤和选购链接，便于用户留存。季前提醒可附机型指南，配件推荐可说明组合效果，大促各版预告共用一个订阅入口。</td><td data-label="启用条件">验证品牌发信域名，开通邮件账户，确认用户同意接收营销邮件。邮件平台可拦截已退订地址和命中退信、投诉名单的地址。<a href="https://www.engagelab.com/zh_CN/learning-center/ma/article/engagelab-ma-email-channel-overview">发件配置</a></td><td data-label="如何验证">按邮件查看投递和失败原因。开启链接追踪后可区分订阅与选购入口的点击，订阅成功以活动系统记录为准。<a href="https://www.engagelab.com/zh_CN/docs/email/instructions/data">投递、拦截与追踪</a></td></tr>
+        <tr><th scope="row">AppPush</th><td data-label="优势与适用场景">通知可将用户直接带回待处理事项。例如，配件订单仍待付款时只推送一次，用户点击后打开该订单。支持 iPhone 和多种 Android 机型，可分平台查看推送表现。<a href="https://www.engagelab.com/zh_CN/docs/app-push/user-guide/product-overview">平台与通道</a></td><td data-label="启用条件">用户的手机允许接收该 App 的通知，当前设备可触达，点击后能打开对应订单。电源绑定记录本身不能证明手机已授权。</td><td data-label="如何验证">分平台查看可获得的送达、展示和点击回执，实测点击是否打开正确订单，再用商城支付状态判断结果。<a href="https://www.engagelab.com/zh_CN/docs/app-push/developer-guide/client-sdk-reference/android-sdk/vendor-channel-callback-config-guide">厂商回执差异</a></td></tr>
+        <tr><th scope="row">WebPush</th><td data-label="优势与适用场景">访客无需安装 Jackery App 或留下邮箱，也可授权浏览器接收网站通知。适合由通知带回活动页或选购指南。<a href="https://www.engagelab.com/zh_CN/learning-center/ma/article/engagelab-ma-webpush-channel-overview">WebPush 接入</a></td><td data-label="启用条件">网站已开通网页推送，访客允许浏览器接收通知。发送个人订单或型号推荐前，还需确认该浏览器订阅属于对应用户。</td><td data-label="如何验证">按浏览器分别测试站点打开和关闭时的接收与点击。EngageLab 自建通道要求网页在线，系统通道的离站表现取决于浏览器和操作系统。<a href="https://www.engagelab.com/zh_CN/docs/web-push/user-guide/faq">浏览器送达条件</a></td></tr>
+        <tr><th scope="row">SMS</th><td data-label="优势与适用场景">通过运营商向手机号发短消息，无需用户打开网站或安装 App。适合有明确时限、一个入口就能完成的通知。<a href="https://www.engagelab.com/zh_CN/sms">短信通道说明</a></td><td data-label="启用条件">核实短信许可、有效手机号和退订处理，配置短信账户、适用于美国的发送号码及模板。美国发送方类型及开通要求以实际线路为准。</td><td data-label="如何验证">按每条短信查看送达或失败原因。短链点击需单独记录，短信回执只能用于核对投递状态。<a href="https://www.engagelab.com/zh_CN/docs/sms/api/callback">短信状态回执</a></td></tr>
+        <tr><th scope="row">WhatsApp</th><td data-label="优势与适用场景">同一会话可展示图片或视频，提供快速回复按钮，并接收用户回复。适合需要演示设备用法、再回答问题的服务场景。<a href="https://www.engagelab.com/zh_CN/docs/whatsapp/console/message-center/message-templates">模板与按钮</a></td><td data-label="启用条件">配置商业账号及发送号，核对用户授权。客服窗口外主动联系需使用获批模板。美国号码的营销模板投递暂停，本方案不将它用于美国大促或配件促购。<a href="https://help.salesforce.com/s/articleView?id=004633478&amp;language=en_US&amp;type=1">美国号码限制</a></td><td data-label="如何验证">在允许的场景分别核对送达、已读和实际回复。如需按回复继续跟进，先验证能否识别回复者及其实际答复。<a href="https://www.engagelab.com/zh_CN/docs/whatsapp/rest-api/callback-api">消息状态与用户回复</a></td></tr>
+      </tbody></table><div class="channel-notes"><div><h3>同一动作只发一次</h3><p>Email/AppPush 每次择一发送。两者均有许可时按本场活动的安排选用，均不可用则不发。同一用户不会因两种渠道都可用而重复收到同一消息。配件订单的付款提醒只发一次 AppPush，不可推送即结束。</p></div><div><h3>投递、订阅与付款的核验依据</h3><p>投递和点击以所选渠道的记录为准，活动订阅以本场订阅名单为准，付款以商城中对应商品的订单为准。</p><a href="https://www.engagelab.com/zh_CN/docs/email/instructions/analytics">Email 数据中心</a></div></div>
+    </section>
+    <section class="plan-section" id="index" aria-labelledby="overview-title">
+      <div class="overview-title"><h2 id="overview-title">场景总览</h2><a class="top-link" href="#pilot">查看试点与验证 ↓</a></div>
+      <p class="lead">前两条旅程分别服务于目标地区的家庭和新近绑定设备的机主。后两条衔接同一场大促，预告内容取决于日常浏览兴趣。开场只跟进已订阅用户，按是否选定型号决定发送内容。付款后停止该商品的促购。</p>
+      <div class="scene-head" aria-hidden="true"><span>重点旅程</span><span>运营要解决的问题</span><span>可调整的策略</span><span>预期价值</span></div>
+      <nav class="plan-overview" aria-label="旅程图索引">
+        <a class="scene-row" href="#regional-backup"><strong>① 风暴季前备电提醒</strong><span><span class="mobile-label">运营问题　</span>同一地区既有备电设备齐全的家庭，也有设备不全或已确认无设备的家庭。</span><span><span class="mobile-label">策略　</span>设备齐全的家庭收到指南即结束。仅对首轮无设备或设备不全者，在开季前 3 天复核已到手的机型。</span><span><span class="mobile-label">预期价值　</span>让检查指南与实有机型相符，减少已购设备的重复推荐。</span></a>
+        <a class="scene-row" href="#j2"><strong>② 机主配件推荐</strong><span><span class="mobile-label">运营问题　</span>同一机型可以搭配多款配件，用户的需求不同。</span><span><span class="mobile-label">策略　</span>绑定后 7 天内，加购一次适配配件就推荐该款。浏览同类 3 款不同适配配件就推荐该类。均未达到时发机型适配清单。</span><span><span class="mobile-label">预期价值　</span>让机主收到与已绑定机型相配的推荐，并能按推荐清单衡量配件成交。</span></a>
+        <a class="scene-row" href="#j3"><strong>③ 大促预告订阅与开场分流</strong><span><span class="mobile-label">运营问题　</span>同一场促销同时覆盖家庭备电、露营和房车等需求。</span><span><span class="mobile-label">策略　</span>预告按日常浏览兴趣选版。开场仍未订阅就退出，已订阅者按是否选定型号分流。</span><span><span class="mobile-label">预期价值　</span>检验兴趣预告能否增加活动订阅，让选定型号的用户收到对应推荐。</span></a>
+        <a class="scene-row" href="#j1"><strong>④ 活动订阅用户的意向商品转化</strong><span><span class="mobile-label">运营问题　</span>有的人只加购，有的人直接付款；通用提醒容易发错时机。</span><span><span class="mobile-label">策略　</span>只看推荐的同款商品。加购等下单，下单等付款，已付即结束。符合活动条件才发券。</span><span><span class="mobile-label">预期价值　</span>促进意向商品完成付款，减少付款后的重复提醒。</span></a>
+      </nav>
+    </section>
+    <section class="plan-section" aria-labelledby="journeys-title">
+      <h2 id="journeys-title">重点旅程</h2>
+<article class="ma-journey" id="regional-backup" aria-labelledby="title-region"><div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 01</span><h2 id="title-region">风暴季前备电提醒</h2><p>设备齐全的机主收到检查提醒；无设备或设备不全的用户先收到准备建议，临近风暴季再按实有机型复核。</p></div>
+<button class="ma-expand" type="button" aria-expanded="false" aria-controls="map-region">展开全图</button></div>
+<div class="ma-canvas" id="map-region" tabindex="0" role="region" aria-label="风暴季前备电提醒，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:1004px" width="1004" height="918" viewBox="0 0 1004 918" role="img" aria-labelledby="svg-title-region svg-desc-region">
+<title id="svg-title-region">风暴季前备电提醒</title><desc id="svg-desc-region">地区季前提醒启动后，对设备齐全的用户发检查提醒并结束。无设备者收到无需设备的准备措施和选购指南，部分持有者收到适配补充设备与组合效果说明。后两组等待地区复核时点，再按实际持有的已购机型发一次检查指南。</desc><defs><marker id="arrow-region" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs>
+<g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#arrow-region)"><path data-from="s" data-to="coverage" d="M490 84V142"/>
+<path data-from="coverage" data-to="ready" d="M490 213V240H165V297"/>
+<path data-from="coverage" data-to="none" d="M490 213V240H490V297"/>
+<path data-from="coverage" data-to="partial" d="M490 213V240H815V297"/>
+<path data-from="coverage" data-to="end" d="M365 179H18V864H362"/>
+<path data-from="none" data-to="near" d="M490 368V407H650V442"/>
+<path data-from="partial" data-to="near" d="M815 368V407H650V442"/>
+<path data-from="ready" data-to="end" d="M165 368V864H362"/>
+<path data-from="near" data-to="owned" d="M650 513V567"/>
+<path data-from="owned" data-to="guide" d="M650 638V702"/>
+<path data-from="owned" data-to="end" d="M775 604H972V864H618"/>
+<path data-from="guide" data-to="end" d="M650 773V799H490V827"/></g>
+<text class="edge-label" x="570" y="119" text-anchor="middle"></text>
+<text class="edge-label" x="210" y="277" text-anchor="middle">设备齐全</text>
+<text class="edge-label" x="535" y="277" text-anchor="middle">确认无设备</text>
+<text class="edge-label" x="860" y="277" text-anchor="middle">已有部分设备</text>
+<text class="edge-label" x="187" y="170" text-anchor="middle">持有情况或需求未知</text>
+<text class="edge-label" x="721" y="549" text-anchor="middle">到达本期复核时点</text>
+<text class="edge-label" x="711" y="681" text-anchor="middle">有已确认型号</text>
+<text class="edge-label" x="870" y="595" text-anchor="middle">仍无设备或型号未确认</text>
+<g data-node="s" data-kind="start"><rect x="365" y="16" width="250" height="68" rx="16"/><text class="node-label" x="490" y="44" text-anchor="middle">开始</text><text class="node-detail" x="490" y="67" text-anchor="middle">地区风暴季提醒开始</text></g>
+<g data-node="coverage" data-kind="condition"><rect x="365" y="145" width="250" height="68" rx="10"/><text class="node-label" x="490" y="173" text-anchor="middle">条件分支</text><text class="node-detail" x="490" y="196" text-anchor="middle">风暴季地区用户拥有设备情况</text></g>
+<g data-node="ready" data-kind="touch"><rect x="40" y="300" width="250" height="68" rx="10"/><text class="node-label" x="165" y="328" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="165" y="351" text-anchor="middle">发送已有机型的季前检查提醒和使用指南</text></g>
+<g data-node="none" data-kind="touch"><rect x="365" y="300" width="250" height="68" rx="10"/><text class="node-label" x="490" y="328" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="490" y="351" text-anchor="middle">发送无设备准备措施和设备选购指南</text></g>
+<g data-node="partial" data-kind="touch"><rect x="690" y="300" width="250" height="68" rx="10"/><text class="node-label" x="815" y="328" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="815" y="351" text-anchor="middle">介绍缺少的适配设备及组合使用效果</text></g>
+<g data-node="near" data-kind="wait-event"><rect x="525" y="445" width="250" height="68" rx="10"/><text class="node-label" x="650" y="473" text-anchor="middle">等待至</text><text class="node-detail" x="650" y="496" text-anchor="middle">等待至风暴季前三天</text></g>
+<g data-node="owned" data-kind="condition"><rect x="525" y="570" width="250" height="68" rx="10"/><text class="node-label" x="650" y="598" text-anchor="middle">条件分支</text><text class="node-detail" x="650" y="621" text-anchor="middle">已购且可确认设备型号</text></g>
+<g data-node="guide" data-kind="touch"><rect x="525" y="705" width="250" height="68" rx="10"/><text class="node-label" x="650" y="733" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="650" y="756" text-anchor="middle">发送对应机型的检查指南</text></g>
+<g data-node="end" data-kind="end"><rect x="365" y="830" width="250" height="68" rx="16"/><text class="node-label" x="490" y="858" text-anchor="middle">结束</text><text class="node-detail" x="490" y="881" text-anchor="middle">本轮风暴季提醒结束</text></g></svg></div>
+<a class="top-link" href="#index">返回图索引 ↑</a></div>
+<aside class="ma-card config-panel" aria-labelledby="config-regional-backup"><h3 id="config-regional-backup">关键配置</h3>
+<dl class="ma-config">
+<dt>哪些设备算已在手</dt><dd>按用户关联有效绑定和已签收且未退回的设备，结合用户明确反馈或客服核实的持有记录，对照本地区本期需求清单。能覆盖全部需求才算齐全。只有能同时确认已有机型和具体缺口，才推荐补充设备。“无设备”以用户明确反馈或客服记录为据。需求或持有情况不明时结束。</dd>
+<dt>适配设备的推荐依据</dt><dd>产品团队按“已有机型＋所需用途”维护适配表，列可补配件、组合效果及资料出处。推荐前剔除已购、在途和缺货项。介绍组合效果时注明比较所用的机型和负载。</dd>
+<dt>季前 3 天复核</dt><dd>运营按地区和当地时区设置本轮开季日。开季前 3 天，仅对首轮无设备或部分持有者重查绑定和签收。将最新确认在手的机型合并到一份指南中，在途设备不计入。</dd>
+</dl>
+<p class="config-pending"><b>地区定时与发送许可</b>　上线前确认地区日历、当地时区、可用通道的接收许可和设备记录覆盖范围，分别验证首轮提醒与开季前 3 天复核的触发时间。</p><details class="config-sources"><summary>查看参考资料</summary><p><a href="https://www.globenewswire.com/news-release/2026/08/31/3353337/0/en/power-off-jackery-on-jackery-marks-national-preparedness-month-with-home-backup-built-for-the-fall-storm-season.html">Jackery 品牌公告</a> · <a href="https://www.jackery.com/blogs/emergency/how-to-use-your-jackery-during-a-power-outage-emergency-guide">机主使用指南</a> · <a href="https://www.jackery.com/blogs/emergency/how-to-prepare-for-hurricane">季前准备措施</a> · <a href="https://www.jackery.com/pages/home-battery-backup">家庭备电选购专题</a></p></details></aside>
+</div><details class="case-detail" id="walkthrough"><summary>示例 · 扩容设备已签收或仍在途</summary><p>一位机主已有便携电源，季前评估确认还缺一款适配的扩容设备。首次提醒介绍两件设备搭配使用的效果。</p><p>开季前 3 天，如果扩容设备已签收，同一份指南涵盖两款设备。如果仍在途，指南只介绍已在手的便携电源。</p></details>
+</article>
+<article class="ma-journey" id="j2" aria-labelledby="title-2"><style>
+#j2 [data-kind="wait-duration"]{--node-fill:#fff2d8;--node-line:#a87627}
+
+</style><div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 02</span><h2 id="title-2">机主配件推荐</h2><p>设备绑定 7 天后，有意向配件的机主收到对应配件信息；其他机主收到绑定机型的适配清单。</p></div>
+<button class="ma-expand" type="button" aria-expanded="false" aria-controls="map-2">展开全图</button></div>
+<div class="ma-canvas" id="map-2" tabindex="0" role="region" aria-label="机主配件推荐，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:960px" width="960" height="828" viewBox="0 0 960 828" role="img" aria-labelledby="svg-title-2 svg-desc-2">
+<title id="svg-title-2">机主配件推荐</title><desc id="svg-desc-2">设备绑定成功后等待 7 天。有明确意向配件时发送该配件的信息；未识别到具体意向时发送绑定机型的适配配件清单。发送后观察 3 天。已付款结束，已下单未付款则推送一次付款提醒后结束。到期仍未下单，补发一次推荐配件与绑定机型的配套使用效果说明，随后结束。</desc><defs><marker id="arrow-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs>
+<g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#arrow-2)">
+<path data-from="s" data-to="delay" d="M450 84V117"/>
+<path data-from="delay" data-to="eligible" d="M450 188V221"/>
+<path data-from="eligible" data-to="preferred" d="M450 292V318H294V359"/>
+<path data-from="eligible" data-to="compatible" d="M450 292V318H606V359"/>
+<path data-from="eligible" data-to="end" d="M324 258H76V776H321"/>
+<path data-from="preferred" data-to="observe" d="M294 430V450H450V471"/>
+<path data-from="compatible" data-to="observe" d="M606 430V450H450V471"/>
+<path data-from="observe" data-to="end" d="M324 508H76V776H321"/>
+<path data-from="observe" data-to="paymentReminder" d="M576 508H790V621"/>
+<path data-from="paymentReminder" data-to="end" d="M790 692V776H579"/>
+<path data-from="observe" data-to="follow" d="M450 542V621"/>
+<path data-from="follow" data-to="end" d="M450 692V739"/></g>
+<text class="edge-label" x="357" y="344" text-anchor="middle">有明确意向配件</text>
+<text class="edge-label" x="683" y="344" text-anchor="middle">未识别到意向配件</text>
+<text class="edge-label" x="197" y="248" text-anchor="middle">不可推荐或不可触达</text>
+<text class="edge-label" x="196" y="498" text-anchor="middle">已付款</text>
+<text class="edge-label" x="680" y="499" text-anchor="middle">已下单、未付款</text>
+<text class="edge-label" x="494" y="590" text-anchor="middle">到期未下单</text>
+<g data-node="s" data-kind="start"><rect x="324" y="16" width="252" height="68" rx="16"/><text class="node-label" x="450" y="44" text-anchor="middle">开始</text><text class="node-detail" x="450" y="68" text-anchor="middle">设备绑定成功</text></g>
+<g data-node="delay" data-kind="wait-duration"><rect x="324" y="120" width="252" height="68" rx="10"/><text class="node-label" x="450" y="148" text-anchor="middle">等待</text><text class="node-detail" x="450" y="172" text-anchor="middle">绑定后 7 天</text></g>
+<g data-node="eligible" data-kind="condition"><rect x="324" y="224" width="252" height="68" rx="10"/><text class="node-label" x="450" y="252" text-anchor="middle">条件分支</text><text class="node-detail" x="450" y="276" text-anchor="middle">机主的意向配件</text></g>
+<g data-node="preferred" data-kind="touch"><rect x="168" y="362" width="252" height="68" rx="10"/><text class="node-label" x="294" y="390" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="294" y="414" text-anchor="middle">发送意向配件的产品信息</text></g>
+<g data-node="compatible" data-kind="touch"><rect x="480" y="362" width="252" height="68" rx="10"/><text class="node-label" x="606" y="390" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="606" y="414" text-anchor="middle">发送绑定机型的适配配件清单</text></g>
+<g data-node="observe" data-kind="wait-event"><rect x="324" y="474" width="252" height="68" rx="10"/><text class="node-label" x="450" y="502" text-anchor="middle">等待事件</text><text class="node-detail" x="450" y="526" text-anchor="middle">等待推荐配件下单或付款（3 天）</text></g>
+<g data-node="paymentReminder" data-kind="app-notice"><rect x="664" y="624" width="252" height="68" rx="10"/><text class="node-label" x="790" y="652" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="790" y="676" text-anchor="middle">发送一次配件订单付款提醒</text></g>
+<g data-node="follow" data-kind="touch"><rect x="324" y="624" width="252" height="68" rx="10"/><text class="node-label" x="450" y="652" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="450" y="676" text-anchor="middle">补发一次配件使用效果说明</text></g>
+<g data-node="end" data-kind="end"><rect x="324" y="742" width="252" height="68" rx="16"/><text class="node-label" x="450" y="770" text-anchor="middle">结束</text><text class="node-detail" x="450" y="794" text-anchor="middle">本轮配件推荐结束</text></g></svg></div>
+<a class="top-link" href="#index">返回图索引 ↑</a></div>
+<aside class="ma-card config-panel" aria-labelledby="config-j2"><h3 id="config-j2">关键配置</h3>
+<dl class="ma-config">
+<dt>什么算有意向配件</dt><dd>绑定后 7 天内，加购过 1 款适配配件，就优先推荐加购款。没有加购，但看过同一类的 3 款不同适配配件，就推荐这一类。反复看同一款只算 1 款。多款或多类同时符合时，取最近一次互动对应的款或类别。其余机主收到适配清单。</dd>
+<dt>适配清单先列什么</dt><dd>如能取得设备使用记录，可在试点中调整清单顺序。例如绑定后 7 天内，若有 3 天使用交流输出时电量低于 20%，且该机型支持扩容，可在清单中优先介绍扩展电池。使用频率只影响清单排序。</dd>
+<dt>推荐后 3 天看什么</dt><dd>只看本次推荐的配件。已付款就结束，有仍可支付的订单就发一次 AppPush 付款提醒后结束。到期仍未下单，只补发一次配套使用效果说明。订单已取消、状态不清或无法推送时，不发付款提醒。</dd>
+</dl>
+<p class="config-pending"><b>推荐资格</b>　上述门槛为试点规则。只向绑定有效、允许接收消息的机主推荐适配、在售且未购的配件。共享控制或重复绑定记录不另起一轮。</p><details class="config-sources"><summary>查看参考资料</summary><p><a href="https://faq.jackery.com/hc/en-us/articles/52357750587419-How-can-I-share-my-portable-power-station-with-multiple-devices-using-the-Jackery-App">Jackery 设备绑定与共享控制说明</a></p></details></aside>
+</div><details class="case-detail"><summary>示例 · 加购一款和浏览同类三款</summary><p>一位机主加购了一款适配太阳能板，收到这款太阳能板的介绍。另一位没加购，但看了三款不同的适配太阳能板，收到太阳能板这一类的推荐。</p><p>如果只是反复看同一款，没有加购，也没有看过同类三款，就收到绑定机型的适配清单。</p></details>
+</article>
+<article class="ma-journey" id="j3" aria-labelledby="title-3"><style>
+#j3 [data-kind="handoff"]{--node-fill:#f2f4f3;--node-line:#708279}
+#j3 [data-kind="handoff"] rect{stroke-dasharray:5 3}
+
+
+</style><div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 03</span><h2 id="title-3">大促预告订阅与开场分流</h2><p>预热期按浏览兴趣邀请订阅。开场仍未订阅即结束。已订阅者按是否选定型号，分别收到商品推荐或一次开场介绍。</p></div>
+<button class="ma-expand" type="button" aria-expanded="false" aria-controls="map-3">展开全图</button></div>
+<div class="ma-canvas" id="map-3" tabindex="0" role="region" aria-label="大促预告订阅与开场分流，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:1100px" width="1100" height="1060" viewBox="0 0 1100 1060" role="img" aria-labelledby="svg-title-3 svg-desc-3">
+<title id="svg-title-3">大促预告订阅与开场分流</title><desc id="svg-desc-3">预告上线时，向符合触达条件且尚未订阅本期活动的用户按用电意向发送预告。到开场仍未订阅，本轮即结束。已订阅者等到开场，选定具体商品的用户进入商品跟进，尚未选定商品的用户收到一次开场介绍。</desc><defs><marker id="arrow-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs>
+<g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#arrow-3)"><path data-from="s" data-to="audience" d="M550 84V127"/>
+<path data-from="audience" data-to="opening" d="M436 164H18V599H433"/>
+<path data-from="audience" data-to="home" d="M550 198V227H154V280"/>
+<path data-from="home" data-to="subscribe" d="M154 351V386H550V427"/>
+<path data-from="audience" data-to="camp" d="M550 198V227H415V280"/>
+<path data-from="camp" data-to="subscribe" d="M415 351V386H550V427"/>
+<path data-from="audience" data-to="rv" d="M550 198V227H685V280"/>
+<path data-from="rv" data-to="subscribe" d="M685 351V386H550V427"/>
+<path data-from="audience" data-to="general" d="M550 198V227H946V280"/>
+<path data-from="general" data-to="subscribe" d="M946 351V386H550V427"/>
+<path data-from="subscribe" data-to="opening" d="M550 498V562"/>
+<path data-from="subscribe" data-to="end" d="M664 464H996V1009H667"/>
+<path data-from="opening" data-to="sku" d="M550 633V685"/>
+<path data-from="sku" data-to="handoff" d="M550 756V782H385V840"/>
+<path data-from="sku" data-to="intro" d="M550 756V782H808V840"/>
+<path data-from="intro" data-to="end" d="M808 911V947H550V972"/>
+<path data-from="handoff" data-to="end" d="M385 911V947H550V972"/></g>
+<text class="edge-label" x="65" y="154" text-anchor="start">已订阅 · 直接等开场</text>
+<text class="edge-label" x="160" y="262" text-anchor="start">家庭备电</text>
+<text class="edge-label" x="421" y="262" text-anchor="start">露营用电</text>
+<text class="edge-label" x="691" y="262" text-anchor="start">房车用电</text>
+<text class="edge-label" x="952" y="262" text-anchor="start">多项、其他或未知</text>
+<text class="edge-label" x="560" y="216" text-anchor="start">未订阅 · 按意向发预告</text>
+<text class="edge-label" x="560" y="537" text-anchor="start">订阅成功</text>
+<text class="edge-label" x="752" y="454" text-anchor="start">开场仍未订阅 · 结束</text>
+<text class="edge-label" x="561" y="671" text-anchor="start">活动已开始</text>
+<text class="edge-label" x="392" y="821" text-anchor="start">有明确意向商品</text>
+<text class="edge-label" x="816" y="821" text-anchor="start">尚未选定商品</text>
+<g data-node="s" data-kind="start"><rect x="436" y="16" width="228" height="68" rx="16"/><text class="node-label" x="550" y="44" text-anchor="middle">开始</text><text class="node-detail" x="550" y="67" text-anchor="middle">大促预告上线</text></g>
+<g data-node="audience" data-kind="condition"><rect x="436" y="130" width="228" height="68" rx="10"/><text class="node-label" x="550" y="158" text-anchor="middle">条件分支</text><text class="node-detail" x="550" y="181" text-anchor="middle">活动订阅状态与用电意向</text></g>
+<g data-node="subscribe" data-kind="wait-event"><rect x="436" y="430" width="228" height="68" rx="10"/><text class="node-label" x="550" y="458" text-anchor="middle">等待事件</text><text class="node-detail" x="550" y="481" text-anchor="middle">等待订阅本期活动，最晚至开场</text></g>
+<g data-node="opening" data-kind="wait-event"><rect x="436" y="565" width="228" height="68" rx="10"/><text class="node-label" x="550" y="593" text-anchor="middle">等待事件</text><text class="node-detail" x="550" y="616" text-anchor="middle">等待本期大促开场</text></g>
+<g data-node="sku" data-kind="condition"><rect x="436" y="688" width="228" height="68" rx="10"/><text class="node-label" x="550" y="716" text-anchor="middle">条件分支</text><text class="node-detail" x="550" y="739" text-anchor="middle">已订阅用户的意向商品</text></g>
+<a href="#j1" aria-label="查看意向商品转化旅程"><g data-node="handoff" data-kind="handoff"><rect x="271" y="843" width="228" height="68" rx="10"/><text class="node-label" x="385" y="871" text-anchor="middle">旅程交接</text><text class="node-detail" x="385" y="894" text-anchor="middle">进入④ 意向商品转化</text></g></a>
+<g data-node="intro" data-kind="touch"><rect x="694" y="843" width="228" height="68" rx="10"/><text class="node-label" x="808" y="871" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="808" y="894" text-anchor="middle">发送「活动已开始」介绍</text></g>
+<g data-node="end" data-kind="end"><rect x="436" y="975" width="228" height="68" rx="16"/><text class="node-label" x="550" y="1003" text-anchor="middle">结束</text><text class="node-detail" x="550" y="1026" text-anchor="middle">本轮大促引导结束</text></g>
+<g data-node="home" data-kind="touch"><rect x="40" y="283" width="228" height="68" rx="10"/><text class="node-label" x="154" y="311" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="154" y="334" text-anchor="middle">发送家庭备电大促预告</text></g>
+<g data-node="camp" data-kind="touch"><rect x="301" y="283" width="228" height="68" rx="10"/><text class="node-label" x="415" y="311" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="415" y="334" text-anchor="middle">发送露营用电大促预告</text></g>
+<g data-node="rv" data-kind="touch"><rect x="571" y="283" width="228" height="68" rx="10"/><text class="node-label" x="685" y="311" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="685" y="334" text-anchor="middle">发送房车用电大促预告</text></g>
+<g data-node="general" data-kind="touch"><rect x="832" y="283" width="228" height="68" rx="10"/><text class="node-label" x="946" y="311" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="946" y="334" text-anchor="middle">发送通用大促预告</text></g></svg></div>
+<a class="top-link" href="#index">返回图索引 ↑</a></div>
+<aside class="ma-card config-panel" aria-labelledby="config-j3"><h3 id="config-j3">关键配置</h3>
+<dl class="ma-config">
+<dt>哪些人直接等开场</dt><dd>已订阅本场活动的用户直接等开场。明确未订阅、同意接收所选通道的营销消息且未拒收本场通知的用户，才收到一次订阅邀请。订阅状态不明时不发。</dd>
+<dt>未订阅者收到哪版预告</dt><dd>看近 30 天用户在家庭备电、露营、房车三类内容上的访问次数。一次访问中看同类多篇内容或反复刷新只计 1 次。最多的一类至少有 2 次，且领先第二名至少 2 次，就发该类预告。兴趣接近、记录不足或本场没有对应内容时，发通用预告。</dd>
+<dt>邀请后等到什么时候</dt><dd>从邀请发出等到活动开场。期间订阅成功就等开场。截至开场仍未订阅，直接结束，不发「活动已开始」介绍。已取消本场订阅或拒收通知的用户也直接结束。</dd>
+<dt>怎样判断已订阅者的意向商品</dt><dd>开场时仍已订阅，且用户在本场选购页主动选定具体型号，才进入<a href="#j1">④ 意向商品转化</a>。只浏览过同类商品，不能认定选中了某款。已订阅、尚未选型且仍可触达的用户，只收一次开场介绍。已购买或已进入商品跟进的用户不重复发送。</dd>
+</dl>
+<p class="config-pending"><b>开场复核</b>　30 天和访问次数为试点门槛。开场按当时的订阅和选型结果决定下一步。订阅状态无法确认时不发开场消息。</p><details class="config-sources"><summary>查看参考资料</summary><p><a href="https://www.jackery.com/pages/jackery-buying-guide">美国站选购指南</a> · <a href="https://www.jackery.com/pages/essential-home-backup-power">家庭备电</a> · <a href="https://www.jackery.com/pages/outdoor-power-solutions">露营与其他户外场景</a> · <a href="https://www.jackery.com/pages/rv-generators">房车用电</a> · <a href="https://milled.com/jackery/final-72-hours-summer-flash-sale-up-to-50-off-xLK1MZQEldutZ6mW">查看邮件存档</a></p></details></aside>
+</div><details class="case-detail"><summary>示例 · 露营预告和通用预告使用同一订阅入口</summary><p>过去 30 天，一位用户有 4 次访问看了露营内容，1 次看了房车内容，达到露营专版门槛。另一位的记录分别为 3 次和 2 次，兴趣差距不足，使用通用预告。两种预告共用同一活动订阅入口。</p><p>开场时，已订阅并选定具体型号的用户进入商品跟进。已订阅但只看过露营页面、尚未选型的用户，收到一次开场介绍。收到预告但到开场仍未订阅的用户，直接结束。</p></details>
+</article>
+<article class="ma-journey" id="j1" aria-labelledby="title-1"><div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 04</span><h2 id="title-1">活动订阅用户的意向商品转化</h2><p>发送推荐后，按意向商品的最新购买进度进入一条分支。已付款即结束。</p></div>
+<button class="ma-expand" type="button" aria-expanded="false" aria-controls="map-1">展开全图</button></div>
+<div class="ma-canvas" id="map-1" tabindex="0" role="region" aria-label="活动订阅用户的意向商品转化，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:1120px" width="1120" height="1002" viewBox="0 0 1120 1002" role="img" aria-labelledby="svg-title-1 svg-desc-1"><title id="svg-title-1">活动订阅用户的意向商品转化</title><desc id="svg-desc-1">发送推荐后进入一个等待事件，按最新购买进度分流。付款直接结束，加购后等下单，下单后等付款。三个事件都没有发生时补发选购内容。各分支补发一次后直接结束。</desc><defs><marker id="arr1-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#547c67"/></marker><marker id="arr1-quiet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#8a7659"/></marker><marker id="arr1-paid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#287d5c"/></marker></defs><path data-from="first" data-to="progress" d="M690 180V225" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="progress" data-to="guide" d="M690 296V350H130V435" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="progress" data-to="toOrder" d="M690 296V350H395V435" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="progress" data-to="toPay" d="M690 296V350H690V435" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="progress" data-to="end" d="M690 296V350H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="s" data-to="first" d="M690 82V109" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="toOrder" data-to="toPay" d="M501 472H581" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="toPay" data-to="end" d="M796 472H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="toOrder" data-to="value" d="M395 506V621" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="toPay" data-to="help" d="M690 506V621" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="value" data-to="coupon" d="M395 692V730H280V777" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="value" data-to="remind" d="M395 692V730H527V777" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="coupon" data-to="end" d="M280 848V885H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="remind" data-to="end" d="M527 848V885H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="guide" data-to="end" d="M130 506V885H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><path data-from="help" data-to="end" d="M690 692V885H985V913" fill="none" stroke="#547c67" stroke-width="1.6" marker-end="url(#arr1-main)"/><text class="edge-label" text-anchor="start" x="138" y="390">到期均未发生</text><text class="edge-label" text-anchor="start" x="403" y="390">已加购、未下单</text><text class="edge-label" text-anchor="start" x="698" y="390">已下单、未付款</text><text class="edge-label" text-anchor="start" x="993" y="390">已付款</text><text class="edge-label" text-anchor="middle" x="542.5" y="462">已下单</text><text class="edge-label" text-anchor="middle" x="837.5" y="462">已付款</text><text class="edge-label" text-anchor="middle" x="442" y="565.0">到期未下单</text><text class="edge-label" text-anchor="middle" x="738" y="565.0">到期未付款</text><text class="edge-label" text-anchor="middle" x="280" y="746">两项都满足</text><text class="edge-label" text-anchor="middle" x="527" y="746">不满足或未知</text><g id="purchase-s" data-node="s" data-kind="start"><rect x="584" y="14" width="212" height="68" rx="16"/><text class="node-label" x="690" y="41" text-anchor="middle">开始</text><text class="node-detail" x="690" y="65" text-anchor="middle">活动订阅用户产生意向商品</text></g><g id="purchase-first" data-node="first" data-kind="touch"><rect x="584" y="112" width="212" height="68" rx="9"/><text class="node-label" x="690" y="139" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="690" y="163" text-anchor="middle">发送意向商品推荐</text></g><g id="purchase-progress" data-node="progress" data-kind="wait-event"><rect x="584" y="228" width="212" height="68" rx="9"/><text class="node-label" x="690" y="255" text-anchor="middle">等待事件</text><text class="node-detail" x="690" y="279" text-anchor="middle">等待意向商品的购买进展</text></g><g id="purchase-guide" data-node="guide" data-kind="touch"><rect x="24" y="438" width="212" height="68" rx="9"/><text class="node-label" x="130" y="465" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="130" y="489" text-anchor="middle">补发意向商品选购内容</text></g><g id="purchase-toOrder" data-node="toOrder" data-kind="wait-event"><rect x="289" y="438" width="212" height="68" rx="9"/><text class="node-label" x="395" y="465" text-anchor="middle">等待事件</text><text class="node-detail" x="395" y="489" text-anchor="middle">等待提交订单</text></g><g id="purchase-toPay" data-node="toPay" data-kind="wait-event"><rect x="584" y="438" width="212" height="68" rx="9"/><text class="node-label" x="690" y="465" text-anchor="middle">等待事件</text><text class="node-detail" x="690" y="489" text-anchor="middle">等待订单付款</text></g><g id="purchase-end" data-node="end" data-kind="end"><rect x="879" y="916" width="212" height="68" rx="16"/><text class="node-label" x="985" y="943" text-anchor="middle">结束</text><text class="node-detail" x="985" y="967" text-anchor="middle">已付款或已完成本轮补发</text></g><g id="purchase-value" data-node="value" data-kind="condition"><rect x="289" y="624" width="212" height="68" rx="9"/><text class="node-label" x="395" y="651" text-anchor="middle">条件分支</text><text class="node-detail" x="395" y="675" text-anchor="middle">有历史已付订单且有适用券</text></g><g id="purchase-help" data-node="help" data-kind="touch"><rect x="584" y="624" width="212" height="68" rx="9"/><text class="node-label" x="690" y="651" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="690" y="675" text-anchor="middle">发送付款问题排查清单</text></g><g id="purchase-coupon" data-node="coupon" data-kind="touch"><rect x="174" y="780" width="212" height="68" rx="9"/><text class="node-label" x="280" y="807" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="280" y="831" text-anchor="middle">发送商品优惠券</text></g><g id="purchase-remind" data-node="remind" data-kind="touch"><rect x="421" y="780" width="212" height="68" rx="9"/><text class="node-label" x="527" y="807" text-anchor="middle">Email/AppPush</text><text class="node-detail" x="527" y="831" text-anchor="middle">提醒提交订单</text></g></svg></div>
+<a class="top-link" href="#index">返回图索引 ↑</a></div>
+<aside class="ma-card config-panel" aria-labelledby="config-j1"><h3 id="config-j1">关键配置</h3>
+<dl class="ma-config">
+<dt>跟进哪件商品</dt><dd>只跟进本场已订阅用户主动选定的型号。仅浏览商品不进入。从活动开场或从站点选型进入时，同一用户的同款商品只跟进一次。该款已付款则直接结束。</dd>
+<dt>首次推荐后等待什么</dt><dd>只看这件商品。已付款，立即结束。已下单未付款，只等该订单付款。已加购未下单，等用户提交订单。到期仍没有加购、下单或付款，只补一次选购说明就结束。</dd>
+<dt>加购后仍未下单</dt><dd>只有曾有已付订单、且有适用于本款商品的有效活动券，才发券。其他人只收到一次普通下单提醒。</dd>
+<dt>下单后仍未付款</dt><dd>等待期结束时，订单仍可支付才发一次付款帮助，随后结束。付款成功或订单已取消即停发。订单状态不清时暂缓发送。各阶段等待时长在活动开始前确定。</dd>
+</dl>
+<p class="config-pending"><b>交易状态验收</b>　以商城确认的付款结果为准。先收到付款成功、后收到更早的加购记录时，仍保持停发。</p></aside>
+</div><details class="case-detail"><summary>示例 · 付款成功后才收到较早的加购记录</summary><p>用户收到商品推荐后直接下单付款。商城先确认付款，之后才显示这位用户更早的加购行为。</p><p>收到付款成功记录时，本轮跟进即结束。补传的加购记录不会触发新的促购或付款提醒。支付状态暂时无法确认时，暂停发送。</p></details>
+</article>
+    </section>
+    <section class="plan-section" id="pilot" aria-labelledby="pilot-title">
+      <h2 id="pilot-title">试点与验证</h2>
+      <div class="pilot-brief"><strong>首轮 · 大促预告订阅</strong><p>选一场活动，在相同渠道内比较预告版本。两组的优惠、发送时段和订阅入口保持一致，只改变预告内容。以开场前活动订阅率判断兴趣匹配是否有效。</p></div>
+      <div class="pilot-grid">
+        <div class="ma-card"><h3>先核对一场活动的数据</h3>
+          <p>抽查允许通过 Email/AppPush 接收营销消息的用户，确认能否查到他们平时看的内容。对照本场活动的开场时间和订阅名单，区分可收预告的人和已经订阅的人。</p>
+          <p>若无法确认本场订阅名单的完整性，先校准数据再开始试点。</p>
+        </div>
+        <div class="ma-card"><h3>在同一人群中比较版本</h3>
+          <p>选择尚未订阅本场活动、允许接收预告且兴趣明确的用户。先为每人确定一种许可渠道，再在同一渠道内随机分组，一组收场景专版，另一组收通版。兴趣不明确的人沿用通版，单独统计。</p>
+          <p>以预告前 30 天为准。某场景至少有 2 次不同访问，且比第二名多至少 2 次，才算兴趣明确。这个标准在试点期间保持一致。</p>
+        </div>
+        <div class="ma-card"><h3>用订阅结果判断是否扩大</h3>
+          <p><b>主指标</b>　在发送预告前完成分组。各组订阅率等于分组后至开场前成功订阅本场活动的人数，除以该组全部人数，每位用户只计一次。未送达的用户仍计入分母。另查营销退订和重复发送。</p>
+          <p><b>后续验证</b>　核对开场时仍未订阅的用户是否已退出。对进入商品跟进的用户，检查同款商品有无重复推荐，再观察该商品的付款率。如需衡量商品跟进带来的新增成交，须为该旅程另设同期对照。</p>
+        </div>
+      </div>
+      <div class="pilot-detail" id="verification"><h3>四条旅程的数据与验收</h3><p class="lead">首轮验收大促预告与订阅，之后验证开场后的商品跟进。配件推荐和季前提醒按各自的数据条件启动。两条涉及成交的旅程均在启动前约定付款观察期，分别统计实际付款和付款后误发。</p>
+      <table class="report-table"><colgroup><col class="tiny-col"><col><col><col></colgroup><thead><tr><th scope="col">试点旅程</th><th scope="col">数据来源</th><th scope="col">衡量指标</th><th scope="col">上线验收标准</th></tr></thead><tbody><tr class="accept-row"><th scope="row">③ 预告订阅</th><td data-label="数据来源">内容团队标明文章、视频属于哪种用电场景，站点提供各场景的访问次数。活动团队提供本场订阅名单和开场时间。</td><td data-label="衡量指标">自分组至开场前，各组新增本期订阅的去重人数 ÷ 该组全部分配人数。按渠道比较两组订阅率和百分点差，同时报告营销退订、重复发送和对未订阅者误发开场消息的人数。</td><td data-label="上线验收标准">同一次访问反复刷新只计一次，两类场景差距不足时发通用预告。开场仍未订阅者直接退出。已订阅但未选型者收到一次开场介绍，已订阅且选型者只进入商品跟进。</td></tr><tr class="accept-row"><th scope="row">④ 意向商品转化</th><td data-label="数据来源">选购页提供用户主动选定的型号。商城提供同款商品的加购、下单和付款记录，活动运营提供可用券、适用商品和有效期。</td><td data-label="衡量指标">从首次入组起，在约定期限内至少支付一件本轮意向商品的用户数 ÷ 本期入组人数，分子分母均按用户去重。另查该商品已付后仍被发送促购的人数。</td><td data-label="上线验收标准">同款只加购就等下单，已下单就等付款，已付款立即结束。两个入口同时跟进同一商品只发一次推荐。已付后收到更早的加购记录仍保持停发。</td></tr><tr class="accept-row"><th scope="row">② 配件推荐</th><td data-label="数据来源">App 提供绑定时间和机型，商城提供用户查看或加购的配件。产品团队确认适配和可售状态，并按首次推荐的配件核对下单与付款。</td><td data-label="衡量指标">自首次推荐发出起，在约定期限内购买所列配件并付款的机主数 ÷ 已发送首次推荐的机主数，每人只计一次。另查不适配推荐和重复付款提醒。</td><td data-label="上线验收标准">绑定后 7 天内，加购 1 次适配配件应推荐该款。只看过同类 3 款不同适配配件，应推荐该类适配选项。两项均未达到就发机型适配清单，已付则停止跟进。</td></tr><tr class="accept-row"><th scope="row">① 风暴季前备电提醒</th><td data-label="数据来源">运营提供地区名单及当地开季日。按家庭联系人关联已核实的持有、绑定及签收记录。产品团队给出需求清单、适配关系和机型指南。</td><td data-label="衡量指标">抽查已发机型指南，逐份核对发送时确认在手的型号。机型全部匹配的指南数 ÷ 已完成核对的指南数。另列无法核对的份数、持有未知而退出的人数和误推已购设备的案例。</td><td data-label="上线验收标准">持有情况未知的家庭退出本轮。在途设备不列入检查指南。复核前刚签收的设备，应与其他确认在手的机型合并到一份指南中。</td></tr></tbody></table></div>
+      <div class="readout"><h3>试点后的决策</h3>
+        <p><b>数据有缺口</b>　订阅资格、设备持有或交易状态不明时，按该旅程的规则退出或暂缓发送，并查明缺失的记录。仅缺少兴趣信号时，预告使用通用版，配件推荐使用适配清单。</p>
+        <p><b>效果尚不明确</b>　若样本量不足或订阅率差异不稳定，保留本轮分组规则，在下一次条件相近的活动中继续验证。</p>
+        <p><b>扩大试点的条件</b>　同场对照显示订阅率改善，且营销退订、重复触达均在双方事先约定的范围内，再扩大预告覆盖。商品跟进先验收订单匹配与付款后停发，如需评估新增成交，再单独开展对照试验。</p>
+      </div>
+      <a class="top-link" href="#index">返回场景总览 ↑</a>
+    </section>
+  </main>
+  <script>
+    function centerMapStart(canvas) {
+      const start = canvas.querySelector('[data-kind="start"] rect').getBoundingClientRect();
+      const frame = canvas.getBoundingClientRect();
+      canvas.scrollLeft += start.left + start.width / 2 - frame.left - canvas.clientWidth / 2;
+    }
+    document.querySelectorAll('.ma-canvas').forEach(canvas => {
+      if (!canvas.contains(document.querySelector(':target'))) centerMapStart(canvas);
+    });
+    document.addEventListener('click', event => {
+      const button = event.target.closest('.ma-expand');
+      if (!button) return;
+      const journey = button.closest('.ma-journey');
+      const expanded = journey.dataset.expanded !== 'true';
+      journey.dataset.expanded = String(expanded);
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? '恢复双栏' : '展开全图';
+      centerMapStart(journey.querySelector('.ma-canvas'));
+    });
+  </script>
+</body>
+</html>
