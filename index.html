@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="浏览 EngageLab MA 客户方案，查看业务场景、用户旅程与接入配置。">
+  <title>EngageLab MA · 方案导航</title>
+  <style>
+    :root { color-scheme: light; --ink: #263340; --muted: #566372; --line: #dce1e5; --accent: #426078; --tint: #f3f5f7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: var(--ink); font: 1rem/1.7 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .page { max-width: 76rem; margin: auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
+    .brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
+    .brand strong { font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; }
+    .brand span { color: var(--muted); font-size: .875rem; }
+    .intro { padding: clamp(2.5rem, 6vw, 5rem) 0 2.5rem; max-width: 54rem; }
+    .eyebrow { margin: 0 0 .65rem; color: var(--accent); font-size: .875rem; font-weight: 600; }
+    h1 { margin: 0; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.2; letter-spacing: -.045em; font-weight: 650; }
+    .intro > p:last-child { margin: 1rem 0 0; color: var(--muted); font-size: 1.0625rem; }
+    .section-heading { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; }
+    .solutions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+    .solutions li { min-width: 0; }
+    .solution { display: flex; flex-direction: column; height: 100%; padding: clamp(1.35rem, 2.8vw, 2rem); border: 1px solid var(--line); border-radius: .25rem; color: inherit; text-decoration: none; }
+    .solution:hover { border-color: var(--accent); background: var(--tint); }
+    .solution:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .category { color: var(--accent); font-size: .875rem; font-weight: 600; }
+    h3 { margin: .6rem 0 .65rem; font-size: 1.5rem; font-weight: 650; line-height: 1.4; letter-spacing: -.025em; }
+    .description { margin: 0 0 1.75rem; color: var(--muted); }
+    .open { align-self: flex-start; margin-top: auto; color: var(--accent); font-size: .9375rem; font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+    footer { margin-top: 3rem; padding: 1.25rem 0 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+    footer p { margin: 0; }
+    @media (max-width: 42rem) { .solutions { grid-template-columns: 1fr; } .intro { padding-bottom: 2rem; } h3 { font-size: 1.375rem; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="brand"><strong>EngageLab</strong><span>Marketing Automation</span></header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">客户方案库</p>
+        <h1>营销自动化方案导航</h1>
+        <p>从客户业务出发，查看场景策略、用户旅程与接入配置。选择方案，了解 MA 如何帮助客户承接用户需求。</p>
+      </div>
+      <nav aria-labelledby="solutions-title">
+        <h2 class="section-heading" id="solutions-title">选择客户方案</h2>
+        <ul class="solutions">
+          <li>
+            <a class="solution" href="./AIMO-ma/">
+              <span class="category">App 引流 · 独立站购买</span>
+              <h3>爱墨科技</h3>
+              <p class="description">通过 AppPush 承接产品兴趣、耗材补货、到货与活动需求，引导 App 用户在独立站完成购买。</p>
+              <span class="open">查看方案</span>
+            </a>
+          </li>
+          <li>
+            <a class="solution" href="./JACKERY-ma/">
+              <span class="category">独立站营销 · 产品购买</span>
+              <h3>Jackery 美国站</h3>
+              <p class="description">围绕备电需求、机主配件和促销订阅，识别购买意向并跟进目标商品，促进独立站转化。</p>
+              <span class="open">查看方案</span>
+            </a>
+          </li>
+          <li>
+            <a class="solution" href="./OPPO-Store-SEA/">
+              <span class="category">商城运营 · 购买转化</span>
+              <h3>OPPO Store 东南亚</h3>
+              <p class="description">覆盖首购引导、产品选型、购物车、新品、权益提醒与兼容配件增购，承接不同购买需求。</p>
+              <span class="open">查看方案</span>
+            </a>
+          </li>
+          <li>
+            <a class="solution" href="./WK-WearableAPP/">
+              <span class="category">智能穿戴 · App 运营</span>
+              <h3>微克科技 · Wearfit Pro</h3>
+              <p class="description">围绕设备绑定、异常帮助、停用召回、会员运营与广告体验，设计智能穿戴 App 用户旅程。</p>
+              <span class="open">查看方案</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <footer><p>EngageLab MA · 客户场景与旅程方案</p></footer>
+  </div>
+</body>
+</html>
