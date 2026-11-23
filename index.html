@@ -13,23 +13,23 @@
     .brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
     .brand strong { font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; }
     .brand span { color: var(--muted); font-size: .875rem; }
-    .intro { padding: clamp(2.5rem, 6vw, 5rem) 0 2.5rem; max-width: 54rem; }
+    .intro { padding: clamp(2rem, 4vw, 3rem) 0 2rem; max-width: 54rem; }
     .eyebrow { margin: 0 0 .65rem; color: var(--accent); font-size: .875rem; font-weight: 600; }
-    h1 { margin: 0; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.2; letter-spacing: -.045em; font-weight: 650; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.2; letter-spacing: -.035em; font-weight: 650; }
     .intro > p:last-child { margin: 1rem 0 0; color: var(--muted); font-size: 1.0625rem; }
     .section-heading { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; }
-    .solutions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+    .solutions { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
     .solutions li { min-width: 0; }
-    .solution { display: flex; flex-direction: column; height: 100%; padding: clamp(1.35rem, 2.8vw, 2rem); border: 1px solid var(--line); border-radius: .25rem; color: inherit; text-decoration: none; }
-    .solution:hover { border-color: var(--accent); background: var(--tint); }
+    .solution { display: grid; grid-template-columns: minmax(14rem, 1fr) minmax(0, 1.65fr) auto; grid-template-areas: "title description action" "category description action"; align-items: center; gap: .35rem 2rem; padding: 1.4rem 1rem; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+    .solution:hover { background: var(--tint); }
     .solution:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-    .category { color: var(--accent); font-size: .875rem; font-weight: 600; }
-    h3 { margin: .6rem 0 .65rem; font-size: 1.5rem; font-weight: 650; line-height: 1.4; letter-spacing: -.025em; }
-    .description { margin: 0 0 1.75rem; color: var(--muted); }
-    .open { align-self: flex-start; margin-top: auto; color: var(--accent); font-size: .9375rem; font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+    .category { grid-area: category; color: var(--muted); font-size: .875rem; }
+    h3 { grid-area: title; margin: 0; font-size: 1.1875rem; font-weight: 650; line-height: 1.4; }
+    .description { grid-area: description; margin: 0; color: var(--muted); }
+    .open { grid-area: action; color: var(--accent); font-size: .9375rem; font-weight: 600; text-decoration: underline; text-underline-offset: .25em; white-space: nowrap; }
     footer { margin-top: 3rem; padding: 1.25rem 0 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
     footer p { margin: 0; }
-    @media (max-width: 42rem) { .solutions { grid-template-columns: 1fr; } .intro { padding-bottom: 2rem; } h3 { font-size: 1.375rem; } }
+    @media (max-width: 48rem) { .solution { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "category" "description" "action"; gap: .4rem; padding: 1.25rem 0; } .description { margin: .35rem 0; } .open { justify-self: start; } }
   </style>
 </head>
 <body>
@@ -42,8 +42,9 @@
         <p>从客户业务出发，查看场景策略、用户旅程与接入配置。选择方案，了解 MA 如何帮助客户承接用户需求。</p>
       </div>
       <nav aria-labelledby="solutions-title">
-        <h2 class="section-heading" id="solutions-title">选择客户方案</h2>
+        <h2 class="section-heading" id="solutions-title">全部方案</h2>
         <ul class="solutions">
+          <!-- 新增方案：复制一个 li，修改 href、客户名称、分类和简介。 -->
           <li>
             <a class="solution" href="./AIMO-ma/">
               <span class="category">App 引流 · 独立站购买</span>
