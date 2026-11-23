@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>爱墨科技 · App 引流独立站 MA 方案</title><style>
+/* Page and typographic scale */
+:root{--ink:#303b46;--heading:#263340;--muted:#566372;--line:#dce1e5;--rule:#aab7c1;--paper:#fff;--tint:#f3f5f7;--accent:#426078;--border:var(--line)}
+*{box-sizing:border-box}html{background:var(--paper);scroll-padding-top:calc(var(--nav-height,3rem) + .5rem)}body.ma-page{max-width:100rem;margin:auto;padding:0 clamp(1rem,3.2vw,3.25rem) 3rem;color:var(--ink);font:1rem/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+h1,h2,h3,h4,p{margin:0}a{color:var(--accent);text-underline-offset:.2em}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,summary:focus-visible,.ma-canvas:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+p+p{margin-top:.55rem}.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule);color:var(--heading);font-size:.84rem}
+.masthead strong{letter-spacing:.06em;font-size:1rem}.masthead .market{border-left:1px solid var(--line);padding-left:.85rem;margin-left:.85rem}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(17rem,1fr);gap:clamp(2rem,6vw,7rem);align-items:center;padding:clamp(2rem,4.2vw,4.5rem) 0}
+.hero h1{font-size:clamp(2rem,3.8vw,3.8rem);line-height:1.16;letter-spacing:-.035em;color:var(--heading);font-weight:650}
+.hero .subtitle{margin:.95rem 0 0;max-width:40em;color:var(--muted);font-size:clamp(1rem,1.35vw,1.2rem)}
+.cover-example{border-left:2px solid var(--rule);padding:0 0 0 1.3rem}
+.cover-example h2{font-size:1.04rem;color:var(--heading);margin-bottom:.35rem}.cover-example ol{margin:0;padding:0;list-style:none}.cover-example li{display:grid;grid-template-columns:4.4rem 1fr;gap:.6rem;padding:.38rem 0;border-bottom:1px solid var(--line);font-size:.91rem}.cover-example li:last-child{border:0}.cover-example span{color:var(--muted)}
+.plan-links{position:sticky;top:0;z-index:10;background:var(--paper);display:flex;flex-wrap:wrap;gap:.35rem 1.65rem;padding:.75rem 0;border-block:1px solid var(--line);font-size:.89rem}
+.plan-links a,.plan-overview a,.top-link,.ma-expand{color:var(--heading)}.plan-links a{text-decoration:none}.plan-links a:hover{text-decoration:underline}
+.plan-section{margin:clamp(2.7rem,5vw,5rem) 0;scroll-margin-top:1rem}.plan-section>h2,.overview-title h2{color:var(--heading);font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.25;letter-spacing:-.035em}
+.lead{color:var(--muted);max-width:64em;margin:.8rem 0 1.3rem}.overview-title{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
+.top-link{font-size:.86rem;display:inline-block;margin:.65rem 0 .25rem}.section-note,.integration-check{margin-top:1rem;padding:1rem 1.25rem;background:var(--tint);border-left:2px solid var(--rule)}.section-note p,.integration-check p{margin-top:.35rem}
+.reason-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:clamp(1.4rem,4vw,4.5rem);margin-top:1.4rem;align-items:start}
+.reason-case{padding:clamp(1.2rem,2.3vw,2.6rem);background:var(--tint);color:var(--heading)}.reason-case h3{font-size:1.34rem;line-height:1.45;margin-bottom:.7rem}.reason-case p{color:var(--ink)}
+.reason-list{margin:0}.reason-list>div{display:grid;grid-template-columns:minmax(7em,.65fr) minmax(0,1.5fr);gap:1.2rem;padding:.8rem 0;border-top:1px solid var(--line)}.reason-list dt{color:var(--heading);font-weight:650}.reason-list dd{margin:0;color:var(--muted)}
+/* Use real comparison tables for parallel decisions. */
+.report-table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;background:transparent}
+.report-table th,.report-table td{padding:.75rem .9rem;vertical-align:top;border-bottom:1px solid var(--line)}
+.report-table thead th{border-top:1px solid var(--rule);font-weight:600;color:var(--heading);background:var(--tint);font-size:.9rem}
+.report-table tbody th{color:var(--heading);font-weight:650}.report-table td{font-size:.95rem}.report-table a{font-size:.88rem}.report-table .short-col{width:19%}.report-table .tiny-col{width:13%}
+.channel-notes{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1rem}.channel-notes h3,.integration-check h3,.section-note h3{font-size:1.02rem;color:var(--heading)}
+.channel-notes p{margin-top:.35rem;color:var(--muted)}
+.scene-head,.scene-row{display:grid;grid-template-columns:minmax(10rem,.82fr) minmax(12rem,1fr) minmax(14rem,1.4fr) minmax(12rem,1fr);gap:1.1rem;padding:.8rem .9rem}
+.scene-head{border-top:1px solid var(--rule);background:var(--tint);font-size:.88rem;font-weight:650;color:var(--heading)}
+.scene-row{color:var(--ink);border-bottom:1px solid var(--line);text-decoration:none;font-size:.94rem}.scene-row:hover{background:var(--tint);text-decoration:none}.scene-row strong{color:var(--heading)}.mobile-label{display:none}
+/* Journey diagrams keep their product node colors and native viewBox. */
+.ma-journey{margin:1.7rem 0 3rem;border-top:1px solid var(--rule);scroll-margin-top:1rem}
+.ma-layout{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:1rem;align-items:start}.ma-layout>:only-child{grid-column:1/-1}
+.ma-card{min-width:0}.ma-map-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:1rem 0 .85rem}
+.map-number{display:block;color:var(--accent);font-size:.82rem;font-weight:650}.ma-map-heading h2{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.4;margin:.18rem 0}.ma-map-heading p{font-size:.94rem;color:var(--muted)}
+.ma-expand{cursor:pointer;border:1px solid #768594;background:transparent;border-radius:2px;padding:.35rem .65rem;font:inherit;font-size:.84rem;flex:none}.ma-expand:hover{background:var(--tint)}
+.ma-canvas{overflow-x:auto;max-width:100%;background:#fff;border:1px solid var(--line)}.ma-canvas svg{display:block;margin-inline:auto}.ma-canvas .map-svg{width:min(100%,var(--native));height:auto;min-width:0}
+.ma-journey[data-expanded="true"] .ma-layout{grid-template-columns:minmax(0,1fr)}
+.ma-canvas text{fill:#20332e;font:14px system-ui,sans-serif}.ma-canvas [data-kind]>rect{fill:var(--node-fill);stroke:var(--node-line);stroke-width:1.4}
+.ma-canvas [data-kind="start"] {--node-fill:#e4f5eb;--node-line:#478065;}
+.ma-canvas [data-kind="end"] {--node-fill:#e9edf0;--node-line:#65737e;}
+.ma-canvas [data-kind="condition"] {--node-fill:#f2ebfa;--node-line:#8564a0;}
+.ma-canvas [data-kind="wait-event"],.ma-canvas [data-kind="wait-duration"] {--node-fill:#fff2d8;--node-line:#a87627;}
+.ma-canvas [data-kind="send-window"] {--node-fill:#fff0e7;--node-line:#b06e42;}
+.ma-canvas [data-kind="ab"] {--node-fill:#fbe8f2;--node-line:#ac5c89;}
+.ma-canvas [data-kind="app-card"] {--node-fill:#e5efff;--node-line:#5380ba;}
+.ma-canvas [data-kind="app-notice"] {--node-fill:#e7eafd;--node-line:#666bb4;}
+.ma-canvas [data-kind="email"],.ma-canvas [data-kind="touch"] {--node-fill:#dff4f2;--node-line:#3b897f;}
+.ma-canvas [data-kind="webhook"] {--node-fill:#f1f2da;--node-line:#7f8739;}
+.ma-canvas [data-kind="handoff"]{--node-fill:#f2f4f3;--node-line:#708279}.ma-canvas [data-kind="handoff"] rect{stroke-dasharray:5 3}
+.ma-canvas .node-label{font-size:15px;font-weight:600}.ma-canvas .node-detail{font-size:13px;fill:#42594d}.ma-canvas .edge-label{font-size:12px;font-weight:600;fill:#335847;paint-order:stroke;stroke:#fff;stroke-width:6;stroke-linejoin:round}
+.config-panel{padding:1rem 0 1rem 1rem;border-left:1px solid var(--line);overflow-wrap:anywhere}.config-panel h3{font-size:1rem;color:var(--heading)}.ma-config{margin:0}.ma-config dt{font-size:.94rem;font-weight:650;color:var(--accent);border-top:1px solid var(--line);padding-top:.65rem;margin-top:.7rem}.ma-config dd{font-size:.91rem;color:var(--muted);margin:.3rem 0}
+.config-pending,.config-sources{font-size:.85rem;color:var(--muted);margin-top:.8rem}.config-pending{padding:.6rem .75rem;background:var(--tint)}.config-sources summary,.case-detail summary{cursor:pointer}
+.case-detail{border-block:1px solid var(--line);padding:.5rem 0;color:var(--muted)}.case-detail summary{color:var(--heading);font-weight:620;font-size:.95rem}.case-detail p{max-width:67em;margin:.4rem 0 .6rem}.case-detail .walk-focus{font-weight:600}.case-detail summary::marker,.config-sources summary::marker{color:var(--accent)}
+.ma-journey[data-expanded="true"] .config-panel{border-left:0;border-top:1px solid var(--line);padding-left:0}.ma-journey[data-expanded="true"] .ma-config dd{max-width:65em}
+.pilot-brief{display:grid;grid-template-columns:1fr 1.35fr;align-items:center;gap:1.25rem;padding:clamp(1rem,2.3vw,2rem);background:var(--tint);color:var(--heading);margin:1rem 0}
+.pilot-brief strong{display:block;font-size:1.4rem;font-weight:630}.pilot-brief p{color:var(--ink);font-size:.98rem}
+.pilot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.3rem}.pilot-grid>div{padding:.7rem 0;border-top:1px solid var(--line)}.pilot-grid h3{font-size:1rem;color:var(--heading);margin-bottom:.35rem}
+.pilot-detail,.readout{margin-top:2rem}.pilot-detail h3,.readout h3{margin-bottom:.55rem;font-size:1.22rem;color:var(--heading)}.readout{border-left:2px solid var(--rule);padding-left:1.1rem;max-width:68rem}
+@media(min-width:90rem){.ma-layout{grid-template-columns:minmax(0,5fr) minmax(0,1fr)}}
+@media(max-width:72rem){.ma-layout{grid-template-columns:1fr}.config-panel{border-left:0;padding:1rem 0}.ma-config dd{max-width:65em}}
+@media(max-width:62rem){.reason-grid{grid-template-columns:1fr}.scene-head{display:none}.scene-row{grid-template-columns:1fr;gap:.25rem;padding:.8rem .1rem}.mobile-label{display:inline;font-weight:600;color:var(--muted);font-size:.85rem}.plan-overview{border-top:1px solid var(--rule)}}
+@media(max-width:48rem){
+ .hero-inner,.channel-notes,.pilot-brief,.pilot-grid{grid-template-columns:1fr}.hero-inner{gap:1.35rem}.masthead{font-size:.77rem}
+ .plan-links{gap:.4rem 1.05rem}.reason-list>div{grid-template-columns:1fr;gap:.25rem}.overview-title{align-items:flex-start}
+ .report-table,.report-table tbody,.report-table tr,.report-table tbody th,.report-table td{display:block;width:100%}.report-table colgroup{display:none}.report-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .report-table tbody tr{border-top:1px solid var(--line);padding:.75rem 0}.report-table tbody tr:first-child{border-top:1px solid var(--rule)}
+ .report-table tbody th,.report-table td{border:0;padding:.25rem 0}.report-table td::before{content:attr(data-label);display:block;color:var(--muted);font-size:.8rem;font-weight:630}
+ .ma-canvas .map-svg{min-width:calc(var(--native)*.85)}.ma-map-heading{gap:.4rem}.ma-expand{padding:.3rem .4rem}
+}
+@media print{.plan-links,.ma-expand,.top-link{display:none}.ma-layout{display:block}.ma-canvas{overflow:visible}.ma-canvas .map-svg{min-width:0;width:100%}.ma-journey{break-before:page}}
+
+/* 优先展示完整旅程，配置占约五分之一；窄屏与展开时移到图下。 */
+.diagram-header{padding:2rem 0 1.1rem}.diagram-header h1{font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.25;color:var(--heading);font-weight:650;letter-spacing:-.025em}
+.diagram-header .eyebrow{color:var(--accent);font-size:.84rem;letter-spacing:.08em;margin-bottom:.55rem}.diagram-header p{color:var(--muted);margin-top:.65rem;max-width:58em}.diagram-header .review-note{font-size:.86rem}
+.ma-layout{grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:1.2rem}.ma-journey{margin:1.5rem 0 3.2rem}
+.ma-journey[data-expanded="true"] .ma-canvas .map-svg{width:min(100%,calc(var(--native)*1.2))}
+.diagram-footer{border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.84rem}
+@media(max-width:48rem){.ma-map-heading{flex-wrap:wrap}.ma-map-heading>div{flex:1 1 15rem}.ma-expand{margin:.25rem 0 .1rem}.ma-journey[data-expanded="true"] .ma-canvas .map-svg{min-width:var(--native)}.diagram-header{padding-top:1.35rem}}
+
+.config-panel{padding-top:1rem;padding-left:1rem;font-size:.88rem;line-height:1.7}.config-intro{font-size:.79rem;color:var(--muted);margin:.35rem 0 .8rem}.config-intro a{display:block;margin-top:.25rem}
+.config-item{padding:.8rem 0;border-top:1px solid var(--line)}.config-item h4{font-size:.9rem;line-height:1.5;color:var(--accent);margin-bottom:.35rem}.config-item>p{font-size:.86rem;color:var(--ink)}
+.config-detail{font-size:.82rem;color:var(--muted);margin-top:.5rem}.config-detail summary{cursor:pointer;color:var(--accent);font-size:.79rem}.config-detail p{margin-top:.55rem}.config-detail[open]{padding-bottom:.2rem}
+.config-panel code,.shared-settings code{font-size:.8em;overflow-wrap:anywhere;background:var(--tint);padding:.05em .18em}.config-pending{margin-top:.4rem;font-size:.8rem}.config-panel a{overflow-wrap:anywhere}
+.shared-settings{border-block:1px solid var(--line);padding:.7rem 0;margin:.4rem 0 1.8rem;scroll-margin-top:1rem}.shared-settings>summary{cursor:pointer;color:var(--heading);font-weight:600;font-size:.94rem}.shared-settings>summary span{color:var(--muted);font-weight:400;font-size:.82rem;margin-left:.8rem}.shared-intro{font-size:.86rem;color:var(--muted);margin:.8rem 0}
+.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem 2.2rem;padding:.3rem 0 1.1rem}.settings-grid section{border-top:1px solid var(--line);padding-top:.8rem}.settings-grid h3{font-size:1rem;color:var(--heading);margin-bottom:.4rem}.settings-grid p{font-size:.9rem;color:var(--muted)}
+.ma-journey--wide .node-label{font-size:17px}.ma-journey--wide .node-detail{font-size:15px}.ma-journey--wide .edge-label{font-size:14px}
+.ma-journey[data-expanded="true"] .config-panel{padding:1rem 0;border-left:0;border-top:1px solid var(--line)}.ma-journey[data-expanded="true"] .config-item{max-width:68rem}
+@media(max-width:84rem){.ma-layout{grid-template-columns:minmax(0,1fr)}.config-panel{padding:1rem 0;border-left:0;border-top:1px solid var(--line)}.config-item{max-width:68rem}}
+@media(max-width:48rem){.settings-grid{grid-template-columns:1fr}.shared-settings>summary span{display:block;margin:.2rem 0 0}.config-item>p{font-size:.93rem}.config-detail{font-size:.89rem}.config-detail summary{font-size:.85rem}}
+@media print{.config-panel{border-left:0;padding-left:0}.settings-grid{grid-template-columns:1fr}}
+</style></head>
+<body class="ma-page">
+<nav class="plan-links" aria-label="方案导航"><a href="#why-ma">业务价值</a><a href="#integration">接入与范围</a><a href="#channels">通道选择</a><a href="#index">场景总览</a><a href="#journeys">重点旅程</a><a href="#pilot">试点与验证</a></nav>
+<header class="hero" id="top">
+  <div class="masthead"><div><strong>爱墨科技</strong><span class="market">App → 独立站</span></div><span>App 引流独立站 MA 方案</span></div>
+  <div class="hero-inner">
+    <div><h1>让 App 产品兴趣<br>转化为独立站订单</h1><p class="subtitle">以 AppPush 承接产品兴趣、耗材补货、产品到货与活动需求，帮助爱墨科技把 App 用户引导至独立站完成购买。</p></div>
+    <div class="cover-example"><h2>AppPush 购买引导 · 围绕需求匹配内容</h2><ol>
+      <li><span>对象</span><div>对相关产品有需求、具备 AppPush 通知许可的用户</div></li>
+      <li><span>动作</span><div>按业务进展推荐产品，通过 AppPush 引导独立站购买</div></li>
+      <li><span>衡量</span><div>合格人群覆盖、AppPush 执行、到站与目标产品购买</div></li>
+    </ol></div>
+  </div>
+</header>
+<main>
+<section class="plan-section" id="why-ma" aria-labelledby="why-title">
+  <h2 id="why-title">把已有 App 入口接入持续的购买跟进</h2>
+  <p class="lead">爱墨科技已有 App 导流入口，也在亚马逊经营店铺；本次目标是引导 App 用户在独立站购买。目前尚未建立触达渠道，本方案建议建立 AppPush 能力，围绕产品需求与购买进展开展主动推荐和购买跟进。</p>
+  <div class="reason-grid">
+    <div class="reason-case"><h3>让每种购买需求，<br>都有合适的触达与承接</h3><p>AppPush 为感兴趣的用户提供产品与活动入口，为选购中的用户补充用途说明，并向有需求的用户发送补货和到货提醒。</p><p>MA 统一识别推荐目标、购买进展和 AppPush 可用状态，为每种需求匹配合适内容；已购买或不再适合推荐的用户结束本轮跟进。</p></div>
+    <dl class="reason-list">
+      <div><dt>承接明确需求</dt><dd>围绕产品兴趣、耗材补货、产品到货和活动参与，推荐与用户需求一致的产品及独立站页面。</dd></div>
+      <div><dt>内容贴合需求</dt><dd>通过 AppPush 分别提供产品推荐、补货提醒、到货通知和选购帮助，让消息内容与用户的购买需求一致。</dd></div>
+      <div><dt>统一选择与退出</dt><dd>按通知许可、AppPush 可用状态和购买进展选择路径，减少重复圈人及重复触达，让各旅程采用明确的购买目标与退出依据。</dd></div>
+      <div><dt>用订单评价效果</dt><dd>关联 AppPush 执行、站内访问与独立站订单，核对用户在哪条路径完成购买，识别需要完善的承接环节。<a href="#pilot">查看试点设计 ↓</a></dd></div>
+    </dl>
+  </div>
+</section>
+<section class="plan-section" id="integration" aria-labelledby="integration-title">
+  <h2 id="integration-title">复用业务基础，接通 AppPush 购买链路</h2>
+  <p class="lead">建议选择一个 App、一个独立站市场和一组适配产品。复用现有导流入口与商品页面，建立 AppPush 触达、身份关联和购买反馈。具体 App、站点、市场、产品及 AppPush 接入条件由双方共同核实。</p>
+  <table class="report-table"><colgroup><col class="short-col"><col><col><col></colgroup>
+    <thead><tr><th scope="col">接入环节</th><th scope="col">客户侧准备</th><th scope="col">MA 中的配置</th><th scope="col">验收结果</th></tr></thead><tbody>
+    <tr><th scope="row">产品兴趣与用户关联</th><td data-label="客户侧准备">可识别产品的 App 行为、业务用户标识和商品范围；关联网站、订单及渠道中的同一用户。</td><td data-label="MA 中的配置">映射事件与属性，配置兴趣入口、推荐目标和信息不足出口。</td><td data-label="验收结果">能说明入场依据、推荐产品及用户关联；重复记录不会形成重复触达。</td></tr>
+    <tr><th scope="row">AppPush 基础</th><td data-label="客户侧准备">接入 AppPush SDK，取得有效设备标识和通知许可，实现通知点击到独立站的承接。</td><td data-label="MA 中的配置">绑定 App 数据源与通道，配置产品、补货、到货及活动消息。</td><td data-label="验收结果">测试设备收到通知，点击到达对应产品或活动页面，许可与可用状态准确。</td></tr>
+    <tr><th scope="row">产品页面承接</th><td data-label="客户侧准备">提供与产品、机型及市场对应的有效商品页和活动页，复用 App 现有购买入口。</td><td data-label="MA 中的配置">将 AppPush 内容、目标产品及购买链接对应，按业务分支配置承接页面。</td><td data-label="验收结果">通知内容与页面产品一致，用户可继续选购并完成购买。</td></tr>
+    <tr><th scope="row">支付与退出状态</th><td data-label="客户侧准备">订单服务提供目标产品支付及退款状态，核验已购、未购或信息不足，并处理业务去重。</td><td data-label="MA 中的配置">各旅程关联本轮用户、目标产品与购买状态，按图中条件继续或结束。</td><td data-label="验收结果">目标支付关联同一用户；已购用户退出本轮，数据不足用户进入对应出口。</td></tr>
+    <tr><th scope="row">场景所需业务数据</th><td data-label="客户侧准备">按场景提供补货依据、机型适配、可售库存、产品意向、活动参与及购物车状态。</td><td data-label="MA 中的配置">配置补货与拓展、到货召回和活动分层的业务分支及 AppPush 内容。</td><td data-label="验收结果">推荐有明确依据，AppPush 内容与所选业务分支、目标产品及活动状态一致。</td></tr>
+    </tbody></table>
+  <div class="integration-check"><h3>分工与交付</h3><p><b>客户运营：</b>确定市场、产品、权益和 AppPush 内容，确认许可与业务规则。<b>客户开发与数据团队：</b>完成 App、网站、订单和 AppPush 设备标识关联，提供状态回传与页面承接。<b>EngageLab 技术支持：</b>协助配置 AppPush 与旅程，共同核验分支、发送和购买结果。</p><p>交付包括身份与字段映射、AppPush 许可和可用状态清单、页面跳转验证、旅程配置及试点结果。优先复用已有接口与埋点，按选定范围补齐数据。</p></div>
+  <p class="lead">购买评价聚焦 App 用户及独立站订单；亚马逊作为现有销售渠道，其订单关联按实际数据条件单独评估。</p>
+</section>
+<section class="plan-section" id="channels" aria-labelledby="channels-title">
+  <h2 id="channels-title">以 AppPush 开展购买旅程，触达能力可按需扩展</h2>
+  <p class="lead">四条购买旅程采用 AppPush 承接产品推荐与购买跟进。EngageLab MA 同时提供 Email、WebPush、SMS 和 WhatsApp 等可扩展触达能力，可结合目标市场、用户联系方式、许可与通道条件按需选用。</p>
+  <table class="report-table"><colgroup><col class="short-col"><col><col><col></colgroup>
+    <thead><tr><th scope="col">通道</th><th scope="col">优势与适用场景</th><th scope="col">启用条件</th><th scope="col">如何验证</th></tr></thead><tbody>
+    <tr><th scope="row">AppPush<br>本方案触达</th><td data-label="优势与适用场景">承接 App 用户的兴趣产品引导、补货、到货及活动提醒，点击直达独立站产品或活动页面。</td><td data-label="启用条件">App SDK、有效设备标识、通知许可、已配置的 MA 通道及通知点击承接。</td><td data-label="如何验证">核验设备接收、链接打开和目标产品支付，并记录渠道可用状态及退出原因。</td></tr>
+    <tr><th scope="row">Email<br>可扩展选购帮助</th><td data-label="优势与适用场景">可向具备邮件许可的用户介绍产品用途、适配信息及选购建议，提供独立站购买入口。</td><td data-label="启用条件">可用邮箱、相应营销许可、已配置的发信身份与 MA Email 通道，以及匹配的产品链接。</td><td data-label="如何验证">核验邮件执行结果、内容与产品一致性、点击承接及购买关联。</td></tr>
+    <tr><th scope="row">WebPush<br>可扩展浏览器触达</th><td data-label="优势与适用场景">可通过浏览器通知触达已订阅网站的用户，提供相关产品、到货或活动信息及购买入口。</td><td data-label="启用条件">网站 SDK、有效浏览器订阅、MA WebPush 通道，以及订阅与目标用户的可靠关联。</td><td data-label="如何验证">核验浏览器接收、订阅状态、目标市场商品页面及支付关联。</td></tr>
+    <tr><th scope="row">SMS<br>可扩展产品提醒</th><td data-label="优势与适用场景">向已具备手机号及相应许可的用户发送简短产品提醒，提供独立站购买入口。</td><td data-label="启用条件">有效手机号、相应营销许可、适用市场、已配置的短信通道及可用模板。</td><td data-label="如何验证">核验模板内容、短信执行结果、购买链接及目标产品订单关联。</td></tr>
+    <tr><th scope="row">WhatsApp<br>可扩展产品提醒</th><td data-label="优势与适用场景">在适合使用 WhatsApp 的目标市场，通过产品提醒引导具备相应许可的用户前往独立站选购。</td><td data-label="启用条件">可用联系方式、目标市场用户许可、已配置的 WhatsApp 通道及可用消息模板。</td><td data-label="如何验证">核验模板发送、产品内容与链接承接，并关联独立站购买结果。</td></tr>
+    </tbody></table>
+  <div class="channel-notes">
+    <div><h3>AppPush 贯穿四条旅程</h3><p><b>兴趣引导：</b>推荐感兴趣的产品。<b>补货与产品拓展：</b>按需求选择常用耗材或适配的新用途产品。<b>产品到货：</b>告知关注产品恢复供应。</p><p><b>主题促销：</b>通过 AppPush 发起活动通知，并针对尚未到站、看过产品未加购、已加购未购买三类进展，分别提供活动引导、选购帮助和继续购买提醒。</p></div>
+    <div><h3>丰富触达能力，按业务需求选用</h3><p>Email、WebPush、SMS 和 WhatsApp 的扩展可围绕用户关系与目标市场规划，分别核验联系方式或订阅、相应许可、身份关联及通道配置。</p><p>本方案按 AppPush 许可和可用状态执行四条旅程。购买完成或不再适合推荐的用户按对应出口结束；信息不足的记录进入相应退出路径。</p></div>
+  </div>
+</section>
+<section class="plan-section" id="index" aria-labelledby="overview-title">
+  <div class="overview-title"><h2 id="overview-title">四条旅程，让 AppPush 服务不同购买需求</h2><a class="top-link" href="#pilot">查看试点与验证 ↓</a></div>
+  <p class="lead">通过 AppPush 承接兴趣产品引导、耗材补货与产品拓展、产品到货召回和活动分层跟进。四条旅程共享独立站购买目标，按业务需求匹配内容与购买页面。</p>
+  <div class="scene-head" aria-hidden="true"><span>重点旅程</span><span>运营要解决的问题</span><span>可调整的策略</span><span>预期价值</span></div>
+  <nav class="plan-overview" aria-label="旅程图索引">
+    <a class="scene-row" href="#j1"><strong>01 感兴趣产品的<br>独立站购买引导</strong><span><span class="mobile-label">运营问题　</span>明确的产品兴趣需要对应的购买入口。</span><span><span class="mobile-label">策略　</span>按兴趣选择产品，通过 AppPush 引导独立站购买。</span><span><span class="mobile-label">预期价值　</span>让感兴趣的产品更容易进入选购与成交。</span></a>
+    <a class="scene-row" href="#j2"><strong>02 耗材补货与<br>产品拓展推荐</strong><span><span class="mobile-label">运营问题　</span>常用耗材与新用途需求不同，需要匹配相应产品。</span><span><span class="mobile-label">策略　</span>优先匹配补货需求；补货需求明确不成立且有适配未购品类时推荐新用途。</span><span><span class="mobile-label">预期价值　</span>通过 AppPush 提供相关产品推荐，促进复购和产品拓展。</span></a>
+    <a class="scene-row" href="#j3"><strong>03 感兴趣产品的<br>到货召回</strong><span><span class="mobile-label">运营问题　</span>产品恢复供应，需要重新承接仍有效的购买意向。</span><span><span class="mobile-label">策略　</span>核对有效意向、产品可售和购买状态，通过 AppPush 发送到货提醒。</span><span><span class="mobile-label">预期价值　</span>通过 AppPush 找回有需求的用户，引导相关产品购买。</span></a>
+    <a class="scene-row" href="#j4"><strong>04 主题促销与<br>购买进展跟进</strong><span><span class="mobile-label">运营问题　</span>尚未到站、选购中和已加购的用户需要不同帮助。</span><span><span class="mobile-label">策略　</span>按三类购买进展，通过 AppPush 提供活动引导、选购帮助或继续购买提醒。</span><span><span class="mobile-label">预期价值　</span>让 AppPush 内容贴合购买进展，减少重复触达。</span></a>
+  </nav>
+</section>
+<section class="plan-section" id="journeys" aria-labelledby="journeys-title">
+<h2 id="journeys-title">AppPush 旅程与关键配置</h2>
+  <p class="lead">旅程图展示产品推荐、AppPush 触达与购买退出；右侧说明用户条件、通知许可、AppPush 可用状态及数据关联。展开“数据来源与判定口径”可查看各业务分支的配置依据。</p>
+<details class="shared-settings" id="common-settings">
+<summary>共用接入与发送约定 <span>统一身份 · 支付口径 · AppPush 许可 · 触达规则</span></summary>
+<p class="shared-intro">统一用户、订单和通道资格的判定口径。以下为推荐接法，业务字段优先映射到现有系统；各项条件以接入联调结果为准。</p>
+<div class="settings-grid">
+<section><h3>统一用户身份与通道关联</h3><p>优先覆盖 App、独立站与订单能通过已有业务账号可靠关联的用户，并映射至 MA EUID；三端采用一致的身份规则，AppPush 设备标识也须关联到对应用户。</p><p>账号不互通时，优先评估现有登录、会员体系和 App 导流入口。完成身份及订单关联后再纳入旅程；只在点击消息后建立的关联，不能支撑发送前的购买判断。确需增加关联机制时再单独设计，不默认新建身份服务。</p><p>匿名转登录、账号冲突和跨设备关联须通过联调。UTM、活动 ID 和消息点击均不能单独替代身份核验；无法可靠关联的用户按信息不足结束本轮。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/console/data-management/user" target="_blank" rel="noopener noreferrer">官方用户标识说明</a></p></section>
+<section><h3>支付结果与本轮购买状态</h3><p>以独立站订单服务的支付成功记录为准，保留用户、订单及明细 ID、产品/SKU、数量、金额、币种和当前订单状态。支付、取消或退款均同步相关状态，按业务订单键处理重复记录。</p><p>按“用户 × 本轮目标/活动”区分已购买、确认未购买和未知；仅缺少支付事件不能证明未购买。建议采用固定产品组或活动商品集合，并保留本轮关联，避免新目标覆盖正在执行的推荐。</p><p>等待事件观察到达节点后的匹配支付。资格复核后、进入等待前发生的支付，也须纳入订单状态及结果对账。未观察到购买不代表消息发送失败，不据此额外重复推送。亚马逊订单仅在能够可靠关联时纳入，不能由独立站未购推断其他渠道未购。<a href="https://www.engagelab.com/zh_CN/docs/marketing-automation/rest-api/event-report" target="_blank" rel="noopener noreferrer">事件上报能力</a></p></section>
+<section><h3>当前属性与记录去重</h3><p>优先复用已有同步链路，在购买、库存、活动、补货需求或通道许可变化时更新当前属性。条件分支读取节点执行时的当前值，不在条件节点内持续监听事件。</p><p>保留业务对象、数据来源、核验结果和本轮关联。身份不明、记录冲突、证据不全或无法确认当前状态时标记未知，按信息不足结束本轮，不把空值当作否。</p><p>上报端按业务事件键去重；同一事件重试复用完整的原始事件内容与标识。数据去重不单独等于入场或发送只执行一次，需结合本轮参与记录和旅程规则验证。动态商品匹配与并发关联通过联调后再采用；固定商品范围可作为明确的实施起点。<a href="https://www.engagelab.com/docs/marketing-automation/rest-api/attribu-setup" target="_blank" rel="noopener noreferrer">用户属性更新</a></p></section>
+<section><h3>AppPush 接入与购买页面承接</h3><p>四条旅程统一使用 AppPush。当前尚无触达渠道，需绑定 App 数据源、集成 SDK、开启 MA 通道并验证设备标识；客户 App 使用现有 Activity/Deeplink 或点击处理逻辑打开目标网页，验收实际设备接收、页面打开和订单关联。</p><p>优先复用现有网站埋点、商品页和活动页，缺失部分按场景补齐。网站行为及订单回传用于核验购买进展，通知点击、实际到站和支付结果分别记录。</p><p>目标页面须匹配本轮产品、市场和语言。具体商品页不可承接时，仅在已有分类页仍包含目标可购产品的情况下使用该页；没有可靠页面则从发送前的条件分支退出。<a href="https://www.engagelab.com/zh_CN/learning-center/ma/article/engagelab-ma-apppush-channel-overview" target="_blank" rel="noopener noreferrer">AppPush 配置</a></p></section>
+<section><h3>AppPush 许可与触达资格</h3><p>依据当前设备标识、通道配置和通知许可，分别判断 AppPush 可用、明确不可用或未知。可用须同时满足有效设备、通道正常和通知许可；未收到点击、未到站和未购买都不等于通道不可用。</p><p>各触达动作前合并核验购买状态、商品可售与适配、活动资格和 AppPush 状态。符合对应业务条件且 AppPush 可用时执行通知；明确不可用时结束本轮。</p><p>参与判断的信息未知时按信息不足结束，不把空值当作不可用或未购买。用户撤销许可或本轮目标已完成时，更新当前资格，停止相应跟进。</p></section>
+<section><h3>发送上限与重复进入</h3><p>配置 AppPush 发送上限，并由运营明确本轮总触达次数。旅程 1、2、3 每轮执行一个触达动作；旅程 4 最多一次初次活动通知和一次按当前进展选择的跟进。</p><p>MA 频控约束 Journey 消息，按发送先后计数，不提供旅程优先级调度。其他系统的消息需一起纳入运营安排；多场景可通过互斥人群或运营批次减少重叠。</p><p>按“用户 × 本轮目标 × 触达阶段”核验参与和执行记录。重复进入、并发实例、频控拦截及失败重试须通过联调；拦截或异常不自动增加消息。<a href="https://www.engagelab.com/zh_CN/learning-center/ma/article/configure-frequency-control-avoid-over-messaging" target="_blank" rel="noopener noreferrer">官方频控规则</a></p></section>
+</div></details>
+<article class="ma-journey" id="j1" aria-labelledby="j1-title">
+<div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 01</span><h2 id="j1-title">感兴趣产品的独立站购买引导</h2><p>识别 App 中的产品兴趣，通过 AppPush 推荐相关产品并引导到独立站，推动兴趣转化为订单。</p></div><button class="ma-expand" type="button" aria-expanded="false" aria-controls="j1-map">展开全图</button></div>
+<div class="ma-canvas" id="j1-map" tabindex="0" role="region" aria-label="感兴趣产品的独立站购买引导，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:900px" width="900" height="740" viewBox="0 0 900 740" role="img" aria-labelledby="j1-svg-title j1-svg-desc"><title id="j1-svg-title">感兴趣产品的独立站购买引导</title><desc id="j1-svg-desc">识别 App 产品兴趣，确认购买资格及 AppPush 可触达后发送产品推荐，引导独立站购买；购买完成或本轮结束时退出，信息不足或不适合推荐的用户结束。</desc><defs><marker id="j1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs><g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#j1-arrow)"><path data-from="j1-start" data-to="j1-eligible" d="M450 108V165"/><path data-from="j1-eligible" data-to="j1-notice" d="M450 260V335"/><path data-from="j1-eligible" data-to="j1-end" d="M280 214H60V666H277"/><path data-from="j1-notice" data-to="j1-purchase" d="M450 410V475"/><path data-from="j1-purchase" data-to="j1-end" d="M450 550V627"/><path data-from="j1-purchase" data-to="j1-end" d="M620 514H830V666H623"/></g><text class="edge-label" x="472" y="305">适合推荐</text><text class="edge-label" x="82" y="183">已购／不宜推荐</text><text class="edge-label" x="82" y="204">信息不足／不可触达</text><text class="edge-label" x="472" y="596">已购买</text><text class="edge-label" x="645" y="498">本轮跟进结束</text><g data-node="j1-start" data-kind="start"><rect x="280" y="36" width="340" height="72" rx="16"/><text class="node-label" x="450" y="63" text-anchor="middle">开始</text><text class="node-detail" x="450" y="87" text-anchor="middle">App 内对相关产品感兴趣</text></g><g data-node="j1-eligible" data-kind="condition"><rect x="280" y="168" width="340" height="92" rx="10"/><text class="node-label" x="450" y="195" text-anchor="middle">条件分支</text><text class="node-detail" x="450" y="219" text-anchor="middle">相关产品尚未购买</text><text class="node-detail" x="450" y="241" text-anchor="middle">适合推荐且 AppPush 可触达</text></g><g data-node="j1-notice" data-kind="app-notice"><rect x="280" y="338" width="340" height="72" rx="10"/><text class="node-label" x="450" y="365" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="450" y="389" text-anchor="middle">推荐感兴趣的产品，前往独立站购买</text></g><g data-node="j1-purchase" data-kind="wait-event"><rect x="280" y="478" width="340" height="72" rx="10"/><text class="node-label" x="450" y="505" text-anchor="middle">等待事件</text><text class="node-detail" x="450" y="529" text-anchor="middle">完成目标产品的独立站购买</text></g><g data-node="j1-end" data-kind="end"><rect x="280" y="630" width="340" height="72" rx="16"/><text class="node-label" x="450" y="657" text-anchor="middle">结束</text><text class="node-detail" x="450" y="681" text-anchor="middle">已购买或本轮推荐结束</text></g></svg></div>
+</div><aside class="ma-card config-panel" aria-labelledby="j1-config-title">
+<h3 id="j1-config-title">关键配置</h3><p class="config-intro">按实际数据与 AppPush 资格配置。<a href="#common-settings">查看共用接入约定</a></p>
+<div class="config-item"><h4>开始｜什么算产品兴趣</h4><p>采用达到兴趣门槛的产品浏览，或明确点击产品购买入口，识别用户对本轮产品的兴趣。一般 App 活跃不作为产品兴趣。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>数据来源：</b>复用 App 产品页和购买入口埋点。有效浏览指产品页实际展示且 App 处于前台，并能识别具体产品；预加载、后台刷新和重复回调不计为独立浏览。</p><p><b>关联字段：</b><code>user_id</code> 或设备标识、<code>product_id</code>、<code>sku_id</code>、<code>session_id</code>、<code>view_id</code>、<code>event_id</code> 和入口来源；按共用身份规则关联订单用户。</p><p><b>入口与去重：</b>采用事件入口。已有产品购买入口点击可直接按固定产品范围筛选；浏览触发建议使用同一选购会话内、同一产品至少 2 次有效浏览的统计结果，达标后上报兴趣成立事件。同一 <code>view_id</code> 只计一次，同一 <code>event_id</code> 不重复累计。无法区分会话或提供汇总结果时，可先使用明确购买入口点击；重复入场按本轮参与记录处理。</p><p><b>目标选择：</b>明确购买入口所指向的产品优先；多个有效候选按运营排序选定一个本轮目标。固定目标产品组，避免其他行为覆盖本轮关联。</p></details></div><div class="config-item"><h4>条件分支｜适合继续推荐</h4><p>本轮目标尚未购买、适用市场有货、产品适配，且 AppPush 明确可用时继续。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>来源与更新：</b>订单服务提供购买状态；商品目录提供机型适配、在售市场、库存和有效链接；App 与通道提供设备及通知许可。相关状态变化后同步当前属性。</p><p><b>购买判定：</b>依据本轮兴趣与目标产品的关联核验匹配订单。已有其他订单不直接代表本轮需求完成，缺少支付事件也不直接代表未购买。</p><p><b>退出处理：</b>已购、商品不可承接、AppPush 明确不可用或不适配时结束；身份、购买或通道状态未知时按信息不足结束。本旅程仅使用 AppPush。</p></details></div><div class="config-item"><h4>AppPush 通知｜购买承接</h4><p>发送与已知兴趣一致的产品推荐，点击进入对应独立站商品页。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>内容与链接：</b>商城提供目标产品、规格、机型、市场、语言和 URL。规格明确时使用对应 SKU 页面；分类页仅在仍包含目标可购产品时作为承接页面。</p><p><b>点击联调：</b>客户 App 通过现有点击处理逻辑打开网页，并携带本轮来源标记。核验通知接收、页面真实打开和身份关联，不能只以节点执行成功作为到站证据。</p><p><b>发送约束：</b>本轮只执行这一个触达动作；无可靠购买页面时从发送前的条件分支退出。</p></details></div><div class="config-item"><h4>等待事件｜购买观察</h4><p>观察本轮目标产品或固定产品组是否完成独立站支付。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p>支付事件由订单服务提供，关联同一用户与商品范围；按订单及明细 ID 去重。事件匹配条件与推荐商品一致，命中购买后结束本轮。</p><p>采用固定商品范围配置事件属性过滤。未观察到匹配购买不代表消息失败；本轮观察完成后结束，不追加消息。订单核对与消息归因分别处理。</p></details></div>
+<p class="config-pending"><b>接入确认</b><br>确认有效产品行为、身份与订单关联、目标商品、AppPush 许可和通知点击承接；只有一般活跃数据时，先补齐能识别产品的行为。</p>
+</aside></div></article>
+<article class="ma-journey ma-journey--wide" id="j2" aria-labelledby="j2-title">
+<div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 02</span><h2 id="j2-title">耗材补货与产品拓展推荐</h2><p>根据补货与新用途需求匹配产品，通过 AppPush 提供对应购买入口，促进复购与相关产品购买。</p></div><button class="ma-expand" type="button" aria-expanded="false" aria-controls="j2-map">展开全图</button></div>
+<div class="ma-canvas" id="j2-map" tabindex="0" role="region" aria-label="耗材补货与产品拓展推荐，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:1000px" width="1000" height="880" viewBox="0 0 1000 880" role="img" aria-labelledby="j2-svg-title j2-svg-desc"><title id="j2-svg-title">耗材补货与产品拓展推荐</title><desc id="j2-svg-desc">识别补货或产品拓展需求，确认 AppPush 可触达，优先推荐常用耗材；补货需求明确不成立且有适配未购品类时推荐新用途产品。两个发送分支择一，汇合购买反馈；已购、无候选、不可触达或信息不足时结束。</desc><defs><marker id="j2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs><g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#j2-arrow)"><path data-from="j2-start" data-to="j2-direction" d="M500 108V165"/><path data-from="j2-direction" data-to="j2-refill" d="M500 264V310H280V421"/><path data-from="j2-direction" data-to="j2-new-use" d="M500 264V310H720V421"/><path data-from="j2-direction" data-to="j2-end" d="M670 216H950V796H673"/><path data-from="j2-refill" data-to="j2-purchase" d="M280 520V568H500V611"/><path data-from="j2-new-use" data-to="j2-purchase" d="M720 520V568H500V611"/><path data-from="j2-purchase" data-to="j2-end" d="M500 686V757"/><path data-from="j2-purchase" data-to="j2-end" d="M330 650H55V796H327"/></g><text class="edge-label" x="135" y="368">补货需求明确</text><text class="edge-label" x="560" y="348">补货需求明确不成立</text><text class="edge-label" x="560" y="372">有适配的未购品类</text><text class="edge-label" x="695" y="180">已购／无合适候选</text><text class="edge-label" x="695" y="202">不可触达／信息不足</text><text class="edge-label" x="522" y="728">已购买</text><text class="edge-label" x="85" y="633">本轮跟进结束</text><g data-node="j2-start" data-kind="start"><rect x="330" y="36" width="340" height="72" rx="16"/><text class="node-label" x="500" y="63" text-anchor="middle">开始</text><text class="node-detail" x="500" y="87" text-anchor="middle">有补货或产品拓展需求的用户</text></g><g data-node="j2-direction" data-kind="condition"><rect x="330" y="168" width="340" height="96" rx="10"/><text class="node-label" x="500" y="195" text-anchor="middle">条件分支</text><text class="node-detail" x="500" y="219" text-anchor="middle">匹配本轮需求与适配产品</text><text class="node-detail" x="500" y="241" text-anchor="middle">优先补货，AppPush 可触达</text></g><g data-node="j2-refill" data-kind="app-notice"><rect x="120" y="424" width="320" height="96" rx="10"/><text class="node-label" x="280" y="451" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="280" y="475" text-anchor="middle">推荐常用耗材</text><text class="node-detail" x="280" y="497" text-anchor="middle">直达独立站购买</text></g><g data-node="j2-new-use" data-kind="app-notice"><rect x="560" y="424" width="320" height="96" rx="10"/><text class="node-label" x="720" y="451" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="720" y="475" text-anchor="middle">介绍适配产品与新用途</text><text class="node-detail" x="720" y="497" text-anchor="middle">直达产品页面</text></g><g data-node="j2-purchase" data-kind="wait-event"><rect x="330" y="614" width="340" height="72" rx="10"/><text class="node-label" x="500" y="641" text-anchor="middle">等待事件</text><text class="node-detail" x="500" y="665" text-anchor="middle">完成本轮目标产品购买</text></g><g data-node="j2-end" data-kind="end"><rect x="330" y="760" width="340" height="72" rx="16"/><text class="node-label" x="500" y="787" text-anchor="middle">结束</text><text class="node-detail" x="500" y="811" text-anchor="middle">已购买或本轮推荐结束</text></g></svg></div>
+</div><aside class="ma-card config-panel" aria-labelledby="j2-config-title">
+<h3 id="j2-config-title">关键配置</h3><p class="config-intro">按实际数据与 AppPush 资格配置。<a href="#common-settings">查看共用接入约定</a></p>
+<div class="config-item"><h4>开始｜复购与拓展候选</h4><p>采用分群入口，覆盖购买记录、设备机型和适配关系明确的用户，每轮选定一个推荐方向和目标商品范围。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>数据来源：</b>独立站订单、App 绑定设备、商品目录，以及客户已有补货需求标签或用户明确的补货行为。没有可靠机型或商品依据时不猜测兼容性。</p><p><b>关联字段：</b>用户、机型、产品/SKU、用途品类、订单及明细 ID、补货需求状态、本轮候选标识、推荐方向和目标商品。数据变更后更新相关属性，分群入口与重复入场通过联调。</p><p><b>去重与候选：</b>同一“用户 × 机型 × 产品组 × 本轮候选”仅保留一个参与记录；多个候选按明确补货需求及客户运营排序选定，避免并行推荐互相覆盖。</p></details></div><div class="config-item"><h4>条件分支｜本轮推荐方向</h4><p>在同一条件节点合并判断补货需求、适配产品、购买状态和 AppPush 资格，补货与未购品类拓展两条路径择一执行。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>补货依据：</b>使用客户已有且可核验的补货需求标签，或用户明确的补货行为；不推测耗材剩余量。补货需求为未知时，不转入产品拓展。</p><p><b>方向选择：</b>补货需求成立时优先推荐常用耗材；补货需求明确不成立且存在适配、尚未购买的用途品类时推荐新用途。无可靠方向或目标商品时结束。</p><p><b>出口规则：</b>补货需求成立且 AppPush 可用，进入补货 AppPush；补货需求明确不成立、有适配未购品类且 AppPush 可用，进入拓展 AppPush。</p><p><b>共同资格：</b>本轮尚未购买、产品适配且可售、目标页面有效。AppPush 明确不可用时结束；推荐方向、购买或触达状态未知时按信息不足结束。未观察到购买不作为额外推送的依据。</p></details></div><div class="config-item"><h4>AppPush 通知｜按方向推荐</h4><p>AppPush 分别承接补货与未购品类拓展，按已确定方向提供相应产品说明和购买链接。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>补货内容：</b>说明适配的常用耗材，直达对应独立站页面；拓展内容说明适配的新用途及选购依据。</p><p><b>内容配置：</b>按推荐方向选用相应 AppPush 内容，填入产品名称、用途说明及目标 URL。方向由前面的合并判断确定，消息节点承接对应购买目标。</p><p><b>许可与择一：</b>用户须具备有效设备标识、通知许可和可用 AppPush 通道；每个用户本轮只执行补货或拓展其中一条通知路径。</p></details></div><div class="config-item"><h4>等待事件｜本轮购买观察</h4><p>两条 AppPush 路径汇合，按明确的目标商品范围观察独立站支付。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p>使用固定产品组配置支付过滤，推荐与订单核验保持同一范围；补货与拓展的明细按实际推荐方向对账。需要每位用户不同的动态商品关联时，先完成能力和数据联调。</p><p>本轮候选关联后的匹配支付视为目标购买，不因用户已有耗材订单而排除复购。购买命中或本轮观察完成后结束，不追加通知。</p></details></div>
+<p class="config-pending"><b>接入确认</b><br>确认补货需求标签或明确行为、机型适配与商品目录，以及 AppPush 的有效设备标识与通知许可。补货需求未知时不自动推荐新用途。</p>
+</aside></div></article>
+<article class="ma-journey" id="j3" aria-labelledby="j3-title">
+<div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 03</span><h2 id="j3-title">感兴趣产品的到货召回</h2><p>产品恢复供应后，通过 AppPush 提醒仍有需求的用户，承接已有产品兴趣并引导独立站购买。</p></div><button class="ma-expand" type="button" aria-expanded="false" aria-controls="j3-map">展开全图</button></div>
+<div class="ma-canvas" id="j3-map" tabindex="0" role="region" aria-label="感兴趣产品的到货召回，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:900px" width="900" height="740" viewBox="0 0 900 740" role="img" aria-labelledby="j3-svg-title j3-svg-desc"><title id="j3-svg-title">感兴趣产品的到货召回</title><desc id="j3-svg-desc">将可售库存与用户意向关联，确认需求有效、产品可购买且 AppPush 可触达后发送到货通知，引导独立站购买。已购买、需求不成立、不可触达或信息不足时结束。</desc><defs><marker id="j3-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs><g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#j3-arrow)"><path data-from="j3-start" data-to="j3-eligible" d="M450 108V165"/><path data-from="j3-eligible" data-to="j3-notice" d="M450 264V335"/><path data-from="j3-eligible" data-to="j3-end" d="M280 216H60V666H277"/><path data-from="j3-notice" data-to="j3-purchase" d="M450 410V475"/><path data-from="j3-purchase" data-to="j3-end" d="M450 550V627"/><path data-from="j3-purchase" data-to="j3-end" d="M620 514H830V666H623"/></g><text class="edge-label" x="472" y="307">适合提醒</text><text class="edge-label" x="82" y="181">已购／不宜提醒</text><text class="edge-label" x="82" y="203">不可触达／信息不足</text><text class="edge-label" x="472" y="596">已购买</text><text class="edge-label" x="645" y="498">本轮跟进结束</text><g data-node="j3-start" data-kind="start"><rect x="280" y="36" width="340" height="72" rx="16"/><text class="node-label" x="450" y="63" text-anchor="middle">开始</text><text class="node-detail" x="450" y="87" text-anchor="middle">用户关注的缺货产品已到货</text></g><g data-node="j3-eligible" data-kind="condition"><rect x="280" y="168" width="340" height="96" rx="10"/><text class="node-label" x="450" y="195" text-anchor="middle">条件分支</text><text class="node-detail" x="450" y="219" text-anchor="middle">仍有需求，产品可购买且尚未购买</text><text class="node-detail" x="450" y="241" text-anchor="middle">AppPush 可触达</text></g><g data-node="j3-notice" data-kind="app-notice"><rect x="280" y="338" width="340" height="72" rx="10"/><text class="node-label" x="450" y="365" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="450" y="389" text-anchor="middle">告知关注产品到货，前往独立站购买</text></g><g data-node="j3-purchase" data-kind="wait-event"><rect x="280" y="478" width="340" height="72" rx="10"/><text class="node-label" x="450" y="505" text-anchor="middle">等待事件</text><text class="node-detail" x="450" y="529" text-anchor="middle">完成到货产品的独立站购买</text></g><g data-node="j3-end" data-kind="end"><rect x="280" y="630" width="340" height="72" rx="16"/><text class="node-label" x="450" y="657" text-anchor="middle">结束</text><text class="node-detail" x="450" y="681" text-anchor="middle">已购买或本轮提醒结束</text></g></svg></div>
+</div><aside class="ma-card config-panel" aria-labelledby="j3-config-title">
+<h3 id="j3-config-title">关键配置</h3><p class="config-intro">按实际数据与 AppPush 资格配置。<a href="#common-settings">查看共用接入约定</a></p>
+<div class="config-item"><h4>开始｜到货如何进入旅程</h4><p>某 SKU 在目标市场由不可售恢复可售后，匹配已有意向用户，上报“该用户关注产品已到货”事件。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>库存来源：</b>优先采用商城实际可售状态；仓储数量需与上架和可配送市场一致。保留 SKU、市场、到货批次、业务记录 ID 和当前可售状态。</p><p><b>用户关联：</b>客户现有业务链路按“用户 × SKU × 市场”关联到货登记或有效产品兴趣，再上报 MA 用户事件。原始库存变化不是用户事件，不能让无关用户进入旅程。</p><p><b>去重：</b>按“用户 × SKU × 市场 × 到货批次”处理重复记录；批次优先复用现有库存标识。多个候选优先真实到货登记，再按客户运营排序选择一个目标。</p></details></div><div class="config-item"><h4>条件分支｜购买需求与触达资格</h4><p>确认需求仍有效、目标产品有货且本轮未购买；AppPush 明确可用时发送到货通知。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>意向来源：</b>复用有效到货登记、缺货商品的有效浏览或购买入口记录，保留用户、SKU、市场、<code>intent_id</code>、意向类型和当前取消状态。一般浏览不等于主动订阅到货提醒。</p><p><b>通知出口：</b>本轮购买需求与商品条件成立，且有效设备、通知许可和 AppPush 通道均可用时，进入 AppPush 通知。</p><p><b>退出处理：</b>已购、意向取消、商品不可售或 AppPush 明确不可用时结束；身份、购买、库存或 AppPush 状态未知时按信息不足结束。</p></details></div><div class="config-item"><h4>AppPush 通知｜到货承接</h4><p>通过 AppPush 告知关注产品恢复供应，链接到对应市场的独立站商品页。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>承接前提：</b>AppPush 设备标识关联到本轮用户，通知点击能够打开目标商品页，网站与订单继续采用一致的用户关联。</p><p><b>内容口径：</b>存在真实申请才使用“你订阅的到货提醒”；只有浏览兴趣时，说明相关产品恢复供应和购买入口。内容、SKU、市场及网页保持一致。</p><p><b>发送约束：</b>每个用户同一到货批次只执行一次 AppPush 通知。不因没有购买追加通知；没有可靠商品承接页时结束。</p></details></div><div class="config-item"><h4>等待事件｜到货后的购买</h4><p>观察被提醒的产品或固定产品组是否完成支付。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p>订单服务提供用户、订单及明细 ID、产品/SKU 和当前支付状态，按业务键去重。发送前的条件节点排除当时已确认购买的用户；其他支付继续纳入订单核对。</p><p>等待事件观察到达节点后的匹配购买。购买命中或本轮观察完成后结束，不追加消息；用户打开页面时的实际可购状态以商城为准。</p></details></div>
+<p class="config-pending"><b>接入确认</b><br>确认用户与商品意向的关联、市场可售状态、AppPush 设备标识及通知许可；没有用户—产品关联时，不能使用全局库存变化作为用户入口。</p>
+</aside></div></article>
+<article class="ma-journey ma-journey--wide" id="j4" aria-labelledby="j4-title">
+<div class="ma-layout"><div class="ma-card">
+<div class="ma-map-heading"><div><span class="map-number">旅程 04</span><h2 id="j4-title">主题促销与购买进展跟进</h2><p>通过 AppPush 引导活动参与，按购买进展分别提供活动提醒、选购帮助与继续购买通知，帮助用户完成独立站购买。</p></div><button class="ma-expand" type="button" aria-expanded="false" aria-controls="j4-map">展开全图</button></div>
+<div class="ma-canvas" id="j4-map" tabindex="0" role="region" aria-label="主题促销与购买进展跟进，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" class="map-svg" style="--native:1120px" width="1120" height="1370" viewBox="0 0 1120 1370" role="img" aria-labelledby="j4-svg-title j4-svg-desc"><title id="j4-svg-title">主题促销与购买进展跟进</title><desc id="j4-svg-desc">先由 AppPush 引导进入独立站，购买完成则退出。需继续跟进时核对当前进展及 AppPush 可触达状态，对尚未到站、看过产品未加购、已加购未购买三类用户分别提供活动引导、选购帮助或继续购买提醒。三个跟进分支只选一个，购买后或本轮结束时退出。</desc><defs><marker id="j4-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#709080"/></marker></defs><g fill="none" stroke="#709080" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#j4-arrow)"><path data-from="j4-start" data-to="j4-eligible-first" d="M560 108V161"/><path data-from="j4-eligible-first" data-to="j4-notice-first" d="M560 256V317"/><path data-from="j4-eligible-first" data-to="j4-end" d="M390 210H30V1296H387"/><path data-from="j4-notice-first" data-to="j4-purchase-first" d="M560 392V445"/><path data-from="j4-purchase-first" data-to="j4-end" d="M730 484H1090V1296H733"/><path data-from="j4-purchase-first" data-to="j4-progress" d="M560 520V617"/><path data-from="j4-progress" data-to="j4-notice-visit" d="M560 716V770H220V903"/><path data-from="j4-progress" data-to="j4-notice-product" d="M560 716V903"/><path data-from="j4-progress" data-to="j4-notice-checkout" d="M560 716V770H900V903"/><path data-from="j4-progress" data-to="j4-end" d="M730 668H1090V1296H733"/><path data-from="j4-notice-visit" data-to="j4-purchase-again" d="M220 1006V1052H560V1097"/><path data-from="j4-notice-product" data-to="j4-purchase-again" d="M560 1006V1097"/><path data-from="j4-notice-checkout" data-to="j4-purchase-again" d="M900 1006V1052H560V1097"/><path data-from="j4-purchase-again" data-to="j4-end" d="M560 1172V1257"/><path data-from="j4-purchase-again" data-to="j4-end" d="M390 1136H80V1296H387"/></g><text class="edge-label" x="582" y="296">适合推荐</text><text class="edge-label" x="80" y="174">已购／不宜推荐</text><text class="edge-label" x="80" y="196">不可触达／信息不足</text><text class="edge-label" x="755" y="467">已购买：停止本轮跟进</text><text class="edge-label" x="582" y="574">未观察到购买，核对当前进展</text><text class="edge-label" x="755" y="628">已购／不宜跟进</text><text class="edge-label" x="755" y="650">不可触达／信息不足</text><text class="edge-label" x="100" y="838">尚未到站</text><text class="edge-label" x="425" y="838">看过产品，未加购</text><text class="edge-label" x="765" y="838">已加购，未购买</text><text class="edge-label" x="582" y="1225">已购买</text><text class="edge-label" x="230" y="1119">本轮跟进结束</text><g data-node="j4-start" data-kind="start"><rect x="390" y="36" width="340" height="72" rx="16"/><text class="node-label" x="560" y="63" text-anchor="middle">开始</text><text class="node-detail" x="560" y="87" text-anchor="middle">对活动产品有需求的 App 用户</text></g><g data-node="j4-eligible-first" data-kind="condition"><rect x="390" y="164" width="340" height="92" rx="10"/><text class="node-label" x="560" y="191" text-anchor="middle">条件分支</text><text class="node-detail" x="560" y="215" text-anchor="middle">目标产品尚未购买，适合本次活动</text><text class="node-detail" x="560" y="237" text-anchor="middle">有适配产品且 AppPush 可触达</text></g><g data-node="j4-notice-first" data-kind="app-notice"><rect x="390" y="320" width="340" height="72" rx="10"/><text class="node-label" x="560" y="347" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="560" y="371" text-anchor="middle">介绍活动产品与权益，直达独立站</text></g><g data-node="j4-purchase-first" data-kind="wait-event"><rect x="390" y="448" width="340" height="72" rx="10"/><text class="node-label" x="560" y="475" text-anchor="middle">等待事件</text><text class="node-detail" x="560" y="499" text-anchor="middle">完成本次活动目标产品购买</text></g><g data-node="j4-progress" data-kind="condition"><rect x="390" y="620" width="340" height="96" rx="10"/><text class="node-label" x="560" y="647" text-anchor="middle">条件分支</text><text class="node-detail" x="560" y="671" text-anchor="middle">按本次活动的购买进展分流</text><text class="node-detail" x="560" y="693" text-anchor="middle">仍有需求且 AppPush 可触达</text></g><g data-node="j4-notice-visit" data-kind="app-notice"><rect x="80" y="906" width="280" height="100" rx="10"/><text class="node-label" x="220" y="933" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="220" y="957" text-anchor="middle">突出活动价值与适用产品</text><text class="node-detail" x="220" y="979" text-anchor="middle">提供独立站活动入口</text></g><g data-node="j4-notice-product" data-kind="app-notice"><rect x="420" y="906" width="280" height="100" rx="10"/><text class="node-label" x="560" y="933" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="560" y="957" text-anchor="middle">补充关键选购信息</text><text class="node-detail" x="560" y="979" text-anchor="middle">链接到关注产品页</text></g><g data-node="j4-notice-checkout" data-kind="app-notice"><rect x="760" y="906" width="280" height="100" rx="10"/><text class="node-label" x="900" y="933" text-anchor="middle">AppPush 通知</text><text class="node-detail" x="900" y="957" text-anchor="middle">提醒已选产品与购买入口</text><text class="node-detail" x="900" y="979" text-anchor="middle">引导继续购买或结算</text></g><g data-node="j4-purchase-again" data-kind="wait-event"><rect x="390" y="1100" width="340" height="72" rx="10"/><text class="node-label" x="560" y="1127" text-anchor="middle">等待事件</text><text class="node-detail" x="560" y="1151" text-anchor="middle">完成本次活动目标产品购买</text></g><g data-node="j4-end" data-kind="end"><rect x="390" y="1260" width="340" height="72" rx="16"/><text class="node-label" x="560" y="1287" text-anchor="middle">结束</text><text class="node-detail" x="560" y="1311" text-anchor="middle">已购买或本轮活动跟进结束</text></g></svg></div>
+</div><aside class="ma-card config-panel" aria-labelledby="j4-config-title">
+<h3 id="j4-config-title">关键配置</h3><p class="config-intro">按实际数据与 AppPush 资格配置。<a href="#common-settings">查看共用接入约定</a></p>
+<div class="config-item"><h4>开始｜活动范围与初次触达</h4><p>采用分群入口，固定活动商品集合和市场；活动可参与、产品适配且可售、本轮未购买并具备 AppPush 条件的用户进入活动通知。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>来源：</b>运营活动配置、商品目录及可核验的产品兴趣或购买记录。活动调整、撤销、商品或用户状态变化后更新当前资格。</p><p><b>关联字段：</b><code>campaign_id</code>、商品集合标识、产品/SKU、市场、用户业务 ID 与 EUID、本轮参与标识。初次通知使用 AppPush。</p><p><b>购买口径：</b>将本轮活动参与与目标商品订单关联；发送前排除本轮已购买者。活动不可参与、AppPush 不可用或数据未知时走对应结束出口。</p></details></div><div class="config-item"><h4>条件分支｜本次活动的购买进展</h4><p>先排除已购买及不宜跟进的用户，再按“已加购 → 看过产品 → 尚未到站”确定唯一阶段；AppPush 可用时执行对应跟进。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>数据来源：</b>网站提供本轮活动到站、产品浏览和当前购物车状态，订单系统提供支付；同步为当前进展属性，条件节点不直接持续监听行为事件。</p><p><b>进展口径：</b>已加购需有当前购物车或未支付结算记录；看过未加购需有有效产品浏览且可核验购物车状态。仅缺少事件不能证明未加购或未购买。</p><p><b>尚未到站：</b>本轮到站状态可核验为未到站且 AppPush 可用，发送 AppPush 活动引导。</p><p><b>看过未加购：</b>本轮产品有有效浏览证据、可核验未加购且 AppPush 可用时，发送 AppPush 选购帮助。</p><p><b>已加购未购买：</b>AppPush 可用时发送继续购买提醒。已有支付、活动不可参与、无适配在售商品或 AppPush 明确不可用时结束。</p><p><b>未知与排除：</b>参与判定的信息未知时按信息不足结束。已到站但无相关产品浏览或加购证据的用户不归入未到站，本轮不继续推荐。</p></details></div><div class="config-item"><h4>条件分支｜如何核验尚未到站</h4><p>限定为本次活动导流的可观测范围，核对活动链接与站内记录后再判断。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>依据：</b>复用活动链接跳转日志及网站到站、浏览记录，按“用户 × 活动 × 本轮触达”对账。只有链路覆盖明确、记录已核验且到站计数为 0 才使用该出口；空值不是 0。</p><p><b>表达：</b>本轮未记录到可归属此次导流的访问，不排除无法归因的自主访问。消息只强调活动价值与入口，不声称用户从未访问。</p><p><b>证据不足：</b>跳转或站内关联不可靠、数据补发未核对或身份存在冲突时，按信息不足结束本轮，不将该用户划入未到站。</p></details></div><div class="config-item"><h4>AppPush 通知｜各阶段承接</h4><p>初次 AppPush 介绍活动产品与真实权益；跟进按当前进展择一发送活动引导、选购帮助或继续购买提醒。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p><b>页面承接：</b>未到站用户使用活动页；看过产品用户使用关注产品页；已加购用户优先使用现有继续购买入口。没有可靠购物车恢复入口时，使用所选产品页。</p><p><b>选购帮助：</b>通过 AppPush 提供与关注产品有关的适配说明、用途或选购建议，链接到对应商品页面；使用简明内容承接用户的实际产品兴趣。</p><p><b>内容来源：</b>活动系统提供当前可用权益和市场，商品目录提供适配关系、产品说明及有效链接。没有可靠承接页面时从条件分支退出。</p><p><b>发送去重：</b>每人本轮最多一次初次通知和一次分层跟进；按“用户 × 活动 × 初次/跟进阶段”核验执行记录。尚未到站、看过产品未加购、已加购未购买三种跟进路径只执行一种，不因没有购买或进展变化再追加其他路径。</p></details></div><div class="config-item"><h4>等待事件｜活动购买观察</h4><p>初次触达后观察目标购买；未观察到购买时，按当前进展与通道资格决定是否进行一次跟进。</p><details class="config-detail"><summary>数据来源与判定口径</summary><p>两处购买观察使用同一固定活动商品集合。订单按用户、活动、目标商品及业务订单键核对，购买匹配用于结束本轮跟进，与业务归因分别统计。</p><p>跟进前重新读取活动可参与状态、产品可售、购买、通道许可及发送资格。跟进后的购买观察完成即结束，不产生额外触达；未购买不等于发送失败。</p></details></div>
+<p class="config-pending"><b>接入确认</b><br>确认活动、用户、到站、商品浏览、购物车与订单关联，以及 AppPush 许可和可用状态。尚未到站证据不足时使用信息不足出口，不新增推测性分组。</p>
+</aside></div></article>
+</section>
+<section class="plan-section" id="pilot" aria-labelledby="pilot-title">
+  <h2 id="pilot-title">验证 AppPush 购买承接与业务跟进</h2>
+  <p class="lead">以旅程 1 验证 AppPush 及独立站购买链路，并按业务数据条件验证补货与拓展、到货召回和活动分层路径。重点核对合格用户能否收到相关内容、到达对应页面并完成目标产品购买。</p>
+  <div class="pilot-brief"><div><strong>试点范围 · AppPush 与独立站购买</strong><p>选定 App、独立站市场、产品组与合格用户</p></div><p>同一用户在本轮采用统一产品和订单口径，记录 AppPush 执行、站内访问、支付及退出状态，并核对对应业务分支。</p></div>
+  <div class="pilot-grid">
+    <div><h3>01 接通 AppPush 基础</h3><p>用测试用户验证产品兴趣、身份关联、AppPush 接收、页面打开与支付回传，核对旅程 1 的完整路径。</p></div>
+    <div><h3>02 验证业务分支</h3><p>测试补货与新用途推荐、产品到货，以及活动中的三类购买进展。各分支均通过 AppPush 提供对应内容，并覆盖不可触达和信息不足的退出状态。</p></div>
+    <div><h3>03 核对业务结果</h3><p>按场景和业务分支汇总合格人群、AppPush 执行、到站与目标产品购买，检查重复触达、已购退出及未能关联的数据。</p></div>
+  </div>
+  <div class="pilot-detail"><h3>看哪些结果，如何计算</h3>
+    <p class="lead">以本轮参与标识关联用户、目标产品、消息、站内访问和订单；用户按本轮去重，订单按业务订单及明细标识去重。分母覆盖全部纳入的合格用户，包括未点击和发送失败者；无法核验的记录单列。</p>
+    <table class="report-table"><colgroup><col class="short-col"><col><col></colgroup>
+      <thead><tr><th scope="col">观察结果</th><th scope="col">统计口径</th><th scope="col">用于判断</th></tr></thead><tbody>
+      <tr><th scope="row">合格人群覆盖</th><td data-label="统计口径">具备身份关联、目标产品购买资格及 AppPush 通知许可的去重用户数 ÷ 满足该场景业务条件的去重候选用户数。</td><td data-label="用于判断">业务候选中有多少用户可以纳入运营，以及哪些数据或许可需要完善。</td></tr>
+      <tr><th scope="row">AppPush 路径执行</th><td data-label="统计口径">各触达步骤的 AppPush 执行成功用户数 ÷ 纳入该业务路径的合格用户数；分别列出发送失败与退出原因。</td><td data-label="用于判断">AppPush 是否按图中业务规则执行，产品内容与购买进展是否匹配。</td></tr>
+      <tr><th scope="row">独立站到站</th><td data-label="统计口径">本轮有可关联站内访问的去重用户数 ÷ 本轮纳入的合格用户数；另列可归属各消息链接的到站人数。</td><td data-label="用于判断">AppPush 的页面承接情况，分别核验链接点击与真实站内访问。</td></tr>
+      <tr><th scope="row">目标产品购买</th><td data-label="统计口径">本轮完成目标产品支付的去重用户数 ÷ 本轮纳入的合格用户数；取消和退款单列并更新。</td><td data-label="用于判断">是否完成本轮独立站购买目标，以及购买结果能否关联到正确用户与产品。</td></tr>
+      <tr><th scope="row">每用户销售贡献</th><td data-label="统计口径">本轮目标产品明细的实付金额 ÷ 本轮纳入的合格用户数；统一币种与折扣分摊规则，退款后更新净额。</td><td data-label="用于判断">本轮可核验的购买金额及产品贡献，并与各路径的用户条件一并解读。</td></tr>
+      </tbody></table>
+  </div>
+  <div class="readout"><h3>按同一业务口径解释结果</h3><p>按场景和实际进入的业务分支展示结果，保留每位用户的推荐目标、AppPush 许可、执行状态及退出原因。各路径人群条件不同，结果结合相应业务条件解读。</p><p>支付统计覆盖本轮能够关联的全部目标产品订单，包括未点击消息但完成购买的用户。以订单服务核验支付与退款；记录覆盖不完整的部分单独说明，补齐关联依据后再形成相应比率。</p></div>
+  <div class="pilot-detail"><h3>共同验收的结果</h3>
+    <table class="report-table"><colgroup><col class="short-col"><col><col></colgroup>
+      <thead><tr><th scope="col">验证范围</th><th scope="col">通过标准</th><th scope="col">需完善的事项</th></tr></thead><tbody>
+      <tr><th scope="row">购买链路</th><td data-label="通过标准">合格用户收到对应产品内容，点击进入正确页面；目标支付关联同一用户，并按旅程结束本轮跟进。</td><td data-label="需完善的事项">根据测试记录修正身份、通道、页面或订单关联。</td></tr>
+      <tr><th scope="row">业务分支</th><td data-label="通过标准">补货与新用途两路、产品到货、活动三类购买进展均使用 AppPush，并提供相应内容；每个步骤只执行所选业务路径。</td><td data-label="需完善的事项">补齐 AppPush 状态与许可证据；信息不足的记录使用对应出口。</td></tr>
+      <tr><th scope="row">统一购买与退出</th><td data-label="通过标准">已购买、无许可、不适配和信息不足用户按图退出；重复事件不会引起重复消息，触达与购买核验采用同一本轮目标。</td><td data-label="需完善的事项">完善业务去重、购买状态和用户关联，并复核异常记录。</td></tr>
+      </tbody></table>
+  </div>
+  <div class="pilot-detail"><h3>项目启动信息与推荐方案</h3>
+    <table class="report-table"><colgroup><col class="short-col"><col><col></colgroup>
+      <thead><tr><th scope="col">确认事项</th><th scope="col">推荐方案</th><th scope="col">责任与产出</th></tr></thead><tbody>
+      <tr><th scope="row">App、站点与市场</th><td data-label="推荐方案">选定一个 App、一个独立站市场及一组主力适配产品，明确语言、币种和购买页面。</td><td data-label="责任与产出">爱墨科技运营提供范围清单，双方确认产品与购买承接。</td></tr>
+      <tr><th scope="row">AppPush 与许可</th><td data-label="推荐方案">完成 AppPush 接入，核实有效设备、通知许可、用户关联与点击承接，并验证不可触达及信息不足的退出路径。</td><td data-label="责任与产出">爱墨科技提供接入及许可依据，EngageLab 协助配置 AppPush 并形成可用状态清单。</td></tr>
+      <tr><th scope="row">业务数据</th><td data-label="推荐方案">复用产品兴趣、用户标识、订单及场景数据；统一产品、订单状态、AppPush 状态与退出依据。</td><td data-label="责任与产出">爱墨科技开发与数据团队提供字段及接口，双方完成映射与关联核验。</td></tr>
+      <tr><th scope="row">验收与结果</th><td data-label="推荐方案">按选定旅程验证 AppPush 发送、业务分支、购买和退出路径，统一合格用户分母及订单明细口径。</td><td data-label="责任与产出">双方确认测试用例与业务指标，输出路径验收记录及试点结果。</td></tr>
+      </tbody></table>
+  </div>
+  <a class="top-link" href="#top">返回方案开头 ↑</a>
+</section>
+</main>
+<footer class="diagram-footer">爱墨科技 × EngageLab · App 引流独立站 MA 方案</footer>
+<script>
+    const navigation = document.querySelector('.plan-links');
+    if (navigation) {
+      function updateNavigationHeight() {
+        document.documentElement.style.setProperty('--nav-height', navigation.offsetHeight + 'px');
+      }
+      updateNavigationHeight();
+      new ResizeObserver(updateNavigationHeight).observe(navigation);
+    } else {
+      document.documentElement.style.setProperty('--nav-height', '0px');
+    }
+
+    function centerMapStart(canvas) {
+      const start = canvas.querySelector('[data-kind="start"] rect').getBoundingClientRect();
+      const frame = canvas.getBoundingClientRect();
+      canvas.scrollLeft += start.left + start.width / 2 - frame.left - canvas.clientWidth / 2;
+    }
+    document.querySelectorAll('.ma-canvas').forEach(canvas => {
+      if (!canvas.contains(document.querySelector(':target'))) centerMapStart(canvas);
+    });
+    document.addEventListener('click', event => {
+      const button = event.target.closest('.ma-expand');
+      if (!button) return;
+      const journey = button.closest('.ma-journey');
+      const expanded = journey.dataset.expanded !== 'true';
+      journey.dataset.expanded = String(expanded);
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? '恢复双栏' : '展开全图';
+      centerMapStart(journey.querySelector('.ma-canvas'));
+    });
+  
+    window.addEventListener('resize', () => document.querySelectorAll('.ma-canvas').forEach(centerMapStart));
+</script>
+</body></html>
